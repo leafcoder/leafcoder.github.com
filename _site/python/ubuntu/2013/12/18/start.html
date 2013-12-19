@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>ZoomCat 起点</title>
+    <title>Ubuntu 中 /etc/shadow 密码文件中密码的生成脚本（python）</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.css" rel="stylesheet">
@@ -45,17 +45,19 @@
 </nav>
 
 
-
-<div>
-  <div class="container-fluid">
-    <div class="box">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <hr>
-        <h2 class="intro-text text-center"><strong>Ubuntu 中 /etc/shadow 密码文件中密码的生成脚本（python）</strong></h2>
-        <hr>
-        <p><p><img class="img-responsive img-border img-full" src="/img/slide-3.jpg"></p>
+<div class="container-fluid">
+  <div class="box">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <hr>
+          <h2 class="intro-text text-center">Ubuntu 中 /etc/shadow 密码文件中密码的生成脚本（python）</h2>
+          <hr>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <p><img class="img-responsive img-border img-full" src="/img/slide-3.jpg"></p>
 
 <p>执行如下代码可以生产系统加密密码，如 <code>python password.py &#39;&#39;</code></p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">import crypt
@@ -67,23 +69,19 @@ assert len(argv) &gt;= 2, &#39;please input password&#39;
 size = randint(8, 12)
 salt = uuid4().hex[:size]
 print crypt.crypt(argv[1], &#39;$6$%s&#39; % salt)
-</code></pre></div></p>
+</code></pre></div>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <h2>作者：zoomcat<br><small>18 Dec 2013</small></h2>
-        <a href="/python/ubuntu/2013/12/18/start.html" class="btn btn-default btn-lg">阅读更多</a>
-        <hr>
+      <div class="row">
+        <div class="col-lg-12">
+          <h2>作者：zoomcat<br><small>18 Dec 2013</small></h2>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-
-    
-  </div><!-- /.container -->
-</div>
+  
+</div><!-- /.container -->
 
 <footer>
   <div class="container">

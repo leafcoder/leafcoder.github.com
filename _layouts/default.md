@@ -17,8 +17,10 @@
 
   <body>
   
-    <div class="brand">{{ site.name }}</div>
-    <div class="address-bar">Email: tomyzhang.china@gmail.com</div>
+    <div class="header">
+      <div class="brand">{{ site.name }}</div>
+      <div class="address-bar">Email: tomyzhang.china@gmail.com</div>
+    </div>
 
     {{ content }}
 
