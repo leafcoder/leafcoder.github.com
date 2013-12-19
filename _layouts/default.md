@@ -10,13 +10,14 @@
 
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.css" rel="stylesheet">
-
+    <!-- Font Awesome 3.0 CSS -->
+    <link href="/css/font-awesome.css" rel="stylesheet">
     <!-- Add custom CSS here -->
     <link href="/css/business-casual.css" rel="stylesheet">
   </head>
 
   <body>
-  
+  <i class="icon-weibo icon-large"></i>
     <div class="header">
       <div class="brand">{{ site.name }}</div>
       <div class="address-bar">Email: tomyzhang.china@gmail.com</div>
