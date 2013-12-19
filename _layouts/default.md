@@ -17,7 +17,6 @@
   </head>
 
   <body>
-  <i class="icon-weibo icon-large"></i>
     <div class="header">
       <div class="brand">{{ site.name }}</div>
       <div class="address-bar">Email: tomyzhang.china@gmail.com</div>
