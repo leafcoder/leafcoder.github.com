@@ -1,3 +1,5 @@
-name: DigFlyBird Blog (捣蛋飞鸟)
-markdown: redcarpet
+#auto: true
+name: 捣蛋飞鸟
 pygments: true
+port: 8081
+paginate: 5

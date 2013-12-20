@@ -18,57 +18,82 @@
 
   <body>
 
-    <div class="container">
-      <h2>ZoomCat Blog</h2>
-      <ul class="nav" id="nav">
-        <li  class="active" ><a href="/index.html">人生起点</a></li>
-        <li ><a href="/about.html">关于 DigFlyBird</a></li>
-      </ul>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/index.html">捣蛋飞鸟</a>
     </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li  class="active" ><a href="/index.html">捣蛋飞鸟</a></li>
+        <li ><a href="/about.html">关于</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div>
+</nav>
 
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
           <div class="row">
-  <div class="col-lg-12">
-    <h3><em><a href="">Ubuntu 中如何使用网上的免费 SSH 代理帐号上网</a></em></h3>
-    <p><p>ssh 免费代理帐号
-http://blog.onlybird.com/%E5%85%8D%E8%B4%B9ssh%E4%BB%A3%E7%90%86</p>
-
-<p>ssh 代理使用Linux（Ubuntu）命令
-<code>ssh -qTfnN -D 1080 onlybird@ssh2012.unssh.com -p 9999</code></p>
-</p>
-    <p><em>By digflybird on <small>20 Dec 2013</small></em></p>
+  <div class="col-md-12">
+    <h1 class="page-header">Ubuntu 中如何使用网上的免费 SSH 代理帐号上网</h1>
   </div>
 </div>
 <div class="row">
-  <div class="col-lg-12">
-    <p><em>相关文章</em><p>
+  <div class="col-md-12">
+    <p><p><a href="http://blog.onlybird.com/%E5%85%8D%E8%B4%B9ssh%E4%BB%A3%E7%90%86">ssh 免费代理帐号</a></p>
+
+<p>ssh 代理使用Linux（Ubuntu）命令</p>
+
+<pre><code>&gt;&gt; ssh -qTfnN -D 1080 onlybird@ssh2012.unssh.com -p 9999</code></pre></p>
+    <p>By <a href="/about.html">digflybird</a> on 20 Dec 2013</p>
   </div>
 </div>
 
-<div class="row">
-  <div class="col-lg-12">
-    <i class="icon-angle-right"></i> <a href="/python/ubuntu/2013/12/18/ubuntu-shadow-crypt-password.html">Ubuntu 中 /etc/shadow 密码文件中密码的生成脚本（python）</a> By <em>digflybird</em> on <em>18 Dec 2013</em>
+<div class="panel panel-default">
+  <div class="panel-heading">相关文章</div>
+  <div class="panel-body">
+    
+    <div class="row">
+      <div class="col-lg-12">
+        <i class="icon-angle-right"></i> <a href="/python/ubuntu/2013/12/18/ubuntu-shadow-crypt-password.html">Ubuntu 中 /etc/shadow 密码文件中密码的生成脚本（python）</a> By digflybird on 18 Dec 2013
+      </div>
+    </div>
+    
   </div>
 </div>
 
+<div class="panel panel-default">
+  <div class="panel-heading">评论</div>
+  <div class="panel-body">
+    <div id="disqus_thread"></div>
+  </div>
+</div>
 
-<div id="disqus_thread"></div>
-  <script type="text/javascript">
-      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-      var disqus_shortname = 'digflybird'; // required: replace example with your forum shortname
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'digflybird'; // required: replace example with your forum shortname
 
-      /* * * DON'T EDIT BELOW THIS LINE * * */
-      (function() {
-          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      })();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-  
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
 
         </div>
       </div>
@@ -79,7 +104,7 @@ http://blog.onlybird.com/%E5%85%8D%E8%B4%B9ssh%E4%BB%A3%E7%90%86</p>
     <hr>
     <div class="row">
       <div class="col-lg-12">
-        <p>Copyright &copy; ZoomCat 2013<span class="pull-right">Proudly powered by <a href="http://jekyllrb.com/">Jekyll</a></span></p>
+        <p>Copyright &copy; digflybird 2013<span class="pull-right">Proudly powered by <a href="http://jekyllrb.com/">Jekyll</a></span></p>
       </div>
     </div>
   </div>
