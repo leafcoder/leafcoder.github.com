@@ -1,6 +1,6 @@
 ---
 layout: main
-title: ZoomCat 起点
+title: DigFlyBird 起点
 nav: HOME
 ---
 {% for post in site.posts %}

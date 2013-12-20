@@ -22,7 +22,7 @@
       <h2>{{ site.name }}</h2>
       <ul class="nav" id="nav">
         <li {% if page.nav == 'HOME' %} class="active" {% endif %}><a href="/index.html">人生起点</a></li>
-        <li {% if page.nav == 'ABOUT' %} class="active" {% endif %}><a href="/about.html">关于 ZOOMCAT</a></li>
+        <li {% if page.nav == 'ABOUT' %} class="active" {% endif %}><a href="/about.html">关于 DigFlyBird</a></li>
       </ul>
     </div>
 

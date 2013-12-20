@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Ubuntu 中 /etc/shadow 密码文件中密码的生成脚本（python）
-author: zoomcat
+author: digflybird
 nav:    HOME
 categories: python ubuntu
 ---
