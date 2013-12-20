@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Ubuntu 中 /etc/shadow 密码文件中密码的生成脚本（python）</title>
+    <title>Ubuntu 中如何使用网上的免费 SSH 代理帐号上网</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.css" rel="stylesheet">
@@ -31,19 +31,14 @@
         <div class="col-sm-12">
           <div class="row">
   <div class="col-lg-12">
-    <h3><em><a href="">Ubuntu 中 /etc/shadow 密码文件中密码的生成脚本（python）</a></em></h3>
-    <p><p>执行如下代码可以生产系统加密密码，如 <code>python password.py &#39;&#39;</code></p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">import crypt
-from sys import argv
-from uuid import uuid4
-from random import randint
+    <h3><em><a href="">Ubuntu 中如何使用网上的免费 SSH 代理帐号上网</a></em></h3>
+    <p><p>ssh 免费代理帐号
+http://blog.onlybird.com/%E5%85%8D%E8%B4%B9ssh%E4%BB%A3%E7%90%86</p>
 
-assert len(argv) &gt;= 2, &#39;please input password&#39;
-size = randint(8, 12)
-salt = uuid4().hex[:size]
-print crypt.crypt(argv[1], &#39;$6$%s&#39; % salt)
-</code></pre></div></p>
-    <p><em>By zoomcat on <small>18 Dec 2013</small></em></p>
+<p>ssh 代理使用Linux（Ubuntu）命令
+<code>ssh -qTfnN -D 1080 onlybird@ssh2012.unssh.com -p 9999</code></p>
+</p>
+    <p><em>By digflybird on <small>20 Dec 2013</small></em></p>
   </div>
 </div>
 <div class="row">
@@ -54,7 +49,7 @@ print crypt.crypt(argv[1], &#39;$6$%s&#39; % salt)
 
 <div class="row">
   <div class="col-lg-12">
-    <i class="icon-angle-right"></i> <a href="/ssh/2013/12/20/ubuntu-free-ssh-cmd.html">Ubuntu 中如何使用网上的免费 SSH 代理帐号上网</a> By <em>digflybird</em> on <em>20 Dec 2013</em>
+    <i class="icon-angle-right"></i> <a href="/python/ubuntu/2013/12/18/ubuntu-shadow-crypt-password.html">Ubuntu 中 /etc/shadow 密码文件中密码的生成脚本（python）</a> By <em>zoomcat</em> on <em>18 Dec 2013</em>
   </div>
 </div>
 
