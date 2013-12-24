@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Ubuntu 中 /etc/shadow 密码文件中密码的生成脚本（python）</title>
+    <title>添加 disqus 评论插件后如何设置语言为中文</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.css" rel="stylesheet">
@@ -46,23 +46,21 @@
         <div class="col-sm-12">
           <div class="row">
   <div class="col-md-12">
-    <h1 class="page-header">Ubuntu 中 /etc/shadow 密码文件中密码的生成脚本（python）</h1>
+    <h1 class="page-header">添加 disqus 评论插件后如何设置语言为中文</h1>
   </div>
 </div>
 <div class="row">
   <div class="col-md-12">
-    <p><p>执行如下代码可以生产系统加密密码，如 <code>python password.py ''</code></p>
+    <p><p>同志们使用 Jekyll 的时候，一般都需要个评论的功能，这时候就需要 disqus 了，地址是：</p>
 
-<pre><code>import crypt
-from sys import argv
-from uuid import uuid4
-from random import randint
+<p><a href="http://disqus.com">disqus.com</a></p>
 
-assert len(argv) &gt;= 2, 'please input password'
-size = randint(8, 12)
-salt = uuid4().hex[:size]
-print crypt.crypt(argv[1], '$6$%s' % salt)</code></pre></p>
-    <p>By <a href="/about.html">digflybird</a> on 18 Dec 2013</p>
+<p>disqus 插件默认的应该是英文，而且，在设置页面的 Language 项里找不到中文的选项（至少我没找到）， 那我们这些中文党们该如何设置为中文呢？</p>
+
+<p>其实很简单，你用 chrome 打开你自己网站在 disqus.com 的设置页面，在 Setting 中找到 Language， 把下拉条中的任意一个选项的 <code>Value</code> 改为 <code>zh</code>，保存就行了，简单吧！</p>
+
+<p><a href="/img/disqus设置Language为zh.png"><img alt='添加 disqus 评论插件后如何设置语言为中文.md' class='img-responsive' src='/img/disqus设置Language为zh.png' title='添加 disqus 评论插件后如何设置语言为中文.md' /></a></p></p>
+    <p>By <a href="/about.html">digflybird</a> on 24 Dec 2013</p>
   </div>
 </div>
 
@@ -72,13 +70,13 @@ print crypt.crypt(argv[1], '$6$%s' % salt)</code></pre></p>
     
     <div class="row">
       <div class="col-lg-12">
-        <i class="icon-angle-right"></i> <a href="/disqus/2013/12/24/%E6%B7%BB%E5%8A%A0disqus%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6%E5%90%8E%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E8%AF%AD%E8%A8%80%E4%B8%BA%E4%B8%AD%E6%96%87.html">添加 disqus 评论插件后如何设置语言为中文</a> By digflybird on 24 Dec 2013
+        <i class="icon-angle-right"></i> <a href="/ssh/2013/12/20/ubuntu-free-ssh-cmd.html">Ubuntu 中如何使用网上的免费 SSH 代理帐号上网</a> By digflybird on 20 Dec 2013
       </div>
     </div>
     
     <div class="row">
       <div class="col-lg-12">
-        <i class="icon-angle-right"></i> <a href="/ssh/2013/12/20/ubuntu-free-ssh-cmd.html">Ubuntu 中如何使用网上的免费 SSH 代理帐号上网</a> By digflybird on 20 Dec 2013
+        <i class="icon-angle-right"></i> <a href="/python/ubuntu/2013/12/18/ubuntu-shadow-crypt-password.html">Ubuntu 中 /etc/shadow 密码文件中密码的生成脚本（python）</a> By digflybird on 18 Dec 2013
       </div>
     </div>
     
