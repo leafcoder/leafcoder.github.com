@@ -34,7 +34,6 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li {% if page.nav == 'HOME' %} class="active" {% endif %}><a href="/index.html">{{ site.name }}</a></li>
         <li {% if page.nav == 'ABOUT' %} class="active" {% endif %}><a href="/about.html">关于</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
