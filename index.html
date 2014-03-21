@@ -1,19 +1,12 @@
 ---
-layout: main
-title: 捣蛋飞鸟
-nav: HOME
+layout: page
+title: Latest Posts
+description: "A simple and clean responsive Jekyll theme for words and photos."
+tags: [Jekyll, theme, themes, responsive, blog, minimalism]
 ---
 
-<!-- This loops through the paginated posts -->
-{% for post in paginator.posts %}
-<div class="row">
-  <div class="col-lg-12">
-    <h3 class="lead"><a href="{{ post.url }}">{{ post.title }}</a></h3>
-    <p>{{ post.content | truncatewords: 200}}</p>
-    <p>By <a href="/about.html">{{ post.author }}</a> on {{ post.date | date_to_string }}</p>
-    <a href="{{ post.url }}">Read More</a>
-  </div>
-</div>
+<ul class="post-list">
+{% for post in site.posts limit:10 %} 
+  <li><article><a href="{{ site.url }}{{ post.url }}">{{ post.title }} <span class="entry-date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time></span></a></article></li>
 {% endfor %}
-
-{% include page.html %}
+</ul>
