@@ -6,15 +6,11 @@
     
     
     <url>
-        <loc>http://leafcoder.github.com/articles/</loc>
+        <loc>http://leafcoder.github.com/404.html</loc>
     </url>
     
     <url>
-        <loc>http://leafcoder.github.com/search.json</loc>
-    </url>
-    
-    <url>
-        <loc>http://leafcoder.github.com/about/</loc>
+        <loc>http://leafcoder.github.com/sitemap.xml</loc>
     </url>
     
     <url>
@@ -22,7 +18,11 @@
     </url>
     
     <url>
-        <loc>http://leafcoder.github.com/404.html</loc>
+        <loc>http://leafcoder.github.com/about/</loc>
+    </url>
+    
+    <url>
+        <loc>http://leafcoder.github.com/articles/</loc>
     </url>
     
     <url>
@@ -38,7 +38,7 @@
     </url>
     
     <url>
-        <loc>http://leafcoder.github.com/sitemap.xml</loc>
+        <loc>http://leafcoder.github.com/search.json</loc>
     </url>
     
 
