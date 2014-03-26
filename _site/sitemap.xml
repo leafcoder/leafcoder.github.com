@@ -1,78 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>http://leafcoder.github.com</loc>
+        <loc>http://leafcoder.tk</loc>
     </url>
     
     
     <url>
-        <loc>http://leafcoder.github.com/404.html</loc>
+        <loc>http://leafcoder.tk/404.html</loc>
     </url>
     
     <url>
-        <loc>http://leafcoder.github.com/sitemap.xml</loc>
+        <loc>http://leafcoder.tk/sitemap.xml</loc>
     </url>
     
     <url>
-        <loc>http://leafcoder.github.com/index.html</loc>
+        <loc>http://leafcoder.tk/index.html</loc>
     </url>
     
     <url>
-        <loc>http://leafcoder.github.com/about/</loc>
+        <loc>http://leafcoder.tk/about/</loc>
     </url>
     
     <url>
-        <loc>http://leafcoder.github.com/articles/</loc>
+        <loc>http://leafcoder.tk/articles/</loc>
     </url>
     
     <url>
-        <loc>http://leafcoder.github.com/feed.xml</loc>
+        <loc>http://leafcoder.tk/feed.xml</loc>
     </url>
     
     <url>
-        <loc>http://leafcoder.github.com/tags/</loc>
+        <loc>http://leafcoder.tk/tags/</loc>
     </url>
     
     <url>
-        <loc>http://leafcoder.github.com/theme-setup/</loc>
+        <loc>http://leafcoder.tk/theme-setup/</loc>
     </url>
     
     <url>
-        <loc>http://leafcoder.github.com/search.json</loc>
+        <loc>http://leafcoder.tk/search.json</loc>
     </url>
     
 
     
     <url>
-        <loc>http://leafcoder.github.com/articles/hello-world/</loc>
+        <loc>http://leafcoder.tk/articles/hello-world/</loc>
     </url>
     
     <url>
-        <loc>http://leafcoder.github.com/articles/code-highlighting-post/</loc>
+        <loc>http://leafcoder.tk/articles/code-highlighting-post/</loc>
     </url>
     
     <url>
-        <loc>http://leafcoder.github.com/articles/sample-link-post/</loc>
+        <loc>http://leafcoder.tk/articles/sample-link-post/</loc>
     </url>
     
     <url>
-        <loc>http://leafcoder.github.com/articles/video-post/</loc>
+        <loc>http://leafcoder.tk/articles/video-post/</loc>
     </url>
     
     <url>
-        <loc>http://leafcoder.github.com/articles/readability-feature-post/</loc>
+        <loc>http://leafcoder.tk/articles/readability-feature-post/</loc>
     </url>
     
     <url>
-        <loc>http://leafcoder.github.com/articles/sample-post-images/</loc>
+        <loc>http://leafcoder.tk/articles/sample-post-images/</loc>
     </url>
     
     <url>
-        <loc>http://leafcoder.github.com/articles/readability-post/</loc>
+        <loc>http://leafcoder.tk/articles/readability-post/</loc>
     </url>
     
     <url>
-        <loc>http://leafcoder.github.com/articles/sample-post/</loc>
+        <loc>http://leafcoder.tk/articles/sample-post/</loc>
     </url>
     
 </urlset>
