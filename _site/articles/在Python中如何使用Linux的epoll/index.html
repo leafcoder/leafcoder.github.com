@@ -381,11 +381,11 @@
 
 <h3 id="a-ida5a"><a id="a5">性能注意事项</a></h3>
 
-<h3 id="a-ida6a"><a id="a6">监听缓冲区队列大小</a></h3>
+<h3 id="section-1">监听缓冲区队列大小</h3>
 
 <p>在示例1-4中，第12行都调用了serversocket.listen()方法。此方法的参数就是监听缓冲区队列的大小。它告诉操作系统可以接收多少TCP/IP连接，并放到缓冲区队列中等待Pytohn程序接收。Python程序每次在服务端socket上面调用accept()，就会有一个连接从缓冲区队列中移除，一个新的连接可以进入缓冲区队列。如果队列已满，新的连接都会被忽略，这会对网络连接的客户端造成不必要的延迟。在生产服务器上，通常要处理几十或几百个并发连接，所以值1通常是不够的。比如，当使用ab模拟100个并发HTTP 1.0客户端，对上面的几个示例进行负载测试，如果缓冲区队列的值小于50，就会引起性能下降。</p>
 
-<h3 id="a-ida7tcpa"><a id="a7">TCP选项</a></h3>
+<h3 id="tcp">TCP选项</h3>
 
 <p><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.baus.net%2Fon-tcp_cork&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGj99pcsG7FWuggh3EzvssrQ7QRDA">TCP_CORK</a>选项可以用来“封存”消息，直到他们准备好发送。如示例5的第34行和第40行所示，这个选项对于使用<a href="http://www.google.com/url?q=http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FHTTP_pipelining&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHC_dwCO2hlYoxtao0o8Q6_BhY3gw">HTTP/1.1流水线技术</a>的HTTP服务端来说，可能是一个很好的选择。</p>
 
@@ -496,7 +496,7 @@
 <span class="mi">49</span>     <span class="n">serversocket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div>
 
-<h3 id="a-ida7a"><a id="a7">源代码</a></h3>
+<h3 id="a-ida6a"><a id="a6">源代码</a></h3>
 <p>此页面上的示例不受版权限制，这里提供<a href="http://www.google.com/url?q=http%3A%2F%2Fscotdoyle.com%2Fpython-epoll-examples.tar.gz&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGj_7emPC51_la_-A-aXVXjlf-smw">下载</a> 。</p>
 
         
