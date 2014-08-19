@@ -3,7 +3,15 @@
 		{
 		  "title"      : "在Python中如何使用Linux的epoll",
 		  "category"   : "articles",
-		  "url"        : "http://leafcoder.tk/articles/%E5%9C%A8Python%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Linux%E7%9A%84epoll/",
+		  "url"        : "/articles/%E5%9C%A8Python%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Linux%E7%9A%84epoll/",
+		  "date"       : "2014-08-19 00:00:00 +0000",
+		  "shortdate"  : "August 19, 2014"
+		} ,
+	
+		{
+		  "title"      : "PyCon 2014 China 震撼来袭",
+		  "category"   : "articles",
+		  "url"        : "/articles/PyCon2014China%E6%9D%A5%E8%A2%AD%E4%B8%AD/",
 		  "date"       : "2014-08-19 00:00:00 +0000",
 		  "shortdate"  : "August 19, 2014"
 		} ,
@@ -11,71 +19,15 @@
 		{
 		  "title"      : "Markdown 语法说明 (简体中文版)",
 		  "category"   : "articles",
-		  "url"        : "http://leafcoder.tk/articles/Markdown+%E8%AF%AD%E6%B3%95%E8%AF%B4%E6%98%8E+%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%E7%89%88%29/",
+		  "url"        : "/articles/Markdown-%E8%AF%AD%E6%B3%95%E8%AF%B4%E6%98%8E-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%E7%89%88/",
 		  "date"       : "2014-08-19 00:00:00 +0000",
 		  "shortdate"  : "August 19, 2014"
 		} ,
 	
 		{
-		  "title"      : "Hello World",
-		  "category"   : "articles",
-		  "url"        : "http://leafcoder.tk/articles/hello-world/",
-		  "date"       : "2014-03-21 00:00:00 +0000",
-		  "shortdate"  : "March 21, 2014"
-		} ,
-	
-		{
-		  "title"      : "Syntax Highlighting Post",
-		  "category"   : "articles",
-		  "url"        : "http://leafcoder.tk/articles/code-highlighting-post/",
-		  "date"       : "2013-08-16 00:00:00 +0000",
-		  "shortdate"  : "August 16, 2013"
-		} ,
-	
-		{
-		  "title"      : "Sample Link Post",
-		  "category"   : "articles",
-		  "url"        : "http://leafcoder.tk/articles/sample-link-post/",
-		  "date"       : "2013-08-12 00:00:00 +0000",
-		  "shortdate"  : "August 12, 2013"
-		} ,
-	
-		{
-		  "title"      : "A Post with a Video",
-		  "category"   : "articles",
-		  "url"        : "http://leafcoder.tk/articles/video-post/",
-		  "date"       : "2013-06-25 00:00:00 +0000",
-		  "shortdate"  : "June 25, 2013"
-		} ,
-	
-		{
-		  "title"      : "Post with Large Feature Image and Text",
-		  "category"   : "articles",
-		  "url"        : "http://leafcoder.tk/articles/readability-feature-post/",
-		  "date"       : "2013-05-23 00:00:00 +0000",
-		  "shortdate"  : "May 23, 2013"
-		} ,
-	
-		{
-		  "title"      : "A Post with Images",
-		  "category"   : "articles",
-		  "url"        : "http://leafcoder.tk/articles/sample-post-images/",
-		  "date"       : "2013-05-22 00:00:00 +0000",
-		  "shortdate"  : "May 22, 2013"
-		} ,
-	
-		{
-		  "title"      : "Testing Readability with a Bunch of Text",
-		  "category"   : "articles",
-		  "url"        : "http://leafcoder.tk/articles/readability-post/",
-		  "date"       : "2012-05-22 00:00:00 +0000",
-		  "shortdate"  : "May 22, 2012"
-		} ,
-	
-		{
 		  "title"      : "Sample Post",
 		  "category"   : "articles",
-		  "url"        : "http://leafcoder.tk/articles/sample-post/",
+		  "url"        : "/articles/sample-post/",
 		  "date"       : "2011-03-10 00:00:00 +0000",
 		  "shortdate"  : "March 10, 2011"
 		} 

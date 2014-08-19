@@ -1,28 +1,33 @@
 ---
 layout: page
 permalink: /about/
-title: About 叶子
-tags: [叶子]
-modified: 2013-09-13
+title: About Me
+tags: [about]
+modified: 2014-08-19
 image:
-  feature: so-simple-sample-image-4.jpg
-  credit: Michael Rose
-  creditlink: http://mademistakes.com
+  feature:
+  credit: Internet
+  creditlink:
 ---
 
-Personal Information
+个人 Information
 -----------------------------------
-* Name: LeoZhang
-* Birthday: 1989/10/01
+* Name: Leo Zhang
+* Birthday: 1989-10-01
 * Email: leafcoder@gmail.com
 
-Weapon
+手持 Weapon
 --------------
-* Linux (Ubuntu / Debian)
-* Python 2.7 (3.0 TODO)
-* Python Framework(Eurasia/cherrypy/bottle/flask...)
+* Linux (Ubuntu、Debian)
+* Python 2.7、Python 3.0
+* 索引（Elasticsearch、Xapian）
+* 数据库（Sqlite3、ZODB、Durus、BsdDB）
+* 常用工具(Svn、Git、终端)
+* 代码编辑(Gedit、Vi)
+* Python 常用模块、部分 Python 第三方模块
+* Python Framework(Eurasia/Cherrypy/Bottle/Flask/Quixote...)
 
-参与开源项目
-------------
+参与 Open Source Projects
+-------------------------------
 * [Eurasia](http://code.google.com/p/eurasia)
 * [Liubao](http://code.google.com/p/liubao)

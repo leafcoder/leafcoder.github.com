@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>在Python中如何使用Linux的epoll &#8211; 叶子——非主流 Python 民工一枚</title>
+<title>在Python中如何使用Linux的epoll &#8211; 叶子</title>
 <meta name="description" content="从2.6开始，Python包含了访问Linux epoll库的API。这篇文章用几个简单的python 3例子来展示下这个API。欢迎大家质疑和反馈。">
 <meta name="keywords" content="epoll, socket, python">
 
@@ -16,15 +16,15 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="在Python中如何使用Linux的epoll">
 <meta property="og:description" content="从2.6开始，Python包含了访问Linux epoll库的API。这篇文章用几个简单的python 3例子来展示下这个API。欢迎大家质疑和反馈。">
-<meta property="og:url" content="http://leafcoder.tk/articles/%E5%9C%A8Python%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Linux%E7%9A%84epoll/">
-<meta property="og:site_name" content="叶子——非主流 Python 民工一枚">
+<meta property="og:url" content="/articles/%E5%9C%A8Python%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Linux%E7%9A%84epoll/">
+<meta property="og:site_name" content="叶子">
 
 
 
 
 
-<link rel="canonical" href="http://leafcoder.tk/articles/%E5%9C%A8Python%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Linux%E7%9A%84epoll/">
-<link href="http://leafcoder.tk/feed.xml" type="application/atom+xml" rel="alternate" title="叶子——非主流 Python 民工一枚 Feed">
+<link rel="canonical" href="/articles/%E5%9C%A8Python%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Linux%E7%9A%84epoll/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="叶子 Feed">
 
 
 <!-- http://t.co/dKP3o1e -->
@@ -33,28 +33,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="http://leafcoder.tk/assets/css/main.min.css">
+<link rel="stylesheet" href="/assets/css/main.min.css">
 <!-- Webfonts -->
 <script src="//use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
 
 <meta http-equiv="cleartype" content="on">
 
 <!-- Load Modernizr -->
-<script src="http://leafcoder.tk/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
 
 <!-- Icons -->
 <!-- 16x16 -->
-<link rel="shortcut icon" href="http://leafcoder.tk/favicon.ico">
+<link rel="shortcut icon" href="/favicon.ico">
 <!-- 32x32 -->
-<link rel="shortcut icon" href="http://leafcoder.tk/favicon.png">
+<link rel="shortcut icon" href="/favicon.png">
 <!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
-<link rel="apple-touch-icon-precomposed" href="http://leafcoder.tk/images/apple-touch-icon-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
 <!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://leafcoder.tk/images/apple-touch-icon-72x72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
 <!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://leafcoder.tk/images/apple-touch-icon-114x114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
 <!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://leafcoder.tk/images/apple-touch-icon-144x144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
 
 </head>
 
@@ -66,7 +66,7 @@
 	        
 			<li>
 				
-					<a href="http://leafcoder.tk/about/">About</a>
+					<a href="/about/">About</a>
 				 
 			</li>
 	        
@@ -76,7 +76,7 @@
 				 
 			</li>
 	        
-	        <li><a href="http://leafcoder.tk/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+	        <li><a href="/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
 	        <li class="dosearch"><i class="icon-search"></i> Search</li>
 	    </ul>
 	</nav>
@@ -93,41 +93,40 @@
 </div><!-- ./search-wrapper -->
 
 <header class="masthead">
-	
-		<div class="wrap">
-			<a href="http://leafcoder.tk" class="site-logo" rel="home" title="叶子——非主流 Python 民工一枚"><img src="http://leafcoder.tk/images/site-logo.png" width="200" height="200" alt="叶子——非主流 Python 民工一枚 logo" class="animated bounceInDown"></a>
-		</div>
-	
+	<div class="wrap">
+        
+        <h1 class="site-title animated fadeIn"><a href="">叶子</a></h1>
+		<h2 class="site-description animated fadeIn" itemprop="description">import this</h2>
+	</div>
 </header><!-- /.masthead -->
-
 
 
 <div id="main" role="main">
   <article class="hentry">
-    <img src="http://leafcoder.tk/images/so-simple-sample-image-5.jpg" class="entry-feature-image" alt="在Python中如何使用Linux的epoll" ><p class="image-credit">Photo Credit: <a href="http://mademistakes.com">Michael Rose</a>
+    
     <div class="entry-wrapper">
       <header class="entry-header">
-        <span class="entry-tags"><a href="http://leafcoder.tk/tags/#epoll" title="Pages tagged epoll">epoll</a>&nbsp;&bull;&nbsp;<a href="http://leafcoder.tk/tags/#socket" title="Pages tagged socket">socket</a>&nbsp;&bull;&nbsp;<a href="http://leafcoder.tk/tags/#python" title="Pages tagged python">python</a></span>
+        <span class="entry-tags"><a href="/tags/#epoll" title="Pages tagged epoll">epoll</a>&nbsp;&bull;&nbsp;<a href="/tags/#socket" title="Pages tagged socket">socket</a>&nbsp;&bull;&nbsp;<a href="/tags/#python" title="Pages tagged python">python</a></span>
         
           <h1 class="entry-title">在Python中如何使用Linux的epoll</h1>
         
       </header>
-      <footer class="entry-meta">
-        <img src="http://leafcoder.tk/images/leafcoder-photo.jpg" alt="LeoZhang photo" class="author-photo">
-        <span class="author vcard">By <span class="fn"><a href="http://leafcoder.tk/about/" title="About LeoZhang">LeoZhang</a></span></span>
+      <!--<footer class="entry-meta">
+        <img src="/images/leafcoder-photo.jpg" alt="LeoZhang photo" class="author-photo">
+        <span class="author vcard">By <span class="fn"><a href="/about/" title="About LeoZhang">LeoZhang</a></span></span>
         <span class="entry-date date published"><time datetime="2014-08-19T00:00:00+00:00"><i class="icon-calendar-empty"></i> August 19, 2014</time></span>
         
         
-        <span><a href="http://leafcoder.tk/articles/%E5%9C%A8Python%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Linux%E7%9A%84epoll/" rel="bookmark" title="在Python中如何使用Linux的epoll"><i class="icon-link"></i> Permalink</a></span>
+        <span><a href="/articles/%E5%9C%A8Python%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Linux%E7%9A%84epoll/" rel="bookmark" title="在Python中如何使用Linux的epoll"><i class="icon-link"></i> Permalink</a></span>
         
         <span class="social-share-facebook">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=http://leafcoder.tk/articles/%E5%9C%A8Python%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Linux%E7%9A%84epoll/" title="Share on Facebook" itemprop="Facebook"><i class="icon-facebook-sign"></i> Like</a></span>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=/articles/%E5%9C%A8Python%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Linux%E7%9A%84epoll/" title="Share on Facebook" itemprop="Facebook"><i class="icon-facebook-sign"></i> Like</a></span>
         <span class="social-share-twitter">
-            <a href="https://twitter.com/intent/tweet?text=http://leafcoder.tk/articles/%E5%9C%A8Python%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Linux%E7%9A%84epoll/" title="Share on Twitter" itemprop="Twitter"><i class="icon-twitter-sign"></i> Tweet</a></span>
+            <a href="https://twitter.com/intent/tweet?text=/articles/%E5%9C%A8Python%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Linux%E7%9A%84epoll/" title="Share on Twitter" itemprop="Twitter"><i class="icon-twitter-sign"></i> Tweet</a></span>
         <span class="social-share-googleplus">
-            <a href="https://plus.google.com/share?url=http://leafcoder.tk/articles/%E5%9C%A8Python%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Linux%E7%9A%84epoll/" title="Share on Google Plus" itemprop="GooglePlus"><i class="icon-google-plus-sign"></i> +1</a></span>
-            <!-- /.social-share -->
-      </footer>
+            <a href="https://plus.google.com/share?url=/articles/%E5%9C%A8Python%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Linux%E7%9A%84epoll/" title="Share on Google Plus" itemprop="GooglePlus"><i class="icon-google-plus-sign"></i> +1</a></span>
+        
+      </footer>-->
       <div class="entry-content">
         <p><a href="https://docs.google.com/document/pub?id=1kH6JKRgAo6BDC3voKInN4TrSgqC0VVs9Op80xl5xGxw&amp;pli=1#h.9c4m549luf7">文档来源</a></p>
 
@@ -149,10 +148,10 @@
 
 <ul>
   <li>第9行：创建服务器socket。</li>
-  <li>第10行：允许在11行使用bind()来监听指定端口，即使这个端口最近被其他程序监听。没有这个设置的话，服务不能运行，直到一两分钟后，这个端口不再被之前的程序使用。</li>
+  <li>第10行：允许在11行使用<code>bind()</code>来监听指定端口，即使这个端口最近被其他程序监听。没有这个设置的话，服务不能运行，直到一两分钟后，这个端口不再被之前的程序使用。</li>
   <li>第11行：监听这台机器所有可用的IPv4地址上面的8080端口。</li>
   <li>第12行：通知服务端socket开始接受来自客户端的连接。</li>
-  <li>第14行：这行代码直到接收到一个客户端连接才会完成。这时，服务端socket会在服务端机器上面创建一个新的socket，用来和客户端通信。这个新的socket在代码里面就是accept()调用返回的clientconnection 对象。返回的address对象代表着客户端的IP和端口。</li>
+  <li>第14行：这行代码直到接收到一个客户端连接才会完成。这时，服务端socket会在服务端机器上面创建一个新的socket，用来和客户端通信。这个新的socket在代码里面就是<code>accept()</code>调用返回的clientconnection 对象。返回的address对象代表着客户端的IP和端口。</li>
   <li>第15-17行：组装从客户端传输过来的数据，直到HTTP请求完成。HTTP协议可以参考<a href="http://www.google.com/url?q=http%3A%2F%2Fwww.jmarshall.com%2Feasy%2Fhttp%2F&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNH8eRESrpc9ojWqF2YSsIPP1_oRDw">这里</a>。</li>
   <li>第18行：把请求打印到控制台，验证操作是否正确。</li>
   <li>第19行：发送响应回客户端。</li>
@@ -217,7 +216,7 @@
 
 <h3 id="a-ida3socketlinux-epolla"><a id="a3">异步socket的好处以及Linux epoll</a></h3>
 
-<p>示例2中的socket叫做阻塞socket，因为python程序会停止运行，直到一个event发生。16行的accept()调用会阻塞，直到接收到一个客户端连接。19行的recv()调用会阻塞，直到这次接收客户端数据完成（或者没有更多的数据要接收）。21行的send()调用也会阻塞，直到将这次需要返回给客户端的数据都放到Linux的发送缓冲队列中。</p>
+<p>示例2中的socket叫做阻塞socket，因为python程序会停止运行，直到一个event发生。16行的<code>accept()</code>调用会阻塞，直到接收到一个客户端连接。19行的<code>recv()</code>调用会阻塞，直到这次接收客户端数据完成（或者没有更多的数据要接收）。21行的send()调用也会阻塞，直到将这次需要返回给客户端的数据都放到Linux的发送缓冲队列中。</p>
 
 <p>当一个程序使用阻塞socket时，常常使用一个线程（甚至是一个专门的程序）来进行各个socket之间的通信。主程序线程会包含接收客户端连接的服务端监听socket。这个socket一次接收一个客户端连接，把连接传给另外一个线程新建的socket去处理。因为这些线程每个只和一个客户端通信，所以处理时即便在某几个点阻塞也没有关系。这种阻塞并不会对其他线程的处理造成任何影响。</p>
 
@@ -531,7 +530,7 @@
     </div><!-- /.entry-wrapper -->
     <nav class="pagination" role="navigation">
       
-        <a href="http://leafcoder.tk/articles/Markdown+%E8%AF%AD%E6%B3%95%E8%AF%B4%E6%98%8E+%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%E7%89%88%29/" class="btn" title="Markdown 语法说明 (简体中文版)">Previous article</a>
+        <a href="/articles/PyCon2014China%E6%9D%A5%E8%A2%AD%E4%B8%AD/" class="btn" title="PyCon 2014 China 震撼来袭">Previous article</a>
       
       
     </nav><!-- /.pagination -->
@@ -557,14 +556,14 @@
 </div><!-- /.footer-wrapper -->
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="http://leafcoder.tk/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-<script src="http://leafcoder.tk/assets/js/scripts.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
 
 <!-- Jekyll Simple Search option -->
 <script>
   $(document).ready(function() {
       $('.search-field').simpleJekyllSearch({
-          jsonFile : 'http://leafcoder.tk/search.json',
+          jsonFile : '/search.json',
           searchResults : '.search-results',
           template : '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
           noResults: '<p>Nothing found.</p>'

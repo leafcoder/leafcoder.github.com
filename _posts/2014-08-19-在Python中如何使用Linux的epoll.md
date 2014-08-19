@@ -5,7 +5,7 @@ description: "从2.6开始，Python包含了访问Linux epoll库的API。这篇�
 category: articles
 tags: [epoll, socket, python]
 image:
-  feature: so-simple-sample-image-5.jpg
+  feature:
   credit: Michael Rose
   creditlink: http://mademistakes.com
 comments: true
@@ -29,10 +29,10 @@ share: true
 示例1用python3.0搭建了一个简单的服务：在8080端口监听HTTP请求，把它打印到控制台，并返回一个HTTP响应消息给客户端。
 
 * 第9行：创建服务器socket。
-* 第10行：允许在11行使用bind()来监听指定端口，即使这个端口最近被其他程序监听。没有这个设置的话，服务不能运行，直到一两分钟后，这个端口不再被之前的程序使用。
+* 第10行：允许在11行使用`bind()`来监听指定端口，即使这个端口最近被其他程序监听。没有这个设置的话，服务不能运行，直到一两分钟后，这个端口不再被之前的程序使用。
 * 第11行：监听这台机器所有可用的IPv4地址上面的8080端口。
 * 第12行：通知服务端socket开始接受来自客户端的连接。
-* 第14行：这行代码直到接收到一个客户端连接才会完成。这时，服务端socket会在服务端机器上面创建一个新的socket，用来和客户端通信。这个新的socket在代码里面就是accept()调用返回的clientconnection 对象。返回的address对象代表着客户端的IP和端口。
+* 第14行：这行代码直到接收到一个客户端连接才会完成。这时，服务端socket会在服务端机器上面创建一个新的socket，用来和客户端通信。这个新的socket在代码里面就是`accept()`调用返回的clientconnection 对象。返回的address对象代表着客户端的IP和端口。
 * 第15-17行：组装从客户端传输过来的数据，直到HTTP请求完成。HTTP协议可以参考[这里](http://www.google.com/url?q=http%3A%2F%2Fwww.jmarshall.com%2Feasy%2Fhttp%2F&sa=D&sntz=1&usg=AFQjCNH8eRESrpc9ojWqF2YSsIPP1_oRDw)。
 * 第18行：把请求打印到控制台，验证操作是否正确。
 * 第19行：发送响应回客户端。
@@ -98,7 +98,7 @@ Example 2
  
 ###<a id="a3">异步socket的好处以及Linux epoll</a>
 
-示例2中的socket叫做阻塞socket，因为python程序会停止运行，直到一个event发生。16行的accept()调用会阻塞，直到接收到一个客户端连接。19行的recv()调用会阻塞，直到这次接收客户端数据完成（或者没有更多的数据要接收）。21行的send()调用也会阻塞，直到将这次需要返回给客户端的数据都放到Linux的发送缓冲队列中。
+示例2中的socket叫做阻塞socket，因为python程序会停止运行，直到一个event发生。16行的`accept()`调用会阻塞，直到接收到一个客户端连接。19行的`recv()`调用会阻塞，直到这次接收客户端数据完成（或者没有更多的数据要接收）。21行的send()调用也会阻塞，直到将这次需要返回给客户端的数据都放到Linux的发送缓冲队列中。
 
 当一个程序使用阻塞socket时，常常使用一个线程（甚至是一个专门的程序）来进行各个socket之间的通信。主程序线程会包含接收客户端连接的服务端监听socket。这个socket一次接收一个客户端连接，把连接传给另外一个线程新建的socket去处理。因为这些线程每个只和一个客户端通信，所以处理时即便在某几个点阻塞也没有关系。这种阻塞并不会对其他线程的处理造成任何影响。
 

@@ -1,86 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>http://leafcoder.tk</loc>
+        <loc></loc>
     </url>
     
     
     <url>
-        <loc>http://leafcoder.tk/404.html</loc>
+        <loc>/404.html</loc>
     </url>
     
     <url>
-        <loc>http://leafcoder.tk/sitemap.xml</loc>
+        <loc>/sitemap.xml</loc>
     </url>
     
     <url>
-        <loc>http://leafcoder.tk/index.html</loc>
+        <loc>/index.html</loc>
     </url>
     
     <url>
-        <loc>http://leafcoder.tk/about/</loc>
+        <loc>/about/</loc>
     </url>
     
     <url>
-        <loc>http://leafcoder.tk/articles/</loc>
+        <loc>/articles/</loc>
     </url>
     
     <url>
-        <loc>http://leafcoder.tk/feed.xml</loc>
+        <loc>/feed.xml</loc>
     </url>
     
     <url>
-        <loc>http://leafcoder.tk/tags/</loc>
+        <loc>/tags/</loc>
     </url>
     
     <url>
-        <loc>http://leafcoder.tk/theme-setup/</loc>
+        <loc>/theme-setup/</loc>
     </url>
     
     <url>
-        <loc>http://leafcoder.tk/search.json</loc>
+        <loc>/search.json</loc>
     </url>
     
 
     
     <url>
-        <loc>http://leafcoder.tk/articles/%E5%9C%A8Python%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Linux%E7%9A%84epoll/</loc>
+        <loc>/articles/%E5%9C%A8Python%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Linux%E7%9A%84epoll/</loc>
     </url>
     
     <url>
-        <loc>http://leafcoder.tk/articles/Markdown+%E8%AF%AD%E6%B3%95%E8%AF%B4%E6%98%8E+%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%E7%89%88%29/</loc>
+        <loc>/articles/PyCon2014China%E6%9D%A5%E8%A2%AD%E4%B8%AD/</loc>
     </url>
     
     <url>
-        <loc>http://leafcoder.tk/articles/hello-world/</loc>
+        <loc>/articles/Markdown-%E8%AF%AD%E6%B3%95%E8%AF%B4%E6%98%8E-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%E7%89%88/</loc>
     </url>
     
     <url>
-        <loc>http://leafcoder.tk/articles/code-highlighting-post/</loc>
-    </url>
-    
-    <url>
-        <loc>http://leafcoder.tk/articles/sample-link-post/</loc>
-    </url>
-    
-    <url>
-        <loc>http://leafcoder.tk/articles/video-post/</loc>
-    </url>
-    
-    <url>
-        <loc>http://leafcoder.tk/articles/readability-feature-post/</loc>
-    </url>
-    
-    <url>
-        <loc>http://leafcoder.tk/articles/sample-post-images/</loc>
-    </url>
-    
-    <url>
-        <loc>http://leafcoder.tk/articles/readability-post/</loc>
-    </url>
-    
-    <url>
-        <loc>http://leafcoder.tk/articles/sample-post/</loc>
+        <loc>/articles/sample-post/</loc>
     </url>
     
 </urlset>
