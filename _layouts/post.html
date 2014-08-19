@@ -26,12 +26,6 @@
       <div class="entry-content">
         {{ content }}
         {% if site.disqus_shortname and page.comments %}<div id="disqus_thread"></div><!-- /#disqus_thread -->{% endif %}
-
-        {% if page.share %}
-          <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}" title="Share on Facebook" itemprop="Facebook"><i class="icon-facebook-sign"></i> Share on Facebook</a><br/>
-          <a href="https://twitter.com/intent/tweet?text={{ site.url }}{{ page.url }}" title="Share on Twitter" itemprop="Twitter"><i class="icon-twitter-sign"></i> Share on Twitter</a><br/>
-          <a href="https://plus.google.com/share?url={{ site.url }}{{ page.url }}" title="Share on Google Plus" itemprop="GooglePlus"><i class="icon-google-plus-sign"></i> Share on Google Plus</a>
-        {% endif %}
       </div><!-- /.entry-content -->
       <!-- / disqus 评论 -->
       <div id="disqus_thread"></div>
