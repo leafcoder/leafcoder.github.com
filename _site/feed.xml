@@ -4,10 +4,10 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-08-20T03:04:39+00:00</updated>
+<updated>2014-08-20T06:00:59+00:00</updated>
 <id>/</id>
 <author>
-  <name>LeoZhang</name>
+  <name>Leo Zhang</name>
   <uri>/</uri>
   <email>leafcoder@gmail.com</email>
 </author>
@@ -21,7 +21,7 @@
   <published>2014-08-20T00:00:00+00:00</published>
   
   <author>
-    <name>LeoZhang</name>
+    <name>Leo Zhang</name>
     <uri></uri>
     <email>leafcoder@gmail.com</email>
   </author>
@@ -47,7 +47,7 @@
 
 &lt;p&gt;使用空密码后，&lt;code&gt;sudo&lt;/code&gt; 的时候再也不需要麻烦的输入密码了，直接回车就行（千万别跟我谈什么安全之类的，这个我可管不了）。&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/articles/%E5%A6%82%E4%BD%95%E7%94%A8python%E7%94%9F%E6%88%90Ubuntu%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A9%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%86%E7%A0%81/&quot;&gt;如何用 python 生成 Ubuntu 系统的空字符串密码&lt;/a&gt; was originally published by LeoZhang at &lt;a href=&quot;&quot;&gt;叶子&lt;/a&gt; on August 20, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/articles/%E5%A6%82%E4%BD%95%E7%94%A8python%E7%94%9F%E6%88%90Ubuntu%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A9%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%86%E7%A0%81/&quot;&gt;如何用 python 生成 Ubuntu 系统的空字符串密码&lt;/a&gt; was originally published by Leo Zhang at &lt;a href=&quot;&quot;&gt;叶子&lt;/a&gt; on August 20, 2014.&lt;/p&gt;</content>
 </entry>
 
 
@@ -59,7 +59,7 @@
   <published>2014-08-20T00:00:00+00:00</published>
   
   <author>
-    <name>LeoZhang</name>
+    <name>Leo Zhang</name>
     <uri></uri>
     <email>leafcoder@gmail.com</email>
   </author>
@@ -84,7 +84,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;/articles/python%E4%B8%AD%E5%85%B3%E4%BA%8EFTP%E7%9A%84%E7%AC%AC%E4%B8%89%E6%96%B9%E6%A8%A1%E5%9D%97/&quot;&gt;python 中关于 FTP 的第三方模块&lt;/a&gt; was originally published by LeoZhang at &lt;a href=&quot;&quot;&gt;叶子&lt;/a&gt; on August 20, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/articles/python%E4%B8%AD%E5%85%B3%E4%BA%8EFTP%E7%9A%84%E7%AC%AC%E4%B8%89%E6%96%B9%E6%A8%A1%E5%9D%97/&quot;&gt;python 中关于 FTP 的第三方模块&lt;/a&gt; was originally published by Leo Zhang at &lt;a href=&quot;&quot;&gt;叶子&lt;/a&gt; on August 20, 2014.&lt;/p&gt;</content>
 </entry>
 
 
@@ -96,7 +96,7 @@
   <published>2014-08-20T00:00:00+00:00</published>
   
   <author>
-    <name>LeoZhang</name>
+    <name>Leo Zhang</name>
     <uri></uri>
     <email>leafcoder@gmail.com</email>
   </author>
@@ -189,7 +189,7 @@ msgstr &quot;&quot;
 
 &lt;p&gt;&lt;a href=&quot;/download/python-i18n-demo.tar.gz&quot;&gt;点击下载源码&lt;/a&gt;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/articles/python-i18n-%E5%9B%BD%E9%99%85%E5%8C%96%E4%BD%BF%E7%94%A8%E7%AE%80%E4%BB%8B/&quot;&gt;python i18n（国际化）使用简介&lt;/a&gt; was originally published by LeoZhang at &lt;a href=&quot;&quot;&gt;叶子&lt;/a&gt; on August 20, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/articles/python-i18n-%E5%9B%BD%E9%99%85%E5%8C%96%E4%BD%BF%E7%94%A8%E7%AE%80%E4%BB%8B/&quot;&gt;python i18n（国际化）使用简介&lt;/a&gt; was originally published by Leo Zhang at &lt;a href=&quot;&quot;&gt;叶子&lt;/a&gt; on August 20, 2014.&lt;/p&gt;</content>
 </entry>
 
 
@@ -200,7 +200,7 @@ msgstr &quot;&quot;
   <published>2014-08-17T00:00:00+00:00</published>
   <updated>2014-08-17T00:00:00+00:00</updated>
   <author>
-    <name>LeoZhang</name>
+    <name>Leo Zhang</name>
     <uri></uri>
     <email>leafcoder@gmail.com</email>
   </author>
@@ -585,7 +585,7 @@ msgstr &quot;&quot;
 &lt;h3 id=&quot;a-ida6a&quot;&gt;&lt;a id=&quot;a6&quot;&gt;源代码&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;此页面上的示例不受版权限制，这里提供&lt;a href=&quot;http://www.google.com/url?q=http%3A%2F%2Fscotdoyle.com%2Fpython-epoll-examples.tar.gz&amp;amp;sa=D&amp;amp;sntz=1&amp;amp;usg=AFQjCNGj_7emPC51_la_-A-aXVXjlf-smw&quot;&gt;下载&lt;/a&gt; 。&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/articles/%E5%9C%A8Python%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Linux%E7%9A%84epoll/&quot;&gt;在Python中如何使用Linux的epoll&lt;/a&gt; was originally published by LeoZhang at &lt;a href=&quot;&quot;&gt;叶子&lt;/a&gt; on August 17, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/articles/%E5%9C%A8Python%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Linux%E7%9A%84epoll/&quot;&gt;在Python中如何使用Linux的epoll&lt;/a&gt; was originally published by Leo Zhang at &lt;a href=&quot;&quot;&gt;叶子&lt;/a&gt; on August 17, 2014.&lt;/p&gt;</content>
 </entry>
 
 
@@ -597,7 +597,7 @@ msgstr &quot;&quot;
   <published>2014-08-17T00:00:00+00:00</published>
   
   <author>
-    <name>LeoZhang</name>
+    <name>Leo Zhang</name>
     <uri></uri>
     <email>leafcoder@gmail.com</email>
   </author>
@@ -607,7 +607,7 @@ msgstr &quot;&quot;
 
 &lt;p&gt;世界Pythoneer 的品牌盛会PyCon! 由 Python软件基金会 下的 PyCon.org 授权中国举办第四届 PyConChina 大会。 本次大会由CPyUG、GDG、TopGeek在 上海、北京、珠海、杭州、苏州同时举办。&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/articles/PyCon2014China%E6%9D%A5%E8%A2%AD%E4%B8%AD/&quot;&gt;PyCon 2014 China 震撼来袭&lt;/a&gt; was originally published by LeoZhang at &lt;a href=&quot;&quot;&gt;叶子&lt;/a&gt; on August 17, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/articles/PyCon2014China%E6%9D%A5%E8%A2%AD%E4%B8%AD/&quot;&gt;PyCon 2014 China 震撼来袭&lt;/a&gt; was originally published by Leo Zhang at &lt;a href=&quot;&quot;&gt;叶子&lt;/a&gt; on August 17, 2014.&lt;/p&gt;</content>
 </entry>
 
 
@@ -618,7 +618,7 @@ msgstr &quot;&quot;
   <published>2014-08-17T00:00:00+00:00</published>
   <updated>2014-08-17T00:00:00+00:00</updated>
   <author>
-    <name>LeoZhang</name>
+    <name>Leo Zhang</name>
     <uri></uri>
     <email>leafcoder@gmail.com</email>
   </author>
@@ -626,208 +626,7 @@ msgstr &quot;&quot;
 
 &lt;p&gt;&lt;a href=&quot;http://wowubuntu.com/markdown/index.html&quot;&gt;Markdown 语法说明 (简体中文版)&lt;/a&gt;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/articles/Markdown-%E8%AF%AD%E6%B3%95%E8%AF%B4%E6%98%8E-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%E7%89%88/&quot;&gt;Markdown 语法说明 (简体中文版)&lt;/a&gt; was originally published by LeoZhang at &lt;a href=&quot;&quot;&gt;叶子&lt;/a&gt; on August 17, 2014.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Sample Post]]></title>
-  <link rel="alternate" type="text/html" href="/articles/sample-post/"/>
-  <id>/articles/sample-post</id>
-  <updated>2013-05-31T00:00:00-00:00</updated>
-  <published>2011-03-10T00:00:00+00:00</published>
-  
-  <author>
-    <name>LeoZhang</name>
-    <uri></uri>
-    <email>leafcoder@gmail.com</email>
-  </author>
-  <content type="html">&lt;p&gt;Below is just about everything you’ll need to style in the theme. Check the source code to see the many embedded elements within paragraphs.&lt;/p&gt;
-
-&lt;h1 id=&quot;heading-1&quot;&gt;Heading 1&lt;/h1&gt;
-
-&lt;h2 id=&quot;heading-2&quot;&gt;Heading 2&lt;/h2&gt;
-
-&lt;h3 id=&quot;heading-3&quot;&gt;Heading 3&lt;/h3&gt;
-
-&lt;h4 id=&quot;heading-4&quot;&gt;Heading 4&lt;/h4&gt;
-
-&lt;h5 id=&quot;heading-5&quot;&gt;Heading 5&lt;/h5&gt;
-
-&lt;h6 id=&quot;heading-6&quot;&gt;Heading 6&lt;/h6&gt;
-
-&lt;h3 id=&quot;body-text&quot;&gt;Body text&lt;/h3&gt;
-
-&lt;p&gt;Lorem ipsum dolor sit amet, test link adipiscing elit. &lt;strong&gt;This is strong&lt;/strong&gt;. Nullam dignissim convallis est. Quisque aliquam.&lt;/p&gt;
-
-&lt;p class=&quot;pull-right&quot;&gt;&lt;img src=&quot;/images/3953273590_704e3899d5_m.jpg&quot; alt=&quot;Smithsonian Image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;This is emphasized&lt;/em&gt;. Donec faucibus. Nunc iaculis suscipit dui. 53 = 125. Water is H&lt;sub&gt;2&lt;/sub&gt;O. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. The New York Times &lt;cite&gt;(That’s a citation)&lt;/cite&gt;. &lt;u&gt;Underline&lt;/u&gt;. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.&lt;/p&gt;
-
-&lt;p&gt;HTML and &lt;abbr title=&quot;cascading stylesheets&quot;&gt;CSS&lt;abbr&gt; are our tools. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus.&lt;/abbr&gt;&lt;/abbr&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;blockquotes&quot;&gt;Blockquotes&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Lorem ipsum dolor sit amet, test link adipiscing elit. Nullam dignissim convallis est. Quisque aliquam.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;list-types&quot;&gt;List Types&lt;/h2&gt;
-
-&lt;h3 id=&quot;ordered-lists&quot;&gt;Ordered Lists&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Item one
-    &lt;ol&gt;
-      &lt;li&gt;sub item one&lt;/li&gt;
-      &lt;li&gt;sub item two&lt;/li&gt;
-      &lt;li&gt;sub item three&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Item two&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;unordered-lists&quot;&gt;Unordered Lists&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Item one&lt;/li&gt;
-  &lt;li&gt;Item two&lt;/li&gt;
-  &lt;li&gt;Item three&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;tables&quot;&gt;Tables&lt;/h2&gt;
-
-&lt;table rules=&quot;groups&quot;&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Header1&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Header2&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Header3&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;cell1&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;cell2&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;cell3&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;cell4&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;cell5&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;cell6&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;cell1&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;cell2&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;cell3&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;cell4&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;cell5&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;cell6&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-  &lt;tfoot&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Foot1&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Foot2&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;Foot3&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tfoot&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&quot;code-snippets&quot;&gt;Code Snippets&lt;/h2&gt;
-
-&lt;p&gt;Syntax highlighting via Pygments&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css&quot;&gt;&lt;span class=&quot;nf&quot;&gt;#container&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;-240px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Non Pygments code example&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;div id=&quot;awesome&quot;&amp;gt;
-    &amp;lt;p&amp;gt;This is great isn't it?&amp;lt;/p&amp;gt;
-&amp;lt;/div&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&quot;buttons&quot;&gt;Buttons&lt;/h2&gt;
-
-&lt;p&gt;Make any link standout more when applying the &lt;code&gt;.btn&lt;/code&gt; class.&lt;/p&gt;
-
-&lt;div&gt;&lt;a href=&quot;#&quot; class=&quot;btn&quot;&gt;This is a button&lt;/a&gt;&lt;/div&gt;
-
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;chrome-extension://peddmpbdeelbhgfjnmlkfgeddigonncm/flashes/youku/player_yknpsv.swf?VideoIDS=XNzU3ODYyMjI0&amp;amp;ShowId=0&amp;amp;category=97&amp;amp;Cp=0&amp;amp;sv=true&amp;amp;ev=4&amp;amp;Light=on&amp;amp;THX=off&amp;amp;unCookie=0&amp;amp;frame=0&amp;amp;pvid=14084290771506Mz&amp;amp;uepflag=0&amp;amp;Tid=0&amp;amp;isAutoPlay=true&amp;amp;Version=/v1.0.0976&amp;amp;show_ce=0&amp;amp;winType=interior&amp;amp;Type=Folder&amp;amp;Fid=22585202&amp;amp;Pt=0&amp;amp;Ob=1&amp;amp;plchid=b&amp;amp;embedid=AjE4OTQ2NTU1NgJ3d3cueW91a3UuY29tAi8=&amp;amp;vext=bc%3D%26pid%3D14084290771506Mz%26unCookie%3D0%26frame%3D0%26type%3D1%26fob%3D1%26fpo%3D0%26svt%3D0%26emb%3DAjE4OTQ2NTU1NgJ3d3cueW91a3UuY29tAi8%3D%26dn%3D%E7%BD%91%E9%A1%B5%26hwc%3D1%26mtype%3Doth&quot; frameborder=&quot;0&quot;&gt; &lt;/iframe&gt;
-
-&lt;p&gt;Video embeds are responsive and scale with the width of the main content block with the help of &lt;a href=&quot;http://fitvidsjs.com/&quot;&gt;FitVids&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Not sure if this only effects Kramdown or if it’s an issue with Markdown in general. But adding YouTube video embeds causes errors when building your Jekyll site. To fix add a space between the &lt;code&gt;&amp;lt;iframe&amp;gt;&lt;/code&gt; tags and remove &lt;code&gt;allowfullscreen&lt;/code&gt;. Example below:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;iframe&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;560&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;315&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.youtube.com/embed/PWf4WUoMXwg&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;frameborder=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;0&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;/iframe&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Here are some examples of what a post with images might look like. If you want to display two or three images next to each other responsively use &lt;code&gt;figure&lt;/code&gt; with the appropriate &lt;code&gt;class&lt;/code&gt;. Each instance of &lt;code&gt;figure&lt;/code&gt; is auto-numbered and displayed in the caption.&lt;/p&gt;
-
-&lt;h2 id=&quot;figures-for-images-or-video&quot;&gt;Figures (for images or video)&lt;/h2&gt;
-
-&lt;h3 id=&quot;one-up&quot;&gt;One Up&lt;/h3&gt;
-
-&lt;figure&gt;
-	&lt;a href=&quot;http://farm9.staticflickr.com/8426/7758832526_cc8f681e48_b.jpg&quot;&gt;&lt;img src=&quot;http://farm9.staticflickr.com/8426/7758832526_cc8f681e48_c.jpg&quot; /&gt;&lt;/a&gt;
-	&lt;figcaption&gt;&lt;a href=&quot;http://www.flickr.com/photos/80901381@N04/7758832526/&quot; title=&quot;Morning Fog Emerging From Trees by A Guy Taking Pictures, on Flickr&quot;&gt;Morning Fog Emerging From Trees by A Guy Taking Pictures, on Flickr&lt;/a&gt;.&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;h3 id=&quot;two-up&quot;&gt;Two Up&lt;/h3&gt;
-
-&lt;p&gt;Apply the &lt;code&gt;half&lt;/code&gt; class like so to display two images side by side that share the same caption.&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;figure&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;half&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/images/image-filename-1.jpg&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/images/image-filename-2.jpg&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;figcaption&amp;gt;&lt;/span&gt;Caption describing these two images.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/figcaption&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/figure&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;And you’ll get something that looks like this:&lt;/p&gt;
-
-&lt;figure class=&quot;half&quot;&gt;
-	&lt;a href=&quot;http://placehold.it/1200x600.jpg&quot;&gt;&lt;img src=&quot;http://placehold.it/600x300.jpg&quot; /&gt;&lt;/a&gt;
-	&lt;a href=&quot;http://placehold.it/1200x600.jpg&quot;&gt;&lt;img src=&quot;http://placehold.it/600x300.jpg&quot; /&gt;&lt;/a&gt;
-	&lt;img src=&quot;http://placehold.it/600x300.jpg&quot; /&gt;
-	&lt;img src=&quot;http://placehold.it/600x300.jpg&quot; /&gt;
-	&lt;figcaption&gt;Two images.&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;h3 id=&quot;three-up&quot;&gt;Three Up&lt;/h3&gt;
-
-&lt;p&gt;Apply the &lt;code&gt;third&lt;/code&gt; class like so to display three images side by side that share the same caption.&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;figure&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;third&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://placehold.it/1200x600.jpg&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://placehold.it/600x300.jpg&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://placehold.it/1200x600.jpg&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://placehold.it/600x300.jpg&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://placehold.it/1200x600.jpg&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://placehold.it/600x300.jpg&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;figcaption&amp;gt;&lt;/span&gt;Caption describing these three images.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/figcaption&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/figure&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;And you’ll get something that looks like this:&lt;/p&gt;
-
-&lt;figure class=&quot;third&quot;&gt;
-	&lt;a href=&quot;http://placehold.it/1200x600.jpg&quot;&gt;&lt;img src=&quot;http://placehold.it/600x300.jpg&quot; /&gt;&lt;/a&gt;
-	&lt;a href=&quot;http://placehold.it/1200x600.jpg&quot;&gt;&lt;img src=&quot;http://placehold.it/600x300.jpg&quot; /&gt;&lt;/a&gt;
-	&lt;a href=&quot;http://placehold.it/1200x600.jpg&quot;&gt;&lt;img src=&quot;http://placehold.it/600x300.jpg&quot; /&gt;&lt;/a&gt;
-	&lt;a href=&quot;http://placehold.it/1200x600.jpg&quot;&gt;&lt;img src=&quot;http://placehold.it/600x300.jpg&quot; /&gt;&lt;/a&gt;
-	&lt;a href=&quot;http://placehold.it/1200x600.jpg&quot;&gt;&lt;img src=&quot;http://placehold.it/600x300.jpg&quot; /&gt;&lt;/a&gt;
-	&lt;a href=&quot;http://placehold.it/1200x600.jpg&quot;&gt;&lt;img src=&quot;http://placehold.it/600x300.jpg&quot; /&gt;&lt;/a&gt;
-	&lt;figcaption&gt;Three images.&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/articles/sample-post/&quot;&gt;Sample Post&lt;/a&gt; was originally published by LeoZhang at &lt;a href=&quot;&quot;&gt;叶子&lt;/a&gt; on March 10, 2011.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/articles/Markdown-%E8%AF%AD%E6%B3%95%E8%AF%B4%E6%98%8E-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%E7%89%88/&quot;&gt;Markdown 语法说明 (简体中文版)&lt;/a&gt; was originally published by Leo Zhang at &lt;a href=&quot;&quot;&gt;叶子&lt;/a&gt; on August 17, 2014.&lt;/p&gt;</content>
 </entry>
 
 </feed>

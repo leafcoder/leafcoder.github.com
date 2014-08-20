@@ -26,7 +26,7 @@ image:
 * 常用工具（Svn、Git、终端）
 * 代码编辑（Gedit、Vi）
 * Python 常用模块、部分 Python 第三方模块
-* Python Framework（Eurasia/Cherrypy/Bottle/Flask/Quixote...）
+* Python Framework（Eurasia/Cherrypy/Bottle/Flask/Quixote/web.py...）
 * Python 模板（Mako、PTL...）
 
 参与 Open Source Projects

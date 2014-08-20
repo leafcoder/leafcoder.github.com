@@ -8,7 +8,7 @@ url:
 
 # Owner/author information
 owner:
-  name:           LeoZhang
+  name:           Leo Zhang
   avatar:         leafcoder-photo.jpg
   email:          leafcoder@gmail.com
   # Social networking links used in footer. Update and remove as you like.
@@ -35,10 +35,16 @@ links:
   - title: Home
     url: /
   - title: Posts
-    url: /articles/
+    url: /articles
+    external: true
+  - title: Links
+    url: /links
+    external: true
+  - title: pics
+    url: /pics
     external: true
   - title: About
-    url: /about/
+    url: /about
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:    China/ShangHai
