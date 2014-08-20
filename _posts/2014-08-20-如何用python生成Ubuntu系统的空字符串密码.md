@@ -4,7 +4,7 @@ title: 如何用 python 生成 Ubuntu 系统的空字符串密码
 description: "使用空密码后，sudo 的时候再也不需要麻烦的输入密码了，直接回车就行（千万别跟我谈什么安全之类的，这个我可管不了）。"
 modified: 2014-08-20
 category: articles
-tags: [python ubuntu shadow password]
+tags: [python, ubuntu, shadow, password]
 image:
   feature:
   credit: Michael Rose
