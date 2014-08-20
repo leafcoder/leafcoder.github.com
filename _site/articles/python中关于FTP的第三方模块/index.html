@@ -5,25 +5,25 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>python i18n（国际化）使用简介 &#8211; 叶子</title>
-<meta name="description" content="用 python 如何实现国际化呢？看了文章你就知道了">
-<meta name="keywords" content="python i18n">
+<title>python 中关于 FTP 的第三方模块 &#8211; 叶子</title>
+<meta name="description" content="列举平时使用 python 时用过的关于 FTP 的模块">
+<meta name="keywords" content="python ubuntu shadow password">
 
 
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python i18n（国际化）使用简介">
-<meta property="og:description" content="用 python 如何实现国际化呢？看了文章你就知道了">
-<meta property="og:url" content="/articles/python-i18n-%E5%9B%BD%E9%99%85%E5%8C%96%E4%BD%BF%E7%94%A8%E7%AE%80%E4%BB%8B/">
+<meta property="og:title" content="python 中关于 FTP 的第三方模块">
+<meta property="og:description" content="列举平时使用 python 时用过的关于 FTP 的模块">
+<meta property="og:url" content="/articles/python%E4%B8%AD%E5%85%B3%E4%BA%8EFTP%E7%9A%84%E7%AC%AC%E4%B8%89%E6%96%B9%E6%A8%A1%E5%9D%97/">
 <meta property="og:site_name" content="叶子">
 
 
 
 
 
-<link rel="canonical" href="/articles/python-i18n-%E5%9B%BD%E9%99%85%E5%8C%96%E4%BD%BF%E7%94%A8%E7%AE%80%E4%BB%8B/">
+<link rel="canonical" href="/articles/python%E4%B8%AD%E5%85%B3%E4%BA%8EFTP%E7%9A%84%E7%AC%AC%E4%B8%89%E6%96%B9%E6%A8%A1%E5%9D%97/">
 <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="叶子 Feed">
 
 
@@ -112,100 +112,32 @@
     
     <div class="entry-wrapper">
       <header class="entry-header">
-        <span class="entry-tags"><a href="/tags/#python i18n" title="Pages tagged python i18n">python i18n</a></span>
+        <span class="entry-tags"><a href="/tags/#python ubuntu shadow password" title="Pages tagged python ubuntu shadow password">python ubuntu shadow password</a></span>
         
-          <h1 class="entry-title">python i18n（国际化）使用简介</h1>
+          <h1 class="entry-title">python 中关于 FTP 的第三方模块</h1>
         
       </header>
       <div class="entry-content">
-        <p>操作系统：Ubuntu(Linux)</p>
+        <h3 id="pyftpdlibhttpsgithubcomgiampaolopyftpdlib--python-ftp-">1.<a href="https://github.com/giampaolo/pyftpdlib">pyftpdlib</a> 是一款 Python FTP 服务器库。</h3>
 
-<p>Linux 下 Python 是已经安装好的。</p>
-
-<h3 id="section">1.生成翻译文件模板并修改相应内容</h3>
-
-<p>Python 有个 <code>gettext</code> 模块用以支持 <code>i18n</code>，在终端中直接通过命令 <code>pygettext</code> 使用。</p>
-
-<p><code>user@ubuntu: pygettext -o lang.po</code></p>
-
-<p>运行命令后会生成翻译文件模板 <strong>lang.pot</strong>，如果不提供 <strong>-o</strong> 参数，直接运行命令，生成的文件名默认为 <strong>messages.pot</strong>，内容如下：</p>
-
-<pre><code># SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR ORGANIZATION
-# FIRST AUTHOR &lt;EMAIL@ADDRESS&gt;, YEAR.
-#
-msgid ""
-msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-08-19 16:37+CST\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt;\n"
-"Language-Team: LANGUAGE &lt;LL@li.org&gt;\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
-"Content-Transfer-Encoding: ENCODING\n"
-"Generated-By: pygettext.py 1.5\n"
-</code></pre>
-
-<p>将 <code>charset=CHARSET</code> 和 <code>Content-Transfer-Encoding: ENCODING</code> 改为自己需要的编码，
-如 <strong>Linux</strong> 下改为 <code>charset=utf-8、Content-Transfer-Encoding: utf-8</code>，其他选项可根据需要自行修改;
-修改完成后内容如下：</p>
-
-<pre><code># SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR ORGANIZATION
-# FIRST AUTHOR &lt;EMAIL@ADDRESS&gt;, YEAR.
-#
-msgid ""
-msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-08-19 16:37+CST\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt;\n"
-"Language-Team: LANGUAGE &lt;LL@li.org&gt;\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: utf-8\n"
-"Generated-By: pygettext.py 1.5\n"
-</code></pre>
-
-<h3 id="section-1">2.建立翻译文件目录结构</h3>
-
-<p>建立翻译文件路径，如，我们翻译中英文的话，需要建立一个翻译文件目录结构，如下：</p>
-
-<p>中文<code>./locale/cn/LC_MESSAGES</code></p>
-
-<p>英文<code>./locale/en/LC_MESSAGES</code></p>
-
-<h3 id="section-2">3.添加翻译内容并生成二进制翻译文件</h3>
-
-<p>在 lang.po 文件后面添加要翻译原文和翻译结果，格式如下：</p>
-
-<p><code>msgid  "Hello"  # 原文</code></p>
-
-<p><code>msgstr "你好"    # 译文</code></p>
-
-<p>生成翻译文件的二进制文件</p>
-
-<p><code>msgfmt lang.po -o ./locale/cn/LC_MESSAGES/lang.mo</code></p>
-
-<p><code>msgfmt lang.po -o ./locale/en/LC_MESSAGES/lang.mo</code> # 通过未添加任何翻译内容的 <strong>lang.po</strong> 得到</p>
-
-<h3 id="python-">4.python 使用翻译文件的方法</h3>
-
-<p>最后由 Python 进行调用，完成国际化：</p>
+<p>Quick Start（快速创建一个 FTP 服务器）：</p>
 
 <div class="highlight"><pre><code class="python"><span class="c">#!/usr/bin/python</span>
- 
-<span class="kn">import</span> <span class="nn">gettext</span>
- 
-<span class="n">gettext</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="s">&#39;lang&#39;</span><span class="p">,</span> <span class="s">&#39;./locale&#39;</span><span class="p">,</span> <span class="nb">unicode</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<span class="n">gettext</span><span class="o">.</span><span class="n">translation</span><span class="p">(</span><span class="s">&#39;lang&#39;</span><span class="p">,</span> <span class="s">&#39;./locale&#39;</span><span class="p">,</span> <span class="n">languages</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;cn&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">_</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">pyftpdlib.servers</span> <span class="kn">import</span> <span class="n">FTPServer</span>
+<span class="kn">from</span> <span class="nn">pyftpdlib.handlers</span> <span class="kn">import</span> <span class="n">FTPHandler</span>
+<span class="kn">from</span> <span class="nn">pyftpdlib.authorizers</span> <span class="kn">import</span> <span class="n">DummyAuthorizer</span>
+
+<span class="n">authorizer</span> <span class="o">=</span> <span class="n">DummyAuthorizer</span><span class="p">()</span>
+<span class="n">authorizer</span><span class="o">.</span><span class="n">add_user</span><span class="p">(</span><span class="s">&quot;user&quot;</span><span class="p">,</span> <span class="s">&quot;12345&quot;</span><span class="p">,</span> <span class="s">&quot;/home/username&quot;</span><span class="p">,</span> <span class="n">perm</span><span class="o">=</span><span class="s">&quot;elradfmw&quot;</span><span class="p">)</span>
+<span class="n">authorizer</span><span class="o">.</span><span class="n">add_anonymous</span><span class="p">(</span><span class="s">&quot;/home/nobody&quot;</span><span class="p">)</span>
+
+<span class="n">handler</span> <span class="o">=</span> <span class="n">FTPHandler</span>
+<span class="n">handler</span><span class="o">.</span><span class="n">authorizer</span> <span class="o">=</span> <span class="n">authorizer</span>
+
+<span class="n">server</span> <span class="o">=</span> <span class="n">FTPServer</span><span class="p">((</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="mi">21</span><span class="p">),</span> <span class="n">handler</span><span class="p">)</span>
+<span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
 </code></pre></div>
 
-<h3 id="section-3">5.示例代码下载</h3>
-
-<p><a href="/download/python-i18n-demo.tar.gz">点击下载源码</a></p>
 
         
       </div><!-- /.entry-content -->
@@ -228,10 +160,10 @@ msgstr ""
     </div><!-- /.entry-wrapper -->
     <nav class="pagination" role="navigation">
       
-        <a href="/articles/%E5%9C%A8Python%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Linux%E7%9A%84epoll/" class="btn" title="在Python中如何使用Linux的epoll">Previous article</a>
+        <a href="/articles/python-i18n-%E5%9B%BD%E9%99%85%E5%8C%96%E4%BD%BF%E7%94%A8%E7%AE%80%E4%BB%8B/" class="btn" title="python i18n（国际化）使用简介">Previous article</a>
       
       
-        <a href="/articles/python%E4%B8%AD%E5%85%B3%E4%BA%8EFTP%E7%9A%84%E7%AC%AC%E4%B8%89%E6%96%B9%E6%A8%A1%E5%9D%97/" class="btn" title="python 中关于 FTP 的第三方模块">Next article</a>
+        <a href="/articles/%E5%A6%82%E4%BD%95%E7%94%A8python%E7%94%9F%E6%88%90Ubuntu%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A9%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%86%E7%A0%81/" class="btn" title="如何用 python 生成 Ubuntu 系统的空字符串密码">Next article</a>
       
     </nav><!-- /.pagination -->
   </article>
