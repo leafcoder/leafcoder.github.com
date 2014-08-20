@@ -4,13 +4,118 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-08-19T08:18:30+00:00</updated>
+<updated>2014-08-20T01:42:04+00:00</updated>
 <id>/</id>
 <author>
   <name>LeoZhang</name>
   <uri>/</uri>
   <email>leafcoder@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[python i18n（国际化）使用简介]]></title>
+  <link rel="alternate" type="text/html" href="/articles/python-i18n-%E5%9B%BD%E9%99%85%E5%8C%96%E4%BD%BF%E7%94%A8%E7%AE%80%E4%BB%8B/"/>
+  <id>/articles/python-i18n-国际化使用简介</id>
+  <updated>2014-08-20T00:00:00-00:00</updated>
+  <published>2014-08-20T00:00:00+00:00</published>
+  
+  <author>
+    <name>LeoZhang</name>
+    <uri></uri>
+    <email>leafcoder@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;操作系统：Ubuntu(Linux)&lt;/p&gt;
+
+&lt;p&gt;Linux 下 Python 是已经安装好的。&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;1.生成翻译文件模板并修改相应内容&lt;/h3&gt;
+
+&lt;p&gt;Python 有个 &lt;code&gt;gettext&lt;/code&gt; 模块用以支持 &lt;code&gt;i18n&lt;/code&gt;，在终端中直接通过命令 &lt;code&gt;pygettext&lt;/code&gt; 使用。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;user@ubuntu: pygettext -o lang.po&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;运行命令后会生成翻译文件模板 &lt;strong&gt;lang.pot&lt;/strong&gt;，如果不提供 &lt;strong&gt;-o&lt;/strong&gt; 参数，直接运行命令，生成的文件名默认为 &lt;strong&gt;messages.pot&lt;/strong&gt;，内容如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR &amp;lt;EMAIL@ADDRESS&amp;gt;, YEAR.
+#
+msgid &quot;&quot;
+msgstr &quot;&quot;
+&quot;Project-Id-Version: PACKAGE VERSION\n&quot;
+&quot;POT-Creation-Date: 2014-08-19 16:37+CST\n&quot;
+&quot;PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n&quot;
+&quot;Last-Translator: FULL NAME &amp;lt;EMAIL@ADDRESS&amp;gt;\n&quot;
+&quot;Language-Team: LANGUAGE &amp;lt;LL@li.org&amp;gt;\n&quot;
+&quot;MIME-Version: 1.0\n&quot;
+&quot;Content-Type: text/plain; charset=CHARSET\n&quot;
+&quot;Content-Transfer-Encoding: ENCODING\n&quot;
+&quot;Generated-By: pygettext.py 1.5\n&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;将 &lt;code&gt;charset=CHARSET&lt;/code&gt; 和 &lt;code&gt;Content-Transfer-Encoding: ENCODING&lt;/code&gt; 改为自己需要的编码，
+如 &lt;strong&gt;Linux&lt;/strong&gt; 下改为 &lt;code&gt;charset=utf-8、Content-Transfer-Encoding: utf-8&lt;/code&gt;，其他选项可根据需要自行修改;
+修改完成后内容如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR &amp;lt;EMAIL@ADDRESS&amp;gt;, YEAR.
+#
+msgid &quot;&quot;
+msgstr &quot;&quot;
+&quot;Project-Id-Version: PACKAGE VERSION\n&quot;
+&quot;POT-Creation-Date: 2014-08-19 16:37+CST\n&quot;
+&quot;PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n&quot;
+&quot;Last-Translator: FULL NAME &amp;lt;EMAIL@ADDRESS&amp;gt;\n&quot;
+&quot;Language-Team: LANGUAGE &amp;lt;LL@li.org&amp;gt;\n&quot;
+&quot;MIME-Version: 1.0\n&quot;
+&quot;Content-Type: text/plain; charset=utf-8\n&quot;
+&quot;Content-Transfer-Encoding: utf-8\n&quot;
+&quot;Generated-By: pygettext.py 1.5\n&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;2.建立翻译文件目录结构&lt;/h3&gt;
+
+&lt;p&gt;建立翻译文件路径，如，我们翻译中英文的话，需要建立一个翻译文件目录结构，如下：&lt;/p&gt;
+
+&lt;p&gt;中文&lt;code&gt;./locale/cn/LC_MESSAGES&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;英文&lt;code&gt;./locale/en/LC_MESSAGES&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;3.添加翻译内容并生成二进制翻译文件&lt;/h3&gt;
+
+&lt;p&gt;在 lang.po 文件后面添加要翻译原文和翻译结果，格式如下：&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;msgid  &quot;Hello&quot;  # 原文&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;msgstr &quot;你好&quot;    # 译文&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;生成翻译文件的二进制文件&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;msgfmt lang.po -o ./locale/cn/LC_MESSAGES/lang.mo&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;msgfmt lang.po -o ./locale/en/LC_MESSAGES/lang.mo&lt;/code&gt; # 通过未添加任何翻译内容的 &lt;strong&gt;lang.po&lt;/strong&gt; 得到&lt;/p&gt;
+
+&lt;h3 id=&quot;python-&quot;&gt;4.python 使用翻译文件的方法&lt;/h3&gt;
+
+&lt;p&gt;最后由 Python 进行调用，完成国际化：&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/python&lt;/span&gt;
+ 
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;gettext&lt;/span&gt;
+ 
+&lt;span class=&quot;n&quot;&gt;gettext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;install&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;lang&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;./locale&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;unicode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;gettext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;translation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;lang&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;./locale&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;languages&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;cn&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;install&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;5.示例代码下载&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;/download/python-i18n-demo.tar.gz&quot;&gt;点击下载源码&lt;/a&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/articles/python-i18n-%E5%9B%BD%E9%99%85%E5%8C%96%E4%BD%BF%E7%94%A8%E7%AE%80%E4%BB%8B/&quot;&gt;python i18n（国际化）使用简介&lt;/a&gt; was originally published by LeoZhang at &lt;a href=&quot;&quot;&gt;叶子&lt;/a&gt; on August 20, 2014.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
