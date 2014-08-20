@@ -16,23 +16,35 @@ image:
 * Birthday: 1989-10-01
 * Email: leafcoder@gmail.com
 
-手持 Weapon
+手持 Weapons
 --------------
 * Linux （Ubuntu、Debian）
-* Python 2.7、Python 3.0
-* CSS 工具（Less、Compass）、Bootstrap
+* Python 2.7、3.0
+* Jquery、CSS 工具（Less、Compass）、Bootstrap
 * 索引（Elasticsearch、Xapian）
 * 数据库（Sqlite3、ZODB、Durus、BsdDB、PostgreSql、MySql）
 * 常用工具（Svn、Git、终端）
 * 代码编辑（Gedit、Vi）
-* Python 常用模块、部分 Python 第三方模块
-* Python Framework（Eurasia/Cherrypy/Bottle/Flask/Quixote/web.py...）
-* Python 模板（Mako、PTL...）
+* 常用模块、部分 Python 第三方模块
+* Eurasia/Cherrypy/Bottle/Flask/Quixote/web.py...
+* 模板（Mako、PTL...）
 
 参与 Open Source Projects
 -------------------------------
 * [Eurasia](http://code.google.com/p/eurasia)
 * [Liubao](http://code.google.com/p/liubao)
+
+Pythonic八荣八耻
+-----------------------------------
+* 以动手实践为荣 , 以只看不练为耻;
+* 以打印日志为荣 , 以单步跟踪为耻;
+* 以空格缩进为荣 , 以制表缩进为耻;
+* 以单元测试为荣 , 以人工测试为耻;
+
+* 以模块复用为荣 , 以复制粘贴为耻;
+* 以多态应用为荣 , 以分支判断为耻;
+* 以Pythonic为荣 , 以冗余拖沓为耻;
+* 以总结分享为荣 , 以跪求其解为耻;
 
 <div id="disqus_thread"></div><!-- /#disqus_thread -->
 <!-- / disqus 评论 -->
