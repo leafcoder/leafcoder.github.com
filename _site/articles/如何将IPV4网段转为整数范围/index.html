@@ -5,25 +5,25 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>如何用 python 生成 Ubuntu 系统的空字符串密码 &#8211; 叶子</title>
-<meta name="description" content="使用空密码后，sudo 的时候再也不需要麻烦的输入密码了，直接回车就行（千万别跟我谈什么安全之类的，这个我可管不了）。">
-<meta name="keywords" content="python, ubuntu, shadow, password">
+<title>如何将IPV4网段转为整数范围 &#8211; 叶子</title>
+<meta name="description" content="如何将IPV4网段转为整数范围">
+<meta name="keywords" content="ipv4">
 
 
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何用 python 生成 Ubuntu 系统的空字符串密码">
-<meta property="og:description" content="使用空密码后，sudo 的时候再也不需要麻烦的输入密码了，直接回车就行（千万别跟我谈什么安全之类的，这个我可管不了）。">
-<meta property="og:url" content="/articles/%E5%A6%82%E4%BD%95%E7%94%A8python%E7%94%9F%E6%88%90Ubuntu%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A9%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%86%E7%A0%81/">
+<meta property="og:title" content="如何将IPV4网段转为整数范围">
+<meta property="og:description" content="如何将IPV4网段转为整数范围">
+<meta property="og:url" content="/articles/%E5%A6%82%E4%BD%95%E5%B0%86IPV4%E7%BD%91%E6%AE%B5%E8%BD%AC%E4%B8%BA%E6%95%B4%E6%95%B0%E8%8C%83%E5%9B%B4/">
 <meta property="og:site_name" content="叶子">
 
 
 
 
 
-<link rel="canonical" href="/articles/%E5%A6%82%E4%BD%95%E7%94%A8python%E7%94%9F%E6%88%90Ubuntu%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A9%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%86%E7%A0%81/">
+<link rel="canonical" href="/articles/%E5%A6%82%E4%BD%95%E5%B0%86IPV4%E7%BD%91%E6%AE%B5%E8%BD%AC%E4%B8%BA%E6%95%B4%E6%95%B0%E8%8C%83%E5%9B%B4/">
 <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="叶子 Feed">
 
 
@@ -118,33 +118,65 @@
     
     <div class="entry-wrapper">
       <header class="entry-header">
-        <span class="entry-tags">Tags：<a href="/tags/#python" title="Pages tagged python">python</a>&nbsp;&bull;&nbsp;<a href="/tags/#ubuntu" title="Pages tagged ubuntu">ubuntu</a>&nbsp;&bull;&nbsp;<a href="/tags/#shadow" title="Pages tagged shadow">shadow</a>&nbsp;&bull;&nbsp;<a href="/tags/#password" title="Pages tagged password">password</a></span>
+        <span class="entry-tags">Tags：<a href="/tags/#ipv4" title="Pages tagged ipv4">ipv4</a></span>
         
-          <h1 class="entry-title">如何用 python 生成 Ubuntu 系统的空字符串密码</h1>
+          <h1 class="entry-title">如何将IPV4网段转为整数范围</h1>
         
       </header>
       <div class="entry-content">
-        <p>将以下的 <a href="http://www.python.org">python</a> 代码保存到一个文件，并运行就能生成一个空密码的字符串;当然，其实它也可以生成其他任意密码的字符串。</p>
+        <p>以 ip 段 <code>127.0.0.0/24</code> 为例</p>
 
-<p>生成空密码：<code>python password.py</code></p>
+<p><strong>IPv4</strong> 由 <strong>32</strong> 位二进制组成（最大地址为 <code>255.255.255.255</code>），
+<strong>24</strong> 代表子网掩码（<code>255.255.255.0</code>）。</p>
+
+<h3 id="section">计算 <code>127.0.0.0/24</code> 起始地址;</h3>
+
+<pre><code>01111111.00000000.00000000.00000000 # 127.0.0.0
+11111111.11111111.11111111.00000000 # 255.255.255.0
+   ||
+   || 逻辑与
+   \/
+01111111.00000000.00000000.00000000 # 127.0.0.0，即网段的起始地址
+</code></pre>
+
+<p>将起始地址 <code>127.0.0.0</code> 转为整数值;</p>
+
+<pre><code>127.0.0.0
+   ||
+01111111.00000000.00000000.00000000
+   ||
+127 * pow(2, 24)
+   ||
+2130706432
+</code></pre>
+
+<h3 id="ip-"><code>127.0.0.0/24</code> 中的 <strong>IP</strong> 数</h3>
+
+<p>将掩码转为二进制可以表示为 <code>11111111.11111111.11111111.00000000</code>，其中有 8 个 0，
+取出 <code>00000000</code>，将 <code>0</code> 改为 <code>1</code> 得到 <code>11111111</code>，通过二进制计算可以得到：</p>
+
+<p><code>11111111 == 255</code></p>
+
+<p>也就是说 <code>127.0.0.0/24</code> 有 256（IP 从 0 开始计算） 个 IP，去除起始地址占用 1 个后，
+结束地址的整数为<code>起始地址 + 255</code>。</p>
+
+<h3 id="section-1">结果</h3>
+<p><code>127.0.0.0/24</code> 的整数范围是：[2130706432, 2130706432 + 255]</p>
+
+<h3 id="python-">python 解决方案</h3>
+
+<p>当然，如果你会 python，那么简单的几行代码就能帮你解决问题;</p>
 
 <div class="highlight"><pre><code class="python"><span class="c">#!/usr/bin/python</span>
-<span class="kn">import</span> <span class="nn">crypt</span>
-<span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">argv</span>
-<span class="kn">from</span> <span class="nn">uuid</span> <span class="kn">import</span> <span class="n">uuid4</span>
-<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
+<span class="kn">from</span> <span class="nn">struct</span> <span class="kn">import</span> <span class="n">unpack</span>
+<span class="kn">from</span> <span class="nn">socket</span> <span class="kn">import</span> <span class="n">inet_aton</span>
 
-<span class="n">password</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
-<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="n">password</span> <span class="o">=</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">size</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
-<span class="n">salt</span> <span class="o">=</span> <span class="n">uuid4</span><span class="p">()</span><span class="o">.</span><span class="n">hex</span><span class="p">[:</span><span class="n">size</span><span class="p">]</span>
-<span class="k">print</span> <span class="n">crypt</span><span class="o">.</span><span class="n">crypt</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="s">&#39;$6$</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">salt</span><span class="p">)</span>
+<span class="n">addr</span><span class="p">,</span> <span class="n">mask</span> <span class="o">=</span> <span class="s">&#39;127.0.0.0&#39;</span><span class="p">,</span> <span class="mi">24</span>
+<span class="n">begin</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s">&#39;!I&#39;</span><span class="p">,</span> <span class="n">inet_aton</span><span class="p">(</span><span class="n">addr</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">end</span>   <span class="o">=</span> <span class="n">begin</span> <span class="o">+</span> <span class="nb">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mi">32</span> <span class="o">-</span> <span class="n">mask</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="k">print</span> <span class="p">[</span><span class="n">begin</span><span class="p">,</span> <span class="n">end</span><span class="p">]</span>
 </code></pre></div>
 
-<p>将生成好的密码字符串覆盖 <code>/etc/shadow</code> 中的密码段即可。</p>
-
-<p>使用空密码后，<code>sudo</code> 的时候再也不需要麻烦的输入密码了，直接回车就行（千万别跟我谈什么安全之类的，这个我可管不了）。</p>
 
         
           <div id="disqus_thread"></div><!-- /#disqus_thread -->
@@ -168,10 +200,10 @@
     </div><!-- /.entry-wrapper -->
     <nav class="pagination" role="navigation">
       
-        <a href="/articles/python%E4%B8%AD%E5%85%B3%E4%BA%8EFTP%E7%9A%84%E7%AC%AC%E4%B8%89%E6%96%B9%E6%A8%A1%E5%9D%97/" class="btn" title="python 中关于 FTP 的第三方模块">Previous article</a>
+        <a href="/articles/%E5%85%B3%E4%BA%8Ectypes%E7%9A%84%E7%AE%80%E5%8D%95%E7%94%A8%E4%BE%8B/" class="btn" title="关于 ctypes 的简单用例">Previous article</a>
       
       
-        <a href="/articles/%E4%B8%80%E6%AE%B5Python%E7%9A%84%E7%B2%BE%E7%A1%AE%E9%99%A4%E6%B3%95%E8%84%9A%E6%9C%AC/" class="btn" title="一段 Python 的精确除法脚本">Next article</a>
+        <a href="/articles/%E8%8E%B7%E5%8F%96%E5%9B%BD%E5%86%85%E5%9F%8E%E5%B8%82%E5%A4%A9%E6%B0%94%E9%A2%84%E6%8A%A5JSON%E6%95%B0%E6%8D%AE%E7%9A%84Python%E5%B0%8F%E8%84%9A%E6%9C%AC/" class="btn" title="获取国内城市天气预报 JSON 数据的 Python 小脚本">Next article</a>
       
     </nav><!-- /.pagination -->
   </article>

@@ -18,16 +18,14 @@ image:
 
 手持 Weapons
 --------------
-* Linux （Ubuntu、Debian）
+* Linux（Ubuntu、Debian）
 * Python 2.7、3.0
-* Jquery、CSS 工具（Less、Compass）、Bootstrap
-* 索引（Elasticsearch、Xapian）
-* 数据库（Sqlite3、ZODB、Durus、BsdDB、PostgreSql、MySql）
-* 常用工具（Svn、Git、终端）
 * 代码编辑（Gedit、Vi）
-* 常用模块、部分 Python 第三方模块
-* Eurasia/Cherrypy/Bottle/Flask/Quixote/web.py...
-* 模板（Mako、PTL...）
+* Jquery、CSS 工具（Less、Compass）、Bootstrap
+* Eurasia、Cherrypy、Bottle、FlaskQuixote、web.py...
+* Sqlite3、ZODB、Durus、BsdDB、PostgreSql、MySql
+* Elasticsearch、Xapian
+* Mako、PTL...
 
 参与 Open Source Projects
 -------------------------------

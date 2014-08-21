@@ -5,25 +5,25 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>如何用 python 生成 Ubuntu 系统的空字符串密码 &#8211; 叶子</title>
-<meta name="description" content="使用空密码后，sudo 的时候再也不需要麻烦的输入密码了，直接回车就行（千万别跟我谈什么安全之类的，这个我可管不了）。">
-<meta name="keywords" content="python, ubuntu, shadow, password">
+<title>关于 ctypes 的简单用例 &#8211; 叶子</title>
+<meta name="description" content="关于 ctypes 的简单用例">
+<meta name="keywords" content="python, ctypes">
 
 
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何用 python 生成 Ubuntu 系统的空字符串密码">
-<meta property="og:description" content="使用空密码后，sudo 的时候再也不需要麻烦的输入密码了，直接回车就行（千万别跟我谈什么安全之类的，这个我可管不了）。">
-<meta property="og:url" content="/articles/%E5%A6%82%E4%BD%95%E7%94%A8python%E7%94%9F%E6%88%90Ubuntu%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A9%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%86%E7%A0%81/">
+<meta property="og:title" content="关于 ctypes 的简单用例">
+<meta property="og:description" content="关于 ctypes 的简单用例">
+<meta property="og:url" content="/articles/%E5%85%B3%E4%BA%8Ectypes%E7%9A%84%E7%AE%80%E5%8D%95%E7%94%A8%E4%BE%8B/">
 <meta property="og:site_name" content="叶子">
 
 
 
 
 
-<link rel="canonical" href="/articles/%E5%A6%82%E4%BD%95%E7%94%A8python%E7%94%9F%E6%88%90Ubuntu%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A9%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%86%E7%A0%81/">
+<link rel="canonical" href="/articles/%E5%85%B3%E4%BA%8Ectypes%E7%9A%84%E7%AE%80%E5%8D%95%E7%94%A8%E4%BE%8B/">
 <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="叶子 Feed">
 
 
@@ -118,33 +118,66 @@
     
     <div class="entry-wrapper">
       <header class="entry-header">
-        <span class="entry-tags">Tags：<a href="/tags/#python" title="Pages tagged python">python</a>&nbsp;&bull;&nbsp;<a href="/tags/#ubuntu" title="Pages tagged ubuntu">ubuntu</a>&nbsp;&bull;&nbsp;<a href="/tags/#shadow" title="Pages tagged shadow">shadow</a>&nbsp;&bull;&nbsp;<a href="/tags/#password" title="Pages tagged password">password</a></span>
+        <span class="entry-tags">Tags：<a href="/tags/#python" title="Pages tagged python">python</a>&nbsp;&bull;&nbsp;<a href="/tags/#ctypes" title="Pages tagged ctypes">ctypes</a></span>
         
-          <h1 class="entry-title">如何用 python 生成 Ubuntu 系统的空字符串密码</h1>
+          <h1 class="entry-title">关于 ctypes 的简单用例</h1>
         
       </header>
       <div class="entry-content">
-        <p>将以下的 <a href="http://www.python.org">python</a> 代码保存到一个文件，并运行就能生成一个空密码的字符串;当然，其实它也可以生成其他任意密码的字符串。</p>
+        <h3 id="section">结构体、数组、指针、指向数组的指针</h3>
 
-<p>生成空密码：<code>python password.py</code></p>
+<div class="highlight"><pre><code class="python"><span class="kn">from</span> <span class="nn">ctypes</span> <span class="kn">import</span> <span class="o">*</span>
 
-<div class="highlight"><pre><code class="python"><span class="c">#!/usr/bin/python</span>
-<span class="kn">import</span> <span class="nn">crypt</span>
-<span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">argv</span>
-<span class="kn">from</span> <span class="nn">uuid</span> <span class="kn">import</span> <span class="n">uuid4</span>
-<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
+<span class="k">class</span> <span class="nc">point</span><span class="p">(</span><span class="n">Structure</span><span class="p">):</span>
+    <span class="k">pass</span>
 
-<span class="n">password</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
-<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="n">password</span> <span class="o">=</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">size</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
-<span class="n">salt</span> <span class="o">=</span> <span class="n">uuid4</span><span class="p">()</span><span class="o">.</span><span class="n">hex</span><span class="p">[:</span><span class="n">size</span><span class="p">]</span>
-<span class="k">print</span> <span class="n">crypt</span><span class="o">.</span><span class="n">crypt</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="s">&#39;$6$</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">salt</span><span class="p">)</span>
+<span class="n">point</span><span class="o">.</span><span class="n">_fields_</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s">&#39;x&#39;</span><span class="p">,</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">&#39;y&#39;</span><span class="p">,</span> <span class="n">c_int</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">arry_gen</span> <span class="o">=</span> <span class="n">point</span> <span class="o">*</span> <span class="mi">10</span>
+<span class="n">arry</span> <span class="o">=</span> <span class="n">arry_gen</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="n">arry_ptr_gen</span> <span class="o">=</span> <span class="n">POINTER</span><span class="p">(</span><span class="n">point</span><span class="p">)</span>
+<span class="n">arry_ptr</span> <span class="o">=</span> <span class="n">arry_ptr_gen</span><span class="p">(</span><span class="n">arry</span><span class="p">)</span>
 </code></pre></div>
 
-<p>将生成好的密码字符串覆盖 <code>/etc/shadow</code> 中的密码段即可。</p>
+<h3 id="section-1">回调函数用法</h3>
 
-<p>使用空密码后，<code>sudo</code> 的时候再也不需要麻烦的输入密码了，直接回车就行（千万别跟我谈什么安全之类的，这个我可管不了）。</p>
+<pre><code># /* demo.c --&gt; demo.so */
+# include &lt;stdio.h&gt;
+
+# typedef int (*callback)(void);
+
+# int func_arg (callback get_value)
+# {
+#     return get_value();
+# }
+</code></pre>
+
+<div class="highlight"><pre><code class="python"><span class="kn">from</span> <span class="nn">ctypes</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">def</span> <span class="nf">getvalue</span><span class="p">():</span>
+    <span class="k">return</span> <span class="mi">10</span>
+
+<span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
+    <span class="n">libdemo</span> <span class="o">=</span> <span class="n">cdll</span><span class="o">.</span><span class="n">LoadLibrary</span><span class="p">(</span><span class="s">&#39;./demo.so&#39;</span><span class="p">)</span>
+    <span class="n">func_arg</span> <span class="o">=</span> <span class="n">libdemo</span><span class="o">.</span><span class="n">func_arg</span>
+    <span class="n">func_arg</span><span class="o">.</span><span class="n">restype</span> <span class="o">=</span> <span class="n">c_int</span>
+
+    <span class="n">py_func_getvalue</span> <span class="o">=</span> <span class="n">CFUNCTYPE</span><span class="p">(</span><span class="n">c_void_p</span><span class="p">)</span>
+    <span class="n">func_getvalue</span> <span class="o">=</span> <span class="n">py_func_getvalue</span><span class="p">(</span><span class="n">getvalue</span><span class="p">)</span>
+    <span class="k">print</span> <span class="n">func_arg</span><span class="p">(</span><span class="n">func_getvalue</span><span class="p">)</span>
+<span class="n">run</span><span class="p">()</span>
+</code></pre></div>
+
+<h3 id="section-2">根据内存地址获取数据，不过，尽量少用，这种方法并不很好</h3>
+
+<div class="highlight"><pre><code class="python"><span class="n">memaddr</span> <span class="o">=</span> <span class="n">libc</span><span class="o">.</span><span class="n">xxx</span><span class="p">()</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">c_char_p</span><span class="p">(</span><span class="n">memaddr</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+</code></pre></div>
+
 
         
           <div id="disqus_thread"></div><!-- /#disqus_thread -->
@@ -168,10 +201,10 @@
     </div><!-- /.entry-wrapper -->
     <nav class="pagination" role="navigation">
       
-        <a href="/articles/python%E4%B8%AD%E5%85%B3%E4%BA%8EFTP%E7%9A%84%E7%AC%AC%E4%B8%89%E6%96%B9%E6%A8%A1%E5%9D%97/" class="btn" title="python 中关于 FTP 的第三方模块">Previous article</a>
+        <a href="/articles/%E4%B8%80%E6%AE%B5Python%E7%9A%84%E7%B2%BE%E7%A1%AE%E9%99%A4%E6%B3%95%E8%84%9A%E6%9C%AC/" class="btn" title="一段 Python 的精确除法脚本">Previous article</a>
       
       
-        <a href="/articles/%E4%B8%80%E6%AE%B5Python%E7%9A%84%E7%B2%BE%E7%A1%AE%E9%99%A4%E6%B3%95%E8%84%9A%E6%9C%AC/" class="btn" title="一段 Python 的精确除法脚本">Next article</a>
+        <a href="/articles/%E5%A6%82%E4%BD%95%E5%B0%86IPV4%E7%BD%91%E6%AE%B5%E8%BD%AC%E4%B8%BA%E6%95%B4%E6%95%B0%E8%8C%83%E5%9B%B4/" class="btn" title="如何将IPV4网段转为整数范围">Next article</a>
       
     </nav><!-- /.pagination -->
   </article>

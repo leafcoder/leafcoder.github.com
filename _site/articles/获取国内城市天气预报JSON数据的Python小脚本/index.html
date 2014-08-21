@@ -1,0 +1,325 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>获取国内城市天气预报 JSON 数据的 Python 小脚本 &#8211; 叶子</title>
+<meta name="description" content="获取国内城市天气预报 JSON 数据的 Python 小脚本">
+<meta name="keywords" content="python, JSON, 天气预报">
+
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="获取国内城市天气预报 JSON 数据的 Python 小脚本">
+<meta property="og:description" content="获取国内城市天气预报 JSON 数据的 Python 小脚本">
+<meta property="og:url" content="/articles/%E8%8E%B7%E5%8F%96%E5%9B%BD%E5%86%85%E5%9F%8E%E5%B8%82%E5%A4%A9%E6%B0%94%E9%A2%84%E6%8A%A5JSON%E6%95%B0%E6%8D%AE%E7%9A%84Python%E5%B0%8F%E8%84%9A%E6%9C%AC/">
+<meta property="og:site_name" content="叶子">
+
+
+
+
+
+<link rel="canonical" href="/articles/%E8%8E%B7%E5%8F%96%E5%9B%BD%E5%86%85%E5%9F%8E%E5%B8%82%E5%A4%A9%E6%B0%94%E9%A2%84%E6%8A%A5JSON%E6%95%B0%E6%8D%AE%E7%9A%84Python%E5%B0%8F%E8%84%9A%E6%9C%AC/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="叶子 Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.min.css">
+<!-- Webfonts -->
+<script src="//use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body id="post">
+
+<div class="navigation-wrapper">
+	<nav role="navigation" id="site-nav" class="animated drop">
+	    <ul>
+	        
+			<li>
+				
+					<a href="/articles">Posts</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="/links">Links</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="/pics">pics</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="/about">About</a>
+				 
+			</li>
+	        
+	        <li><a href="/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+	        <li class="dosearch"><i class="icon-search"></i> Search</li>
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+<div class="search-wrapper">
+	<div class="search-form">
+		<input type="text" class="search-field" placeholder="Search...">
+		<i class="icon-remove-sign icon-2x"></i>
+		<ul class="search-results post-list"></ul><!-- /.search-results -->
+	</div><!-- /.search-form -->
+</div><!-- ./search-wrapper -->
+
+<header class="masthead">
+	<div class="wrap">
+        
+        <h1 class="site-title animated fadeIn"><a href="/">叶子</a></h1>
+		<h2 class="site-description animated fadeIn" itemprop="description">import this</h2>
+	</div>
+</header><!-- /.masthead -->
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        <span class="entry-tags">Tags：<a href="/tags/#python" title="Pages tagged python">python</a>&nbsp;&bull;&nbsp;<a href="/tags/#JSON" title="Pages tagged JSON">JSON</a>&nbsp;&bull;&nbsp;<a href="/tags/#天气预报" title="Pages tagged 天气预报">天气预报</a></span>
+        
+          <h1 class="entry-title">获取国内城市天气预报 JSON 数据的 Python 小脚本</h1>
+        
+      </header>
+      <div class="entry-content">
+        <p>脚本中的数据源是中国天气网，根据传输的参数不同，返回相应的天气数据;</p>
+
+<div class="highlight"><pre><code class="python"><span class="c"># coding: utf-8</span>
+<span class="kn">import</span> <span class="nn">urllib2</span>
+
+<span class="n">provinces</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">&quot;北京&quot;</span><span class="p">:</span> <span class="s">&quot;01&quot;</span><span class="p">,</span>
+  <span class="s">&quot;上海&quot;</span><span class="p">:</span> <span class="s">&quot;02&quot;</span><span class="p">,</span>
+  <span class="s">&quot;天津&quot;</span><span class="p">:</span> <span class="s">&quot;03&quot;</span><span class="p">,</span>
+  <span class="s">&quot;重庆&quot;</span><span class="p">:</span> <span class="s">&quot;04&quot;</span><span class="p">,</span>
+  <span class="s">&quot;黑龙江&quot;</span><span class="p">:</span> <span class="s">&quot;05&quot;</span><span class="p">,</span>
+  <span class="s">&quot;吉林&quot;</span><span class="p">:</span> <span class="s">&quot;06&quot;</span><span class="p">,</span>
+  <span class="s">&quot;辽宁&quot;</span><span class="p">:</span> <span class="s">&quot;07&quot;</span><span class="p">,</span>
+  <span class="s">&quot;内蒙古&quot;</span><span class="p">:</span> <span class="s">&quot;08&quot;</span><span class="p">,</span>
+  <span class="s">&quot;河北&quot;</span><span class="p">:</span> <span class="s">&quot;09&quot;</span><span class="p">,</span>
+  <span class="s">&quot;山西&quot;</span><span class="p">:</span> <span class="s">&quot;10&quot;</span><span class="p">,</span>
+  <span class="s">&quot;陕西&quot;</span><span class="p">:</span> <span class="s">&quot;11&quot;</span><span class="p">,</span>
+  <span class="s">&quot;山东&quot;</span><span class="p">:</span> <span class="s">&quot;12&quot;</span><span class="p">,</span>
+  <span class="s">&quot;新疆&quot;</span><span class="p">:</span> <span class="s">&quot;13&quot;</span><span class="p">,</span>
+  <span class="s">&quot;西藏&quot;</span><span class="p">:</span> <span class="s">&quot;14&quot;</span><span class="p">,</span>
+  <span class="s">&quot;青海&quot;</span><span class="p">:</span> <span class="s">&quot;15&quot;</span><span class="p">,</span>
+  <span class="s">&quot;甘肃&quot;</span><span class="p">:</span> <span class="s">&quot;16&quot;</span><span class="p">,</span>
+  <span class="s">&quot;宁夏&quot;</span><span class="p">:</span> <span class="s">&quot;17&quot;</span><span class="p">,</span>
+  <span class="s">&quot;河南&quot;</span><span class="p">:</span> <span class="s">&quot;18&quot;</span><span class="p">,</span>
+  <span class="s">&quot;江苏&quot;</span><span class="p">:</span> <span class="s">&quot;19&quot;</span><span class="p">,</span>
+  <span class="s">&quot;湖北&quot;</span><span class="p">:</span> <span class="s">&quot;20&quot;</span><span class="p">,</span>
+  <span class="s">&quot;浙江&quot;</span><span class="p">:</span> <span class="s">&quot;21&quot;</span><span class="p">,</span>
+  <span class="s">&quot;安徽&quot;</span><span class="p">:</span> <span class="s">&quot;22&quot;</span><span class="p">,</span>
+  <span class="s">&quot;福建&quot;</span><span class="p">:</span> <span class="s">&quot;23&quot;</span><span class="p">,</span>
+  <span class="s">&quot;江西&quot;</span><span class="p">:</span> <span class="s">&quot;24&quot;</span><span class="p">,</span>
+  <span class="s">&quot;湖南&quot;</span><span class="p">:</span> <span class="s">&quot;25&quot;</span><span class="p">,</span>
+  <span class="s">&quot;贵州&quot;</span><span class="p">:</span> <span class="s">&quot;26&quot;</span><span class="p">,</span>
+  <span class="s">&quot;四川&quot;</span><span class="p">:</span> <span class="s">&quot;27&quot;</span><span class="p">,</span>
+  <span class="s">&quot;广东&quot;</span><span class="p">:</span> <span class="s">&quot;28&quot;</span><span class="p">,</span>
+  <span class="s">&quot;云南&quot;</span><span class="p">:</span> <span class="s">&quot;29&quot;</span><span class="p">,</span>
+  <span class="s">&quot;广西&quot;</span><span class="p">:</span> <span class="s">&quot;30&quot;</span><span class="p">,</span>
+  <span class="s">&quot;海南&quot;</span><span class="p">:</span> <span class="s">&quot;31&quot;</span><span class="p">,</span>
+  <span class="s">&quot;香港&quot;</span><span class="p">:</span> <span class="s">&quot;32&quot;</span><span class="p">,</span>
+  <span class="s">&quot;澳门&quot;</span><span class="p">:</span> <span class="s">&quot;33&quot;</span><span class="p">,</span>
+  <span class="s">&quot;台湾&quot;</span><span class="p">:</span> <span class="s">&quot;34&quot;</span>
+<span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">fetch</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="n">req</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">content</span>
+
+<span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="n">content</span><span class="p">):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">content</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;,&#39;</span><span class="p">):</span>
+        <span class="n">code</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;|&#39;</span><span class="p">)</span>
+        <span class="n">data</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">code</span>
+    <span class="k">return</span> <span class="n">data</span>
+
+<span class="c">#url = &#39;http://m.weather.com.cn/data/101210201.html&#39;</span>
+<span class="c">#url = &#39;http://service.weather.com.cn/plugin/data/city02.xml?level=1&#39;</span>
+
+<span class="n">tmpl</span> <span class="o">=</span> <span class="s">&#39;http://service.weather.com.cn/plugin/data/city</span><span class="si">%s</span><span class="s">.xml&#39;</span>
+
+<span class="n">province</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%s</span><span class="se">\n</span><span class="s">请输入省、直辖市：&#39;</span> <span class="o">%</span> <span class="s">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">provinces</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+
+<span class="n">citys</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="n">fetch</span><span class="p">(</span><span class="n">tmpl</span> <span class="o">%</span> <span class="n">provinces</span><span class="p">[</span><span class="n">province</span><span class="p">]))</span>
+<span class="n">city</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%s</span><span class="se">\n</span><span class="s">请输入市名：&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="s">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">citys</span><span class="o">.</span><span class="n">keys</span><span class="p">())))</span>
+
+<span class="n">countys</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="n">fetch</span><span class="p">(</span><span class="n">tmpl</span> <span class="o">%</span> <span class="n">citys</span><span class="p">[</span><span class="n">city</span><span class="p">]))</span>
+<span class="n">county</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%s</span><span class="se">\n</span><span class="s">请输入区县：&#39;</span> <span class="o">%</span> <span class="s">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">countys</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+
+<span class="n">code</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">fetch</span><span class="p">(</span><span class="n">tmpl</span> <span class="o">%</span> <span class="n">countys</span><span class="p">[</span><span class="n">county</span><span class="p">])</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;|&#39;</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="n">fetch</span><span class="p">(</span><span class="s">&#39;http://m.weather.com.cn/data/</span><span class="si">%s</span><span class="s">.html&#39;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
+</code></pre></div>
+
+
+        
+          <div id="disqus_thread"></div><!-- /#disqus_thread -->
+          <!-- / disqus 评论 -->
+          <script type="text/javascript">
+              /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+              var disqus_shortname = 'leafcoder'; // required: replace example with your forum shortname
+
+              /* * * DON'T EDIT BELOW THIS LINE * * */
+              (function() {
+                  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          <!-- disqus 评论 / -->
+        
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+        <a href="/articles/%E5%A6%82%E4%BD%95%E5%B0%86IPV4%E7%BD%91%E6%AE%B5%E8%BD%AC%E4%B8%BA%E6%95%B4%E6%95%B0%E8%8C%83%E5%9B%B4/" class="btn" title="如何将IPV4网段转为整数范围">Previous article</a>
+      
+      
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
+
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2014 Leo Zhang. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/so-simple/">So Simple Theme</a>.</span>
+<div class="social-icons">
+	
+	
+	
+	
+	
+	
+	
+	<a href="http://github.com/leafcoder" title="Leo Zhang on Github" target="_blank"><i class="icon-github icon-2x"></i></a>
+	
+</div><!-- /.social-icons -->
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+<!-- Jekyll Simple Search option -->
+<script>
+  $(document).ready(function() {
+      $('.search-field').simpleJekyllSearch({
+          jsonFile : '/search.json',
+          searchResults : '.search-results',
+          template : '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
+          noResults: '<p>Nothing found.</p>'
+        });
+  });
+
+  (function( $, window, undefined ) {
+    
+     var bs = {
+          close: $(".icon-remove-sign"),
+          searchform: $(".search-form"),
+          canvas: $("body"),
+          dothis: $('.dosearch')
+      };
+    
+    bs.dothis.on('click', function() {
+      $('.search-wrapper').css({ display: "block" });
+      bs.searchform.toggleClass('active');
+      bs.searchform.find('input').focus();
+      bs.canvas.toggleClass('search-overlay');
+    });
+    
+      bs.close.on('click', function() {
+        $('.search-wrapper').removeAttr( 'style' );
+        bs.searchform.toggleClass('active');
+        bs.canvas.removeClass('search-overlay');
+    });
+  })( jQuery, window );
+</script>
+
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = '评论'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	        
+
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'leafcoder'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+</body>
+</html>

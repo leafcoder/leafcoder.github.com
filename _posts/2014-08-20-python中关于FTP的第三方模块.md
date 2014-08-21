@@ -4,7 +4,7 @@ title: python 中关于 FTP 的第三方模块
 description: "列举平时使用 python 时用过的关于 FTP 的模块"
 modified: 2014-08-20
 category: articles
-tags: [python, ubuntu, shadow, password]
+tags: [python, pyftpdlib, FTP]
 image:
   feature:
   credit: Michael Rose
