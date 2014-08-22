@@ -38,9 +38,6 @@ links:
   - title: Links
     url: /links
     external: true
-  - title: pics
-    url: /pics
-    external: true
   - title: About
     url: /about
 
