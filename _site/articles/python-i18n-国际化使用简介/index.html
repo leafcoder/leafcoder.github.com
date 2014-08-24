@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <title>python i18n（国际化）使用简介 &#8211; 叶子</title>
 <meta name="description" content="用 python 如何实现国际化呢？看了文章你就知道了">
-<meta name="keywords" content="python, i18n">
+<meta name="keywords" content="python, i18n, demo">
 
 
 
@@ -112,7 +112,7 @@
     
     <div class="entry-wrapper">
       <header class="entry-header">
-        <span class="entry-tags">Tags：<a href="/tags/#python" title="Pages tagged python">python</a>&nbsp;&bull;&nbsp;<a href="/tags/#i18n" title="Pages tagged i18n">i18n</a></span>
+        <span class="entry-tags">Tags：<a href="/tags/#python" title="Pages tagged python">python</a>&nbsp;&bull;&nbsp;<a href="/tags/#i18n" title="Pages tagged i18n">i18n</a>&nbsp;&bull;&nbsp;<a href="/tags/#demo" title="Pages tagged demo">demo</a></span>
         
           <h1 class="entry-title">python i18n（国际化）使用简介</h1>
         
@@ -194,14 +194,13 @@ msgstr ""
 
 <p>最后由 Python 进行调用，完成国际化：</p>
 
-<div class="highlight"><pre><code class="python"><span class="c">#!/usr/bin/python</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/python</span>
  
 <span class="kn">import</span> <span class="nn">gettext</span>
  
 <span class="n">gettext</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="s">&#39;lang&#39;</span><span class="p">,</span> <span class="s">&#39;./locale&#39;</span><span class="p">,</span> <span class="nb">unicode</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 <span class="n">gettext</span><span class="o">.</span><span class="n">translation</span><span class="p">(</span><span class="s">&#39;lang&#39;</span><span class="p">,</span> <span class="s">&#39;./locale&#39;</span><span class="p">,</span> <span class="n">languages</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;cn&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">_</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">)</span>
-</code></pre></div>
+<span class="k">print</span> <span class="n">_</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">)</span></code></pre></div>
 
 <h3 id="section-3">5.示例代码下载</h3>
 

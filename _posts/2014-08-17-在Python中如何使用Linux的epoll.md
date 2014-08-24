@@ -3,7 +3,7 @@ layout: post
 title: 在 Python 中如何使用 Linux 的 epoll
 description: "从2.6开始，Python包含了访问Linux epoll库的API。这篇文章用几个简单的python 3例子来展示下这个API。欢迎大家质疑和反馈。"
 category: articles
-tags: [epoll, socket, python]
+tags: [epoll, socket, python, demo]
 image:
   feature:
   credit: Michael Rose

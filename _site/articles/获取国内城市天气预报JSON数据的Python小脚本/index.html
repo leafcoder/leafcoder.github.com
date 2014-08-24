@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <title>获取国内城市天气预报 JSON 数据的 Python 小脚本 &#8211; 叶子</title>
 <meta name="description" content="获取国内城市天气预报 JSON 数据的 Python 小脚本">
-<meta name="keywords" content="python, JSON, 天气预报">
+<meta name="keywords" content="python, JSON, 天气预报, 脚本">
 
 
 
@@ -112,7 +112,7 @@
     
     <div class="entry-wrapper">
       <header class="entry-header">
-        <span class="entry-tags">Tags：<a href="/tags/#python" title="Pages tagged python">python</a>&nbsp;&bull;&nbsp;<a href="/tags/#JSON" title="Pages tagged JSON">JSON</a>&nbsp;&bull;&nbsp;<a href="/tags/#天气预报" title="Pages tagged 天气预报">天气预报</a></span>
+        <span class="entry-tags">Tags：<a href="/tags/#python" title="Pages tagged python">python</a>&nbsp;&bull;&nbsp;<a href="/tags/#JSON" title="Pages tagged JSON">JSON</a>&nbsp;&bull;&nbsp;<a href="/tags/#天气预报" title="Pages tagged 天气预报">天气预报</a>&nbsp;&bull;&nbsp;<a href="/tags/#脚本" title="Pages tagged 脚本">脚本</a></span>
         
           <h1 class="entry-title">获取国内城市天气预报 JSON 数据的 Python 小脚本</h1>
         
@@ -120,7 +120,7 @@
       <div class="entry-content">
         <p>脚本中的数据源是中国天气网，根据传输的参数不同，返回相应的天气数据;</p>
 
-<div class="highlight"><pre><code class="python"><span class="c"># coding: utf-8</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># coding: utf-8</span>
 <span class="kn">import</span> <span class="nn">urllib2</span>
 
 <span class="n">provinces</span> <span class="o">=</span> <span class="p">{</span>
@@ -189,8 +189,7 @@
 
 <span class="n">code</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">fetch</span><span class="p">(</span><span class="n">tmpl</span> <span class="o">%</span> <span class="n">countys</span><span class="p">[</span><span class="n">county</span><span class="p">])</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;|&#39;</span><span class="p">)</span>
 
-<span class="k">print</span> <span class="n">fetch</span><span class="p">(</span><span class="s">&#39;http://m.weather.com.cn/data/</span><span class="si">%s</span><span class="s">.html&#39;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
-</code></pre></div>
+<span class="k">print</span> <span class="n">fetch</span><span class="p">(</span><span class="s">&#39;http://m.weather.com.cn/data/</span><span class="si">%s</span><span class="s">.html&#39;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span></code></pre></div>
 
 
         
@@ -217,8 +216,6 @@
       
         <a href="/articles/%E5%A6%82%E4%BD%95%E5%B0%86IPV4%E7%BD%91%E6%AE%B5%E8%BD%AC%E4%B8%BA%E6%95%B4%E6%95%B0%E8%8C%83%E5%9B%B4/" class="btn" title="如何将IPV4网段转为整数范围">Previous article</a>
       
-      
-        <a href="/articles/%E7%94%A8npm%E6%97%B6%E4%B8%80%E8%88%AC%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%E5%AE%89%E8%A3%85%E5%8C%85%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/" class="btn" title="用 npm 时一般怎么解决的安装包依赖问题">Next article</a>
       
     </nav><!-- /.pagination -->
   </article>

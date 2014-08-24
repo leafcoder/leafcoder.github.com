@@ -10,14 +10,6 @@
     </url>
     
     <url>
-        <loc>/sitemap.xml</loc>
-    </url>
-    
-    <url>
-        <loc>/index.html</loc>
-    </url>
-    
-    <url>
         <loc>/about/</loc>
     </url>
     
@@ -30,11 +22,7 @@
     </url>
     
     <url>
-        <loc>/tags/</loc>
-    </url>
-    
-    <url>
-        <loc>/theme-setup/</loc>
+        <loc>/index.html</loc>
     </url>
     
     <url>
@@ -45,11 +33,19 @@
         <loc>/search.json</loc>
     </url>
     
-
+    <url>
+        <loc>/sitemap.xml</loc>
+    </url>
     
     <url>
-        <loc>/articles/%E7%94%A8npm%E6%97%B6%E4%B8%80%E8%88%AC%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%E5%AE%89%E8%A3%85%E5%8C%85%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/</loc>
+        <loc>/tags/</loc>
     </url>
+    
+    <url>
+        <loc>/theme-setup/</loc>
+    </url>
+    
+
     
     <url>
         <loc>/articles/%E8%8E%B7%E5%8F%96%E5%9B%BD%E5%86%85%E5%9F%8E%E5%B8%82%E5%A4%A9%E6%B0%94%E9%A2%84%E6%8A%A5JSON%E6%95%B0%E6%8D%AE%E7%9A%84Python%E5%B0%8F%E8%84%9A%E6%9C%AC/</loc>

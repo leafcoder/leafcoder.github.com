@@ -3,7 +3,7 @@ layout: post
 title: 获取国内城市天气预报 JSON 数据的 Python 小脚本
 description: "获取国内城市天气预报 JSON 数据的 Python 小脚本"
 category: articles
-tags: [python, JSON, 天气预报]
+tags: [python, JSON, 天气预报, 脚本]
 image:
   feature:
   credit: Michael Rose

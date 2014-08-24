@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <title>在 Python 中如何使用 Linux 的 epoll &#8211; 叶子</title>
 <meta name="description" content="从2.6开始，Python包含了访问Linux epoll库的API。这篇文章用几个简单的python 3例子来展示下这个API。欢迎大家质疑和反馈。">
-<meta name="keywords" content="epoll, socket, python">
+<meta name="keywords" content="epoll, socket, python, demo">
 
 
 
@@ -112,7 +112,7 @@
     
     <div class="entry-wrapper">
       <header class="entry-header">
-        <span class="entry-tags">Tags：<a href="/tags/#epoll" title="Pages tagged epoll">epoll</a>&nbsp;&bull;&nbsp;<a href="/tags/#socket" title="Pages tagged socket">socket</a>&nbsp;&bull;&nbsp;<a href="/tags/#python" title="Pages tagged python">python</a></span>
+        <span class="entry-tags">Tags：<a href="/tags/#epoll" title="Pages tagged epoll">epoll</a>&nbsp;&bull;&nbsp;<a href="/tags/#socket" title="Pages tagged socket">socket</a>&nbsp;&bull;&nbsp;<a href="/tags/#python" title="Pages tagged python">python</a>&nbsp;&bull;&nbsp;<a href="/tags/#demo" title="Pages tagged demo">demo</a></span>
         
           <h1 class="entry-title">在 Python 中如何使用 Linux 的 epoll</h1>
         
@@ -150,7 +150,7 @@
 
 <p>官方<a href="http://www.google.com/url?q=http%3A%2F%2Fdocs.python.org%2F3.0%2Fhowto%2Fsockets.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGiML8p3XYTS0kgoO5ZGNk5Cfav5A">howto</a>中对python socket编程有更详细的描述。</p>
 
-<div class="highlight"><pre><code class="python"><span class="n">Example</span> <span class="mi">1</span> <span class="p">(</span><span class="n">All</span> <span class="n">examples</span> <span class="n">use</span> <span class="n">Python</span> <span class="mi">3</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">Example</span> <span class="mi">1</span> <span class="p">(</span><span class="n">All</span> <span class="n">examples</span> <span class="n">use</span> <span class="n">Python</span> <span class="mi">3</span><span class="p">)</span>
 <span class="mi">1</span>  <span class="kn">import</span> <span class="nn">socket</span>
 <span class="mi">2</span>
 <span class="mi">3</span>  <span class="n">EOL1</span> <span class="o">=</span> <span class="n">b</span><span class="s">&#39;</span><span class="se">\n\n</span><span class="s">&#39;</span>
@@ -172,12 +172,11 @@
 <span class="mi">19</span>  <span class="n">connectiontoclient</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
 <span class="mi">20</span>  <span class="n">connectiontoclient</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 <span class="mi">21</span>
-<span class="mi">22</span>  <span class="n">serversocket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</code></pre></div>
+<span class="mi">22</span>  <span class="n">serversocket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></code></pre></div>
 
 <p>示例2在15行增加了一个循环来不断的处理来自客户端的连接，直到用户中断（比如键盘中断）。这个例子更清楚的说明服务端socket从不和客户端交换数据。相反的，它接收客户端的连接，然后在这台服务器上面创建一个新的socket用来和客户端通信。在23-24行的finally语句，可以确保服务端负责监听的socket会关闭，即使有异常发生。</p>
 
-<div class="highlight"><pre><code class="python"><span class="n">Example</span> <span class="mi">2</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">Example</span> <span class="mi">2</span>
 <span class="mi">1</span>  <span class="kn">import</span> <span class="nn">socket</span>
 <span class="mi">2</span>
 <span class="mi">3</span>  <span class="n">EOL1</span> <span class="o">=</span> <span class="n">b</span><span class="s">&#39;</span><span class="se">\n\n</span><span class="s">&#39;</span>
@@ -201,8 +200,7 @@
 <span class="mi">21</span>        <span class="n">connectiontoclient</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
 <span class="mi">22</span>        <span class="n">connectiontoclient</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 <span class="mi">23</span>  <span class="k">finally</span><span class="p">:</span>
-<span class="mi">24</span>     <span class="n">serversocket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</code></pre></div>
+<span class="mi">24</span>     <span class="n">serversocket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></code></pre></div>
 
 <h3 id="a-ida3socketlinux-epolla"><a id="a3">异步socket的好处以及Linux epoll</a></h3>
 
@@ -256,7 +254,7 @@
   <li>第46-48行：打开的socket连接不需要关闭，因为Python会在程序结束的时候关闭。这里显式关闭是一个好的代码习惯。</li>
 </ul>
 
-<div class="highlight"><pre><code class="python"><span class="n">Example</span> <span class="mi">3</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">Example</span> <span class="mi">3</span>
 <span class="mi">1</span>  <span class="kn">import</span> <span class="nn">socket</span><span class="o">,</span> <span class="nn">select</span>
 <span class="mi">2</span>
 <span class="mi">3</span>  <span class="n">EOL1</span> <span class="o">=</span> <span class="n">b</span><span class="s">&#39;</span><span class="se">\n\n</span><span class="s">&#39;</span>
@@ -304,8 +302,7 @@
 <span class="mi">45</span>  <span class="k">finally</span><span class="p">:</span>
 <span class="mi">46</span>     <span class="n">epoll</span><span class="o">.</span><span class="n">unregister</span><span class="p">(</span><span class="n">serversocket</span><span class="o">.</span><span class="n">fileno</span><span class="p">())</span>
 <span class="mi">47</span>     <span class="n">epoll</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="mi">48</span>     <span class="n">serversocket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</code></pre></div>
+<span class="mi">48</span>     <span class="n">serversocket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></code></pre></div>
 
 <p>epoll有两种操作模式，称为边沿触发和水平触发 。在边沿触发模式中，epoll.poll（）在读或者写event在socket上面发生后，将只会返回一次event。调用epoll.poll()的程序必须处理所有和这个event相关的数据，随后的epoll.poll()调用不会再有这个event的通知。当一个特定event的数据耗尽时，进一步尝试操作socket将导致一个异常。相反，在水平触发模式下，重复调用epoll.poll（）会重复通知关注的event，直到与该event有关的所有数据都已被处理。在水平模式下通常没有异常。</p>
 
@@ -313,7 +310,7 @@
 
 <p>示例3使用水平触发模式，这是操作的默认模式。示例4演示了如何使用边沿触发模式。在示例4中，第25，36和45行引入循环，直到出现异常才退出（或者所有其他已知的数据都被处理）。第32，38和48行捕获预期的socket异常。最后，第16，28，41和51行添加EPOLLET掩码，用来设置为边沿触发模式。</p>
 
-<div class="highlight"><pre><code class="python"><span class="n">Example</span> <span class="mi">4</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">Example</span> <span class="mi">4</span>
 <span class="mi">1</span>  <span class="kn">import</span> <span class="nn">socket</span><span class="o">,</span> <span class="nn">select</span>
 <span class="mi">2</span>
 <span class="mi">3</span>  <span class="n">EOL1</span> <span class="o">=</span> <span class="n">b</span><span class="s">&#39;</span><span class="se">\n\n</span><span class="s">&#39;</span>
@@ -373,8 +370,7 @@
 <span class="mi">57</span>  <span class="k">finally</span><span class="p">:</span>
 <span class="mi">58</span>     <span class="n">epoll</span><span class="o">.</span><span class="n">unregister</span><span class="p">(</span><span class="n">serversocket</span><span class="o">.</span><span class="n">fileno</span><span class="p">())</span>
 <span class="mi">59</span>     <span class="n">epoll</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="mi">60</span>     <span class="n">serversocket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</code></pre></div>
+<span class="mi">60</span>     <span class="n">serversocket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></code></pre></div>
 
 <p>这两种模式是类似的，水平触发模式常被用在移植使用select或者poll机制的应用程序时，而边沿触发模式可以用在当程序员不需要或不想要操作系统协助管理event状态时。
 除了这两种操作模式，epoll对象也可以注册socket使用EPOLLONESHOTevent掩码。当使用这个选项时，注册的event只适用于一个epoll.poll()调用，调用之后它会自动从被监视的socket注册列表中移除。</p>
@@ -389,7 +385,7 @@
 
 <p><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.baus.net%2Fon-tcp_cork&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGj99pcsG7FWuggh3EzvssrQ7QRDA">TCP_CORK</a>选项可以用来“封存”消息，直到他们准备好发送。如示例5的第34行和第40行所示，这个选项对于使用<a href="http://www.google.com/url?q=http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FHTTP_pipelining&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHC_dwCO2hlYoxtao0o8Q6_BhY3gw">HTTP/1.1流水线技术</a>的HTTP服务端来说，可能是一个很好的选择。</p>
 
-<div class="highlight"><pre><code class="python"><span class="n">Example</span> <span class="mi">5</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">Example</span> <span class="mi">5</span>
 <span class="mi">1</span>  <span class="kn">import</span> <span class="nn">socket</span><span class="o">,</span> <span class="nn">select</span>
 <span class="mi">2</span>
 <span class="mi">3</span>  <span class="n">EOL1</span> <span class="o">=</span> <span class="n">b</span><span class="s">&#39;</span><span class="se">\n\n</span><span class="s">&#39;</span>
@@ -439,12 +435,11 @@
 <span class="mi">47</span>  <span class="k">finally</span><span class="p">:</span>
 <span class="mi">48</span>     <span class="n">epoll</span><span class="o">.</span><span class="n">unregister</span><span class="p">(</span><span class="n">serversocket</span><span class="o">.</span><span class="n">fileno</span><span class="p">())</span>
 <span class="mi">49</span>     <span class="n">epoll</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="mi">50</span>     <span class="n">serversocket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</code></pre></div>
+<span class="mi">50</span>     <span class="n">serversocket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></code></pre></div>
 
 <p>另一方面， TCP_NODELAY选项可以用来告诉操作系统，任何传递给socket.send()的数据，不再缓存，要立即发送给客户端。如示例6的14行所示，这个选项对于使用一个SSH客户端或其他“实时”应用来说，可能是一个很好的选择。</p>
 
-<div class="highlight"><pre><code class="python"><span class="n">Example</span> <span class="mi">6</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">Example</span> <span class="mi">6</span>
 <span class="mi">1</span>  <span class="kn">import</span> <span class="nn">socket</span><span class="o">,</span> <span class="nn">select</span>
 <span class="mi">2</span>
 <span class="mi">3</span>  <span class="n">EOL1</span> <span class="o">=</span> <span class="n">b</span><span class="s">&#39;</span><span class="se">\n\n</span><span class="s">&#39;</span>
@@ -493,8 +488,7 @@
 <span class="mi">46</span>  <span class="k">finally</span><span class="p">:</span>
 <span class="mi">47</span>     <span class="n">epoll</span><span class="o">.</span><span class="n">unregister</span><span class="p">(</span><span class="n">serversocket</span><span class="o">.</span><span class="n">fileno</span><span class="p">())</span>
 <span class="mi">48</span>     <span class="n">epoll</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="mi">49</span>     <span class="n">serversocket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</code></pre></div>
+<span class="mi">49</span>     <span class="n">serversocket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></code></pre></div>
 
 <h3 id="a-ida6a"><a id="a6">源代码</a></h3>
 <p>此页面上的示例不受版权限制，这里提供<a href="http://www.google.com/url?q=http%3A%2F%2Fscotdoyle.com%2Fpython-epoll-examples.tar.gz&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGj_7emPC51_la_-A-aXVXjlf-smw">下载</a> 。</p>
