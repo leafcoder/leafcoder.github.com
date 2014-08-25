@@ -4,7 +4,7 @@ title: 基于 PySide 的 RSA 加解密小工具
 description: "基于 PySide 的 RSA 加解密小工具"
 modified: 2014-08-21
 category: articles
-tags: [python, RSA, PySide]
+tags: [python, RSA, PySide, qt]
 image:
   feature:
   credit: Michael Rose
