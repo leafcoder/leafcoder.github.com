@@ -26,6 +26,13 @@ description: "有深度有见地的博客群"
   <a target="_blank" href="http://groundworkcss.github.com/"><img src="http://zh.learnlayout.com/images/groundwork.gif" alt="groundwork"></a>
 </figure>
 
+###工具
+
+<figure class="third">
+  <a href="http://http://lesscss.org/" target="_blank">
+    <img src="http://lesscss.org/public/img/logo.png"></a>
+</figure>
+
 ###PyCon China
 
 <figure class="third">
