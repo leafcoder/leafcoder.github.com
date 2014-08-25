@@ -8,6 +8,7 @@ description: "有深度有见地的博客群"
 ###I Love It!
 
 * [akun's blog](http://zhengkun.info/ 软体动物鼻涕虫的各种随便)
+* [![CODING](https://coding.net/static/5ee8025c9dc63a6ff53153705d0e7ce8.png)](http://coding.net)
 
 ###Css Framework
 
