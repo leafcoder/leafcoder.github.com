@@ -4,7 +4,7 @@ logo:
 disqus_shortname: 评论
 search:           true
 # Change url to your domain. Leave localhost server or blank when working locally.
-url:              http://onleo.tk
+url:
 
 # Owner/author information
 owner:
