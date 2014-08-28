@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "记使用 psycopg2 事务时一件容易出错的情况",
+		  "category"   : "articles",
+		  "url"        : "/articles/%E8%AE%B0%E4%BD%BF%E7%94%A8psycopg2%E4%BA%8B%E5%8A%A1%E6%97%B6%E4%B8%80%E4%BB%B6%E5%AE%B9%E6%98%93%E5%87%BA%E9%94%99%E7%9A%84%E6%83%85%E5%86%B5/",
+		  "date"       : "2014-08-30 00:00:00 +0000",
+		  "shortdate"  : "August 30, 2014"
+		} ,
+	
+		{
 		  "title"      : "gcc 简单使用",
 		  "category"   : "articles",
 		  "url"        : "/articles/gcc%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/",

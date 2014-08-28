@@ -5,25 +5,25 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>gcc 简单使用 &#8211; 叶子</title>
-<meta name="description" content="gcc 简单使用">
-<meta name="keywords" content="gcc">
+<title>记使用 psycopg2 事务时一件容易出错的情况 &#8211; 叶子</title>
+<meta name="description" content="记使用 psycopg2 事务时一件容易出错的情况">
+<meta name="keywords" content="psycopg2, postgresql, python">
 
 
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="gcc 简单使用">
-<meta property="og:description" content="gcc 简单使用">
-<meta property="og:url" content="/articles/gcc%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">
+<meta property="og:title" content="记使用 psycopg2 事务时一件容易出错的情况">
+<meta property="og:description" content="记使用 psycopg2 事务时一件容易出错的情况">
+<meta property="og:url" content="/articles/%E8%AE%B0%E4%BD%BF%E7%94%A8psycopg2%E4%BA%8B%E5%8A%A1%E6%97%B6%E4%B8%80%E4%BB%B6%E5%AE%B9%E6%98%93%E5%87%BA%E9%94%99%E7%9A%84%E6%83%85%E5%86%B5/">
 <meta property="og:site_name" content="叶子">
 
 
 
 
 
-<link rel="canonical" href="/articles/gcc%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">
+<link rel="canonical" href="/articles/%E8%AE%B0%E4%BD%BF%E7%94%A8psycopg2%E4%BA%8B%E5%8A%A1%E6%97%B6%E4%B8%80%E4%BB%B6%E5%AE%B9%E6%98%93%E5%87%BA%E9%94%99%E7%9A%84%E6%83%85%E5%86%B5/">
 <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="叶子 Feed">
 
 
@@ -112,104 +112,76 @@
     
     <div class="entry-wrapper">
       <header class="entry-header">
-        <span class="entry-tags">Tags：<a href="/tags/#gcc" title="Pages tagged gcc">gcc</a></span>
+        <span class="entry-tags">Tags：<a href="/tags/#psycopg2" title="Pages tagged psycopg2">psycopg2</a>&nbsp;&bull;&nbsp;<a href="/tags/#postgresql" title="Pages tagged postgresql">postgresql</a>&nbsp;&bull;&nbsp;<a href="/tags/#python" title="Pages tagged python">python</a></span>
         
-          <h1 class="entry-title">gcc 简单使用</h1>
+          <h1 class="entry-title">记使用 psycopg2 事务时一件容易出错的情况</h1>
         
       </header>
       <div class="entry-content">
-        <p>c 代码的编译主要分为 4 个阶段：预处理、编译、汇编、链接；使用 gcc 可以帮助我们完成每个阶段；</p>
+        <p>注意：<strong>以下情况中，psycopg2 的 isolation_level 不是 autocommit mode。</strong></p>
 
-<p>简单 c 代码 test.c：</p>
+<p>使用 psycopg2 操作 pg（postgresql） 时，经常会用到事务（Transaction）。</p>
 
-<div class="highlight"><pre><code class="c"><span class="cp">#include &lt;stdio.h&gt;</span>
+<p>按照一般数据库的做法，我们一般会认为，事务一般是用在 <code>INSERT</code>/<code>UPDATE</code>/<code>DELETE</code> 和其他对数据库有更改的 SQL 语句中，如下就是处理事务的代码写法：</p>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello world!&quot;</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">psycopg2</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
 </code></pre></div>
 
-<h3 id="gcc-">gcc 命令用法简单说明</h3>
+<p>同时，我们一般也会认为，查询语句（SELECT）之类不对数据产生影响的语句，就不需要做事务处理了。</p>
 
-<ol>
-  <li>
-    <p>最简单编译链接 .c 文件命令</p>
+<p>但是，在 psycopg2 中，这么做是错误的，一旦 SELECT 语句出错抛出异常（如：psycopg2.ProgrammingError）后，继续运行 SQL 语句便会抛出事务异常；</p>
 
-    <p><code>$ gcc test.c</code></p>
+<blockquote>
+  <p>psycopg2.InternalError: current transaction is aborted, commands ignored until end of transaction block</p>
+</blockquote>
 
-    <p>将 test.c 编译链接为可执行文件，由于未制定输出文件名，默认生成可执行文件 a.out;</p>
+<p>于是，psycopg2 的 connection 对象便无法使用，每次执行 SQL 都会抛出异常（详情见上），必须运行 rollback() 后才能继续执行其他 SQL 语句；</p>
 
-    <p><code>$ ./a.out</code>
- Hello world!</p>
-  </li>
-  <li>
-    <p>指定输出文件名选项 -o</p>
+<ul>
+  <li>错误代码</li>
+</ul>
 
-    <p><code>$ gcc test.c -o test</code></p>
-  </li>
-  <li>
-    <p>预处理选项 -E</p>
+<div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">psycopg2</span>
 
-    <p><code>$ gcc -E test.c -o test.i</code></p>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">wrong</span> <span class="n">sql</span><span class="p">)</span> <span class="c"># 抛出异常</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">pass</span>
+<span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span> <span class="c"># 抛出 InternalError 异常，提示 transaction block</span>
+<span class="o">...</span>
+</code></pre></div>
 
-    <p>预处理 test.c 后输出到 test.i 中；</p>
-  </li>
-  <li>
-    <p>汇编选项 -S</p>
+<ul>
+  <li>正确代码</li>
+</ul>
 
-    <p><code>$ gcc -S test.i</code></p>
+<div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">psycopg2</span>
 
-    <p>将预处理文件 test.i 汇编，输出到 test.s 中；</p>
-  </li>
-  <li>
-    <p>编译选项 -c</p>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+<span class="o">...</span>
+</code></pre></div>
 
-    <p><code>$ gcc -c test.s -o test.o</code></p>
+<p><strong>出现这种情况大多在单连接项目，如果每次操作都创建一个新的 connection 对象的话，这个错误也就不会发生了。</strong></p>
 
-    <p>编译 test.s 完成后输出到文件 test.o 中；</p>
-  </li>
-  <li>
-    <p>编译优化级别（1-3）选项 -O</p>
+<p>官方文档 <a href="http://initd.org/psycopg/docs/usage.html#transactions-control" target="_blank">Transactions control</a> 中对此有所警告，警告原文如下：</p>
 
-    <p><code>$ gcc -O1 test.c -o test</code></p>
-
-    <p>以编译优化级别为 1 来编译 test.c。优化级别越大，效果越好，时间越长；</p>
-  </li>
-  <li>
-    <p>打开警告信息提示选项 -W、-Wall</p>
-
-    <p><code>gcc -Wall test.c -o test</code></p>
-
-    <p>加入选项 -Wall 后，将会显示 .c 文件编译时的警告信息；</p>
-  </li>
-  <li>
-    <p>链接使用库文件选项 -l</p>
-
-    <p>如果 test.c 中有用到 #include <math.h>，那么就需要加 -lm，代表需要使用 libmath;</math.h></p>
-
-    <p><code>gcc -lm test.c -o test</code></p>
-
-    <p>-lxxx 连接名为 xxx的库文件，在标准搜索目录中寻找库文件 <code>liblibrary.a</code>，<code>-L dir</code> 选项也可指定包含其他搜索路径；</p>
-  </li>
-  <li>
-    <p>多文件编译</p>
-
-    <p><code>gcc func.c test.c -o test</code></p>
-  </li>
-  <li>
-    <p>分别编译源文件，链接目标文件，完成多文件编译</p>
-
-    <p><code>$ gcc -c func.c -o func.o</code></p>
-
-    <p><code>$ gcc -c test.c -o test.o</code></p>
-
-    <p><code>$ gcc -c func.o test.o -o test</code></p>
-
-    <p>这种方法可以在修改文件后，之重新编译修改过的文件，未修改过文件无需重新编译；</p>
-  </li>
-</ol>
+<blockquote>
+  <p>Warning：By default even a simple SELECT will start a transaction: in long-running programs, if no further action is taken, the session will remain “idle in transaction”, a condition non desiderable for several reasons (locks are held by the session, tables bloat…). For long lived scripts, either make sure to terminate a transaction as soon as possible or use an autocommit connection.</p>
+</blockquote>
 
         
           <div id="disqus_thread"></div><!-- /#disqus_thread -->
@@ -233,10 +205,8 @@
     </div><!-- /.entry-wrapper -->
     <nav class="pagination" role="navigation">
       
-        <a href="/articles/%E7%94%A8npm%E6%97%B6%E4%B8%80%E8%88%AC%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%E5%AE%89%E8%A3%85%E5%8C%85%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/" class="btn" title="用 npm 时一般怎么解决的安装包依赖问题">Previous article</a>
+        <a href="/articles/gcc%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" class="btn" title="gcc 简单使用">Previous article</a>
       
-      
-        <a href="/articles/%E8%AE%B0%E4%BD%BF%E7%94%A8psycopg2%E4%BA%8B%E5%8A%A1%E6%97%B6%E4%B8%80%E4%BB%B6%E5%AE%B9%E6%98%93%E5%87%BA%E9%94%99%E7%9A%84%E6%83%85%E5%86%B5/" class="btn" title="记使用 psycopg2 事务时一件容易出错的情况">Next article</a>
       
     </nav><!-- /.pagination -->
   </article>

@@ -4,13 +4,93 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-08-28T01:06:45+00:00</updated>
+<updated>2014-08-28T05:46:53+00:00</updated>
 <id>/</id>
 <author>
   <name>Leo Zhang</name>
   <uri>/</uri>
   <email>leafcoder@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[记使用 psycopg2 事务时一件容易出错的情况]]></title>
+  <link rel="alternate" type="text/html" href="/articles/%E8%AE%B0%E4%BD%BF%E7%94%A8psycopg2%E4%BA%8B%E5%8A%A1%E6%97%B6%E4%B8%80%E4%BB%B6%E5%AE%B9%E6%98%93%E5%87%BA%E9%94%99%E7%9A%84%E6%83%85%E5%86%B5/"/>
+  <id>/articles/记使用psycopg2事务时一件容易出错的情况</id>
+  <published>2014-08-30T00:00:00+00:00</published>
+  <updated>2014-08-30T00:00:00+00:00</updated>
+  <author>
+    <name>Leo Zhang</name>
+    <uri></uri>
+    <email>leafcoder@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;注意：&lt;strong&gt;以下情况中，psycopg2 的 isolation_level 不是 autocommit mode。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;使用 psycopg2 操作 pg（postgresql） 时，经常会用到事务（Transaction）。&lt;/p&gt;
+
+&lt;p&gt;按照一般数据库的做法，我们一般会认为，事务一般是用在 &lt;code&gt;INSERT&lt;/code&gt;/&lt;code&gt;UPDATE&lt;/code&gt;/&lt;code&gt;DELETE&lt;/code&gt; 和其他对数据库有更改的 SQL 语句中，如下就是处理事务的代码写法：&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;psycopg2&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;psycopg2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;cur&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cursor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;cur&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sql&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;commit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;except&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rollback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;同时，我们一般也会认为，查询语句（SELECT）之类不对数据产生影响的语句，就不需要做事务处理了。&lt;/p&gt;
+
+&lt;p&gt;但是，在 psycopg2 中，这么做是错误的，一旦 SELECT 语句出错抛出异常（如：psycopg2.ProgrammingError）后，继续运行 SQL 语句便会抛出事务异常；&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;psycopg2.InternalError: current transaction is aborted, commands ignored until end of transaction block&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;于是，psycopg2 的 connection 对象便无法使用，每次执行 SQL 都会抛出异常（详情见上），必须运行 rollback() 后才能继续执行其他 SQL 语句；&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;错误代码&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;psycopg2&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;psycopg2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;cur&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;wrong&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sql&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 抛出异常&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;except&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;pass&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;cur&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sql&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 抛出 InternalError 异常，提示 transaction block&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;正确代码&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;psycopg2&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;psycopg2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;cur&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cursor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;cur&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sql&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;except&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rollback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;出现这种情况大多在单连接项目，如果每次操作都创建一个新的 connection 对象的话，这个错误也就不会发生了。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;官方文档 &lt;a href=&quot;http://initd.org/psycopg/docs/usage.html#transactions-control&quot; target=&quot;_blank&quot;&gt;Transactions control&lt;/a&gt; 中对此有所警告，警告原文如下：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Warning：By default even a simple SELECT will start a transaction: in long-running programs, if no further action is taken, the session will remain “idle in transaction”, a condition non desiderable for several reasons (locks are held by the session, tables bloat…). For long lived scripts, either make sure to terminate a transaction as soon as possible or use an autocommit connection.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/articles/%E8%AE%B0%E4%BD%BF%E7%94%A8psycopg2%E4%BA%8B%E5%8A%A1%E6%97%B6%E4%B8%80%E4%BB%B6%E5%AE%B9%E6%98%93%E5%87%BA%E9%94%99%E7%9A%84%E6%83%85%E5%86%B5/&quot;&gt;记使用 psycopg2 事务时一件容易出错的情况&lt;/a&gt; was originally published by Leo Zhang at &lt;a href=&quot;&quot;&gt;叶子&lt;/a&gt; on August 30, 2014.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
