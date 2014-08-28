@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "gcc 简单使用",
+		  "category"   : "articles",
+		  "url"        : "/articles/gcc%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/",
+		  "date"       : "2014-08-28 00:00:00 +0000",
+		  "shortdate"  : "August 28, 2014"
+		} ,
+	
+		{
 		  "title"      : "用 npm 时一般怎么解决的安装包依赖问题",
 		  "category"   : "articles",
 		  "url"        : "/articles/%E7%94%A8npm%E6%97%B6%E4%B8%80%E8%88%AC%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%E5%AE%89%E8%A3%85%E5%8C%85%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/",
