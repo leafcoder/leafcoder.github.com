@@ -10,6 +10,10 @@ image:
   creditlink:
 ---
 
+[![Coding](https://dn-coding-net-production-pp.qbox.me/7c43215b-deb3-45a9-b3b5-fbad03bc0040.png "Coding 月饼，码农神器，节操之选！您，值得拥有！马上邀请好友：https://coding.net/moon/leafcoder")](https://coding.net/moon/leafcoder)
+{: .pull-right}
+{: target="_blank"}
+
 个人 Information
 -----------------------------------
 * Name: Leo Zhang
