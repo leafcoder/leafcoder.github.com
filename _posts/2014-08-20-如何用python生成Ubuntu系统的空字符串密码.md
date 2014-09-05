@@ -35,3 +35,11 @@ print crypt.crypt(password, '$6$%s' % salt)
 将生成好的密码字符串覆盖 `/etc/shadow` 中的密码段即可。
 
 使用空密码后，`sudo` 的时候再也不需要麻烦的输入密码了，直接回车就行（千万别跟我谈什么安全之类的，这个我可管不了）。
+
+除了 Python 代码的方式，你也可以通过下面的命令生成密码串：
+
+`mkpasswd -m SHA-512 password`
+
+空密码：
+
+`mkpasswd -m SHA-512 ''`

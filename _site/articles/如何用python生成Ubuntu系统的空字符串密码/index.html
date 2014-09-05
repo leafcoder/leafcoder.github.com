@@ -140,6 +140,14 @@
 
 <p>使用空密码后，<code>sudo</code> 的时候再也不需要麻烦的输入密码了，直接回车就行（千万别跟我谈什么安全之类的，这个我可管不了）。</p>
 
+<p>除了 Python 代码的方式，你也可以通过下面的命令生成密码串：</p>
+
+<p><code>mkpasswd -m SHA-512 password</code></p>
+
+<p>空密码：</p>
+
+<p><code>mkpasswd -m SHA-512 ''</code></p>
+
         
           <div id="disqus_thread"></div><!-- /#disqus_thread -->
           <!-- / disqus 评论 -->
