@@ -16,15 +16,15 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="获取国内城市天气预报 JSON 数据的 Python 小脚本">
 <meta property="og:description" content="获取国内城市天气预报 JSON 数据的 Python 小脚本">
-<meta property="og:url" content="http://toleo.tk/articles/%E8%8E%B7%E5%8F%96%E5%9B%BD%E5%86%85%E5%9F%8E%E5%B8%82%E5%A4%A9%E6%B0%94%E9%A2%84%E6%8A%A5JSON%E6%95%B0%E6%8D%AE%E7%9A%84Python%E5%B0%8F%E8%84%9A%E6%9C%AC/">
+<meta property="og:url" content="http://leozhang.tk/articles/%E8%8E%B7%E5%8F%96%E5%9B%BD%E5%86%85%E5%9F%8E%E5%B8%82%E5%A4%A9%E6%B0%94%E9%A2%84%E6%8A%A5JSON%E6%95%B0%E6%8D%AE%E7%9A%84Python%E5%B0%8F%E8%84%9A%E6%9C%AC/">
 <meta property="og:site_name" content="叶子">
 
 
 
 
 
-<link rel="canonical" href="http://toleo.tk/articles/%E8%8E%B7%E5%8F%96%E5%9B%BD%E5%86%85%E5%9F%8E%E5%B8%82%E5%A4%A9%E6%B0%94%E9%A2%84%E6%8A%A5JSON%E6%95%B0%E6%8D%AE%E7%9A%84Python%E5%B0%8F%E8%84%9A%E6%9C%AC/">
-<link href="http://toleo.tk/feed.xml" type="application/atom+xml" rel="alternate" title="叶子 Feed">
+<link rel="canonical" href="http://leozhang.tk/articles/%E8%8E%B7%E5%8F%96%E5%9B%BD%E5%86%85%E5%9F%8E%E5%B8%82%E5%A4%A9%E6%B0%94%E9%A2%84%E6%8A%A5JSON%E6%95%B0%E6%8D%AE%E7%9A%84Python%E5%B0%8F%E8%84%9A%E6%9C%AC/">
+<link href="http://leozhang.tk/feed.xml" type="application/atom+xml" rel="alternate" title="叶子 Feed">
 
 
 <!-- http://t.co/dKP3o1e -->
@@ -33,28 +33,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="http://toleo.tk/assets/css/main.min.css">
+<link rel="stylesheet" href="http://leozhang.tk/assets/css/main.min.css">
 <!-- Webfonts -->
-<script src="//use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
+<!--<script src="//use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>-->
 
 <meta http-equiv="cleartype" content="on">
 
 <!-- Load Modernizr -->
-<script src="http://toleo.tk/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+<script src="http://leozhang.tk/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
 
 <!-- Icons -->
 <!-- 16x16 -->
-<link rel="shortcut icon" href="http://toleo.tk/favicon.ico">
+<link rel="shortcut icon" href="http://leozhang.tk/favicon.ico">
 <!-- 32x32 -->
-<link rel="shortcut icon" href="http://toleo.tk/favicon.png">
+<link rel="shortcut icon" href="http://leozhang.tk/favicon.png">
 <!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
-<link rel="apple-touch-icon-precomposed" href="http://toleo.tk/images/apple-touch-icon-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="http://leozhang.tk/images/apple-touch-icon-precomposed.png">
 <!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://toleo.tk/images/apple-touch-icon-72x72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://leozhang.tk/images/apple-touch-icon-72x72-precomposed.png">
 <!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://toleo.tk/images/apple-touch-icon-114x114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://leozhang.tk/images/apple-touch-icon-114x114-precomposed.png">
 <!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://toleo.tk/images/apple-touch-icon-144x144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://leozhang.tk/images/apple-touch-icon-144x144-precomposed.png">
 
 </head>
 
@@ -78,11 +78,11 @@
 	        
 			<li>
 				
-					<a href="http://toleo.tk/about">About</a>
+					<a href="http://leozhang.tk/about">About</a>
 				 
 			</li>
 	        
-	        <li><a href="http://toleo.tk/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+	        <li><a href="http://leozhang.tk/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
 	        <li class="dosearch"><i class="icon-search"></i> Search</li>
 	    </ul>
 	</nav>
@@ -112,7 +112,7 @@
     
     <div class="entry-wrapper">
       <header class="entry-header">
-        <span class="entry-tags">Tags：<a href="http://toleo.tk/tags/#python" title="Pages tagged python">python</a>&nbsp;&bull;&nbsp;<a href="http://toleo.tk/tags/#JSON" title="Pages tagged JSON">JSON</a>&nbsp;&bull;&nbsp;<a href="http://toleo.tk/tags/#天气预报" title="Pages tagged 天气预报">天气预报</a>&nbsp;&bull;&nbsp;<a href="http://toleo.tk/tags/#脚本" title="Pages tagged 脚本">脚本</a></span>
+        <span class="entry-tags">Tags：<a href="http://leozhang.tk/tags/#python" title="Pages tagged python">python</a>&nbsp;&bull;&nbsp;<a href="http://leozhang.tk/tags/#JSON" title="Pages tagged JSON">JSON</a>&nbsp;&bull;&nbsp;<a href="http://leozhang.tk/tags/#天气预报" title="Pages tagged 天气预报">天气预报</a>&nbsp;&bull;&nbsp;<a href="http://leozhang.tk/tags/#脚本" title="Pages tagged 脚本">脚本</a></span>
         
           <h1 class="entry-title">获取国内城市天气预报 JSON 数据的 Python 小脚本</h1>
         
@@ -120,77 +120,78 @@
       <div class="entry-content">
         <p>脚本中的数据源是中国天气网，根据传输的参数不同，返回相应的天气数据;</p>
 
-<div class="highlight"><pre><code class="python"><span class="c"># coding: utf-8</span>
-<span class="kn">import</span> <span class="nn">urllib2</span>
+<div>
+  <pre><code class="python"># coding: utf-8
+import urllib2
 
-<span class="n">provinces</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s">&quot;北京&quot;</span><span class="p">:</span> <span class="s">&quot;01&quot;</span><span class="p">,</span>
-  <span class="s">&quot;上海&quot;</span><span class="p">:</span> <span class="s">&quot;02&quot;</span><span class="p">,</span>
-  <span class="s">&quot;天津&quot;</span><span class="p">:</span> <span class="s">&quot;03&quot;</span><span class="p">,</span>
-  <span class="s">&quot;重庆&quot;</span><span class="p">:</span> <span class="s">&quot;04&quot;</span><span class="p">,</span>
-  <span class="s">&quot;黑龙江&quot;</span><span class="p">:</span> <span class="s">&quot;05&quot;</span><span class="p">,</span>
-  <span class="s">&quot;吉林&quot;</span><span class="p">:</span> <span class="s">&quot;06&quot;</span><span class="p">,</span>
-  <span class="s">&quot;辽宁&quot;</span><span class="p">:</span> <span class="s">&quot;07&quot;</span><span class="p">,</span>
-  <span class="s">&quot;内蒙古&quot;</span><span class="p">:</span> <span class="s">&quot;08&quot;</span><span class="p">,</span>
-  <span class="s">&quot;河北&quot;</span><span class="p">:</span> <span class="s">&quot;09&quot;</span><span class="p">,</span>
-  <span class="s">&quot;山西&quot;</span><span class="p">:</span> <span class="s">&quot;10&quot;</span><span class="p">,</span>
-  <span class="s">&quot;陕西&quot;</span><span class="p">:</span> <span class="s">&quot;11&quot;</span><span class="p">,</span>
-  <span class="s">&quot;山东&quot;</span><span class="p">:</span> <span class="s">&quot;12&quot;</span><span class="p">,</span>
-  <span class="s">&quot;新疆&quot;</span><span class="p">:</span> <span class="s">&quot;13&quot;</span><span class="p">,</span>
-  <span class="s">&quot;西藏&quot;</span><span class="p">:</span> <span class="s">&quot;14&quot;</span><span class="p">,</span>
-  <span class="s">&quot;青海&quot;</span><span class="p">:</span> <span class="s">&quot;15&quot;</span><span class="p">,</span>
-  <span class="s">&quot;甘肃&quot;</span><span class="p">:</span> <span class="s">&quot;16&quot;</span><span class="p">,</span>
-  <span class="s">&quot;宁夏&quot;</span><span class="p">:</span> <span class="s">&quot;17&quot;</span><span class="p">,</span>
-  <span class="s">&quot;河南&quot;</span><span class="p">:</span> <span class="s">&quot;18&quot;</span><span class="p">,</span>
-  <span class="s">&quot;江苏&quot;</span><span class="p">:</span> <span class="s">&quot;19&quot;</span><span class="p">,</span>
-  <span class="s">&quot;湖北&quot;</span><span class="p">:</span> <span class="s">&quot;20&quot;</span><span class="p">,</span>
-  <span class="s">&quot;浙江&quot;</span><span class="p">:</span> <span class="s">&quot;21&quot;</span><span class="p">,</span>
-  <span class="s">&quot;安徽&quot;</span><span class="p">:</span> <span class="s">&quot;22&quot;</span><span class="p">,</span>
-  <span class="s">&quot;福建&quot;</span><span class="p">:</span> <span class="s">&quot;23&quot;</span><span class="p">,</span>
-  <span class="s">&quot;江西&quot;</span><span class="p">:</span> <span class="s">&quot;24&quot;</span><span class="p">,</span>
-  <span class="s">&quot;湖南&quot;</span><span class="p">:</span> <span class="s">&quot;25&quot;</span><span class="p">,</span>
-  <span class="s">&quot;贵州&quot;</span><span class="p">:</span> <span class="s">&quot;26&quot;</span><span class="p">,</span>
-  <span class="s">&quot;四川&quot;</span><span class="p">:</span> <span class="s">&quot;27&quot;</span><span class="p">,</span>
-  <span class="s">&quot;广东&quot;</span><span class="p">:</span> <span class="s">&quot;28&quot;</span><span class="p">,</span>
-  <span class="s">&quot;云南&quot;</span><span class="p">:</span> <span class="s">&quot;29&quot;</span><span class="p">,</span>
-  <span class="s">&quot;广西&quot;</span><span class="p">:</span> <span class="s">&quot;30&quot;</span><span class="p">,</span>
-  <span class="s">&quot;海南&quot;</span><span class="p">:</span> <span class="s">&quot;31&quot;</span><span class="p">,</span>
-  <span class="s">&quot;香港&quot;</span><span class="p">:</span> <span class="s">&quot;32&quot;</span><span class="p">,</span>
-  <span class="s">&quot;澳门&quot;</span><span class="p">:</span> <span class="s">&quot;33&quot;</span><span class="p">,</span>
-  <span class="s">&quot;台湾&quot;</span><span class="p">:</span> <span class="s">&quot;34&quot;</span>
-<span class="p">}</span>
+provinces = {
+  &quot;北京&quot;: &quot;01&quot;,
+  &quot;上海&quot;: &quot;02&quot;,
+  &quot;天津&quot;: &quot;03&quot;,
+  &quot;重庆&quot;: &quot;04&quot;,
+  &quot;黑龙江&quot;: &quot;05&quot;,
+  &quot;吉林&quot;: &quot;06&quot;,
+  &quot;辽宁&quot;: &quot;07&quot;,
+  &quot;内蒙古&quot;: &quot;08&quot;,
+  &quot;河北&quot;: &quot;09&quot;,
+  &quot;山西&quot;: &quot;10&quot;,
+  &quot;陕西&quot;: &quot;11&quot;,
+  &quot;山东&quot;: &quot;12&quot;,
+  &quot;新疆&quot;: &quot;13&quot;,
+  &quot;西藏&quot;: &quot;14&quot;,
+  &quot;青海&quot;: &quot;15&quot;,
+  &quot;甘肃&quot;: &quot;16&quot;,
+  &quot;宁夏&quot;: &quot;17&quot;,
+  &quot;河南&quot;: &quot;18&quot;,
+  &quot;江苏&quot;: &quot;19&quot;,
+  &quot;湖北&quot;: &quot;20&quot;,
+  &quot;浙江&quot;: &quot;21&quot;,
+  &quot;安徽&quot;: &quot;22&quot;,
+  &quot;福建&quot;: &quot;23&quot;,
+  &quot;江西&quot;: &quot;24&quot;,
+  &quot;湖南&quot;: &quot;25&quot;,
+  &quot;贵州&quot;: &quot;26&quot;,
+  &quot;四川&quot;: &quot;27&quot;,
+  &quot;广东&quot;: &quot;28&quot;,
+  &quot;云南&quot;: &quot;29&quot;,
+  &quot;广西&quot;: &quot;30&quot;,
+  &quot;海南&quot;: &quot;31&quot;,
+  &quot;香港&quot;: &quot;32&quot;,
+  &quot;澳门&quot;: &quot;33&quot;,
+  &quot;台湾&quot;: &quot;34&quot;
+}
 
-<span class="k">def</span> <span class="nf">fetch</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
-    <span class="n">req</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-    <span class="n">f</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
-    <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">content</span>
+def fetch(url):
+    req = urllib2.Request(url)
+    f = urllib2.urlopen(req)
+    content = f.read()
+    f.close()
+    return content
 
-<span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="n">content</span><span class="p">):</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">content</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;,&#39;</span><span class="p">):</span>
-        <span class="n">code</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;|&#39;</span><span class="p">)</span>
-        <span class="n">data</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">code</span>
-    <span class="k">return</span> <span class="n">data</span>
+def parse(content):
+    data = {}
+    for item in content.split(','):
+        code, name = item.split('|')
+        data[name] = code
+    return data
 
-<span class="c">#url = &#39;http://m.weather.com.cn/data/101210201.html&#39;</span>
-<span class="c">#url = &#39;http://service.weather.com.cn/plugin/data/city02.xml?level=1&#39;</span>
+#url = 'http://m.weather.com.cn/data/101210201.html'
+#url = 'http://service.weather.com.cn/plugin/data/city02.xml?level=1'
 
-<span class="n">tmpl</span> <span class="o">=</span> <span class="s">&#39;http://service.weather.com.cn/plugin/data/city</span><span class="si">%s</span><span class="s">.xml&#39;</span>
+tmpl = 'http://service.weather.com.cn/plugin/data/city%s.xml'
 
-<span class="n">province</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%s</span><span class="se">\n</span><span class="s">请输入省、直辖市：&#39;</span> <span class="o">%</span> <span class="s">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">provinces</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+province = raw_input('%s\n请输入省、直辖市：' % ' '.join(provinces.keys()))
 
-<span class="n">citys</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="n">fetch</span><span class="p">(</span><span class="n">tmpl</span> <span class="o">%</span> <span class="n">provinces</span><span class="p">[</span><span class="n">province</span><span class="p">]))</span>
-<span class="n">city</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%s</span><span class="se">\n</span><span class="s">请输入市名：&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="s">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">citys</span><span class="o">.</span><span class="n">keys</span><span class="p">())))</span>
+citys = parse(fetch(tmpl % provinces[province]))
+city = raw_input('%s\n请输入市名：' % (' '.join(citys.keys())))
 
-<span class="n">countys</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="n">fetch</span><span class="p">(</span><span class="n">tmpl</span> <span class="o">%</span> <span class="n">citys</span><span class="p">[</span><span class="n">city</span><span class="p">]))</span>
-<span class="n">county</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%s</span><span class="se">\n</span><span class="s">请输入区县：&#39;</span> <span class="o">%</span> <span class="s">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">countys</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+countys = parse(fetch(tmpl % citys[city]))
+county = raw_input('%s\n请输入区县：' % ' '.join(countys.keys()))
 
-<span class="n">code</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">fetch</span><span class="p">(</span><span class="n">tmpl</span> <span class="o">%</span> <span class="n">countys</span><span class="p">[</span><span class="n">county</span><span class="p">])</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;|&#39;</span><span class="p">)</span>
+code, name = fetch(tmpl % countys[county]).split('|')
 
-<span class="k">print</span> <span class="n">fetch</span><span class="p">(</span><span class="s">&#39;http://m.weather.com.cn/data/</span><span class="si">%s</span><span class="s">.html&#39;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
-</code></pre></div>
+print fetch('http://m.weather.com.cn/data/%s.html' % name)</code></pre>
+</div>
 
 
         
@@ -215,10 +216,10 @@
     </div><!-- /.entry-wrapper -->
     <nav class="pagination" role="navigation">
       
-        <a href="http://toleo.tk/articles/%E5%A6%82%E4%BD%95%E5%B0%86IPV4%E7%BD%91%E6%AE%B5%E8%BD%AC%E4%B8%BA%E6%95%B4%E6%95%B0%E8%8C%83%E5%9B%B4/" class="btn" title="如何将IPV4网段转为整数范围">Previous article</a>
+        <a href="http://leozhang.tk/articles/%E5%A6%82%E4%BD%95%E5%B0%86IPV4%E7%BD%91%E6%AE%B5%E8%BD%AC%E4%B8%BA%E6%95%B4%E6%95%B0%E8%8C%83%E5%9B%B4/" class="btn" title="如何将IPV4网段转为整数范围">Previous article</a>
       
       
-        <a href="http://toleo.tk/articles/%E7%94%A8npm%E6%97%B6%E4%B8%80%E8%88%AC%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%E5%AE%89%E8%A3%85%E5%8C%85%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/" class="btn" title="用 npm 时一般怎么解决的安装包依赖问题">Next article</a>
+        <a href="http://leozhang.tk/articles/%E7%94%A8npm%E6%97%B6%E4%B8%80%E8%88%AC%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%E5%AE%89%E8%A3%85%E5%8C%85%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/" class="btn" title="用 npm 时一般怎么解决的安装包依赖问题">Next article</a>
       
     </nav><!-- /.pagination -->
   </article>
@@ -227,7 +228,7 @@
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2014 Leo Zhang. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/so-simple/">So Simple Theme</a>.</span>
+    <span>&copy; 2015 Leo Zhang. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/so-simple/">So Simple Theme</a>.</span>
 <div class="social-icons">
 	
 	
@@ -250,19 +251,23 @@
   ga('send', 'pageview');
 
 </script>
+<!-- share button -->
+<script>var sharebutton_is_horizontal = true; var sharebutton_url = document.location.href;
+document.write('<script src="//cdn.sharebutton.org/share.js"></scr' + 'ipt>');
+</script>
 
   </footer>
 </div><!-- /.footer-wrapper -->
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="http://toleo.tk/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-<script src="http://toleo.tk/assets/js/scripts.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://leozhang.tk/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://leozhang.tk/assets/js/scripts.min.js"></script>
 
 <!-- Jekyll Simple Search option -->
 <script>
   $(document).ready(function() {
       $('.search-field').simpleJekyllSearch({
-          jsonFile : 'http://toleo.tk/search.json',
+          jsonFile : 'http://leozhang.tk/search.json',
           searchResults : '.search-results',
           template : '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
           noResults: '<p>Nothing found.</p>'
