@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Failed to load module canberra-gtk-module",
+		  "category"   : "articles",
+		  "url"        : "http://leozhang.tk/articles/Failed-to-load-module-canberra-gtk-module/",
+		  "date"       : "2015-09-22 00:00:00 +0800",
+		  "shortdate"  : "September 22, 2015"
+		} ,
+	
+		{
 		  "title"      : "记使用 psycopg2 事务时一件容易出错的情况",
 		  "category"   : "articles",
 		  "url"        : "http://leozhang.tk/articles/%E8%AE%B0%E4%BD%BF%E7%94%A8psycopg2%E4%BA%8B%E5%8A%A1%E6%97%B6%E4%B8%80%E4%BB%B6%E5%AE%B9%E6%98%93%E5%87%BA%E9%94%99%E7%9A%84%E6%83%85%E5%86%B5/",
