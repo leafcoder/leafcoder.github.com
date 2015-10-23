@@ -4,13 +4,40 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://leozhang.tk/feed.xml" />
 <link rel="alternate" type="text/html" href="http://leozhang.tk" />
-<updated>2015-09-22T09:31:58+08:00</updated>
+<updated>2015-10-23T09:55:17+08:00</updated>
 <id>http://leozhang.tk/</id>
 <author>
   <name>Leo Zhang</name>
   <uri>http://leozhang.tk/</uri>
   <email>leafcoder@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[如何关闭Ubuntu默认开启的dnsmasq服务]]></title>
+  <link rel="alternate" type="text/html" href="http://leozhang.tk/articles/%E5%A6%82%E4%BD%95%E5%85%B3%E9%97%ADUbuntu%E9%BB%98%E8%AE%A4%E5%BC%80%E5%90%AF%E7%9A%84dnsmasq%E6%9C%8D%E5%8A%A1/"/>
+  <id>http://leozhang.tk/articles/如何关闭Ubuntu默认开启的dnsmasq服务</id>
+  <published>2015-10-23T00:00:00+08:00</published>
+  <updated>2015-10-23T00:00:00+08:00</updated>
+  <author>
+    <name>Leo Zhang</name>
+    <uri>http://leozhang.tk</uri>
+    <email>leafcoder@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Q: Ubuntu 默认开启 dnsmasq 服务，占用了本机53端口，当需要在本机测试或使用其他 dns 服务器时，如何关闭 dnsmasq 服务而且重启电脑后 dnsmasq 服务不会重新被开启？&lt;/p&gt;
+
+&lt;p&gt;A: &lt;code&gt;$ sudo vi /etc/NetworkManager/NetworkManager.conf&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;注释掉 &lt;code&gt;dns=dnsmasq&lt;/code&gt;，如下：&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;# dns=dnsmasq&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;保存后重启 network-manager，&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sudo restart network-manger&lt;/code&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://leozhang.tk/articles/%E5%A6%82%E4%BD%95%E5%85%B3%E9%97%ADUbuntu%E9%BB%98%E8%AE%A4%E5%BC%80%E5%90%AF%E7%9A%84dnsmasq%E6%9C%8D%E5%8A%A1/&quot;&gt;如何关闭Ubuntu默认开启的dnsmasq服务&lt;/a&gt; was originally published by Leo Zhang at &lt;a href=&quot;http://leozhang.tk&quot;&gt;叶子&lt;/a&gt; on October 23, 2015.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>

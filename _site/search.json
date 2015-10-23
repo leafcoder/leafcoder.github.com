@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "如何关闭Ubuntu默认开启的dnsmasq服务",
+		  "category"   : "articles",
+		  "url"        : "http://leozhang.tk/articles/%E5%A6%82%E4%BD%95%E5%85%B3%E9%97%ADUbuntu%E9%BB%98%E8%AE%A4%E5%BC%80%E5%90%AF%E7%9A%84dnsmasq%E6%9C%8D%E5%8A%A1/",
+		  "date"       : "2015-10-23 00:00:00 +0800",
+		  "shortdate"  : "October 23, 2015"
+		} ,
+	
+		{
 		  "title"      : "Failed to load module canberra-gtk-module",
 		  "category"   : "articles",
 		  "url"        : "http://leozhang.tk/articles/Failed-to-load-module-canberra-gtk-module/",
