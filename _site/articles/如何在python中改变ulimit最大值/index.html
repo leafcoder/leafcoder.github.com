@@ -5,25 +5,25 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>如何关闭Ubuntu默认开启的dnsmasq服务 &#8211; 叶子</title>
-<meta name="description" content="如何关闭Ubuntu默认开启的dnsmasq服务">
-<meta name="keywords" content="faq, dns">
+<title>如何在 python 中改变 ulimit 最大值 &#8211; 叶子</title>
+<meta name="description" content="如何在 python 中改变 ulimit 最大值">
+<meta name="keywords" content="python, ulimit">
 
 
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何关闭Ubuntu默认开启的dnsmasq服务">
-<meta property="og:description" content="如何关闭Ubuntu默认开启的dnsmasq服务">
-<meta property="og:url" content="http://leozhang.tk/articles/%E5%A6%82%E4%BD%95%E5%85%B3%E9%97%ADUbuntu%E9%BB%98%E8%AE%A4%E5%BC%80%E5%90%AF%E7%9A%84dnsmasq%E6%9C%8D%E5%8A%A1/">
+<meta property="og:title" content="如何在 python 中改变 ulimit 最大值">
+<meta property="og:description" content="如何在 python 中改变 ulimit 最大值">
+<meta property="og:url" content="http://leozhang.tk/articles/%E5%A6%82%E4%BD%95%E5%9C%A8python%E4%B8%AD%E6%94%B9%E5%8F%98ulimit%E6%9C%80%E5%A4%A7%E5%80%BC/">
 <meta property="og:site_name" content="叶子">
 
 
 
 
 
-<link rel="canonical" href="http://leozhang.tk/articles/%E5%A6%82%E4%BD%95%E5%85%B3%E9%97%ADUbuntu%E9%BB%98%E8%AE%A4%E5%BC%80%E5%90%AF%E7%9A%84dnsmasq%E6%9C%8D%E5%8A%A1/">
+<link rel="canonical" href="http://leozhang.tk/articles/%E5%A6%82%E4%BD%95%E5%9C%A8python%E4%B8%AD%E6%94%B9%E5%8F%98ulimit%E6%9C%80%E5%A4%A7%E5%80%BC/">
 <link href="http://leozhang.tk/feed.xml" type="application/atom+xml" rel="alternate" title="叶子 Feed">
 
 
@@ -112,23 +112,23 @@
     
     <div class="entry-wrapper">
       <header class="entry-header">
-        <span class="entry-tags">Tags：<a href="http://leozhang.tk/tags/#faq" title="Pages tagged faq">faq</a>&nbsp;&bull;&nbsp;<a href="http://leozhang.tk/tags/#dns" title="Pages tagged dns">dns</a></span>
+        <span class="entry-tags">Tags：<a href="http://leozhang.tk/tags/#python" title="Pages tagged python">python</a>&nbsp;&bull;&nbsp;<a href="http://leozhang.tk/tags/#ulimit" title="Pages tagged ulimit">ulimit</a></span>
         
-          <h1 class="entry-title">如何关闭Ubuntu默认开启的dnsmasq服务</h1>
+          <h1 class="entry-title">如何在 python 中改变 ulimit 最大值</h1>
         
       </header>
       <div class="entry-content">
-        <p>Q: Ubuntu 默认开启 dnsmasq 服务，占用了本机53端口，当需要在本机测试或使用其他 dns 服务器时，如何关闭 dnsmasq 服务而且重启电脑后 dnsmasq 服务不会重新被开启？</p>
+        <pre><code>import os
+import resource
 
-<p>A: <code>$ sudo vi /etc/NetworkManager/NetworkManager.conf</code></p>
+print "修改ulimit前:", resource.getrlimit(resource.RLIMIT_NOFILE)
+resource.setrlimit(resource.RLIMIT_NOFILE, (131072, 131072))
+print "修改ulimit后:", resource.getrlimit(resource.RLIMIT_NOFILE)
+</code></pre>
 
-<p>注释掉 <code>dns=dnsmasq</code>，如下：</p>
+<p>以上代码可以用于修改当前进程的<em>ulimit</em>最大值，避免文件句柄数不足，发生异常：</p>
 
-<p><code># dns=dnsmasq</code></p>
-
-<p>保存后重启 network-manager，</p>
-
-<p><code>sudo restart network-manger</code></p>
+<p><code>socket.error: [Errno 24] Too many open files</code></p>
 
         
           <div id="disqus_thread"></div><!-- /#disqus_thread -->
@@ -152,10 +152,8 @@
     </div><!-- /.entry-wrapper -->
     <nav class="pagination" role="navigation">
       
-        <a href="http://leozhang.tk/articles/Failed-to-load-module-canberra-gtk-module/" class="btn" title="Failed to load module canberra-gtk-module">Previous article</a>
+        <a href="http://leozhang.tk/articles/%E5%A6%82%E4%BD%95%E5%85%B3%E9%97%ADUbuntu%E9%BB%98%E8%AE%A4%E5%BC%80%E5%90%AF%E7%9A%84dnsmasq%E6%9C%8D%E5%8A%A1/" class="btn" title="如何关闭Ubuntu默认开启的dnsmasq服务">Previous article</a>
       
-      
-        <a href="http://leozhang.tk/articles/%E5%A6%82%E4%BD%95%E5%9C%A8python%E4%B8%AD%E6%94%B9%E5%8F%98ulimit%E6%9C%80%E5%A4%A7%E5%80%BC/" class="btn" title="如何在 python 中改变 ulimit 最大值">Next article</a>
       
     </nav><!-- /.pagination -->
   </article>
