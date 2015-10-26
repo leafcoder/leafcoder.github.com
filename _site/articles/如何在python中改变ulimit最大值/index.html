@@ -118,11 +118,10 @@
         
       </header>
       <div class="entry-content">
-        <pre><code>import os
-import resource
+        <pre><code>import resource
 
 print "修改ulimit前:", resource.getrlimit(resource.RLIMIT_NOFILE)
-resource.setrlimit(resource.RLIMIT_NOFILE, (131072, 131072))
+resource.setrlimit(resource.RLIMIT_NOFILE, (131072, 131072)) # 131072 代表要修改的ulimit数
 print "修改ulimit后:", resource.getrlimit(resource.RLIMIT_NOFILE)
 </code></pre>
 
