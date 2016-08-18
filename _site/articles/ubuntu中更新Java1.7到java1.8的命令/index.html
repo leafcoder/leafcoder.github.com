@@ -5,25 +5,25 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>关于 ctypes 的简单用例 &#8211; 叶子</title>
-<meta name="description" content="关于 ctypes 的简单用例">
-<meta name="keywords" content="python, ctypes, demo">
+<title>ubuntu中更新Java1.7到java1.8的命令 &#8211; 叶子</title>
+<meta name="description" content="ubuntu中更新Java1.7到java1.8的命令">
+<meta name="keywords" content="ubuntu, java">
 
 
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于 ctypes 的简单用例">
-<meta property="og:description" content="关于 ctypes 的简单用例">
-<meta property="og:url" content="/articles/%E5%85%B3%E4%BA%8Ectypes%E7%9A%84%E7%AE%80%E5%8D%95%E7%94%A8%E4%BE%8B/">
+<meta property="og:title" content="ubuntu中更新Java1.7到java1.8的命令">
+<meta property="og:description" content="ubuntu中更新Java1.7到java1.8的命令">
+<meta property="og:url" content="/articles/ubuntu%E4%B8%AD%E6%9B%B4%E6%96%B0Java1.7%E5%88%B0java1.8%E7%9A%84%E5%91%BD%E4%BB%A4/">
 <meta property="og:site_name" content="叶子">
 
 
 
 
 
-<link rel="canonical" href="/articles/%E5%85%B3%E4%BA%8Ectypes%E7%9A%84%E7%AE%80%E5%8D%95%E7%94%A8%E4%BE%8B/">
+<link rel="canonical" href="/articles/ubuntu%E4%B8%AD%E6%9B%B4%E6%96%B0Java1.7%E5%88%B0java1.8%E7%9A%84%E5%91%BD%E4%BB%A4/">
 <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="叶子 Feed">
 
 
@@ -112,69 +112,16 @@
     
     <div class="entry-wrapper">
       <header class="entry-header">
-        <span class="entry-tags">Tags：<a href="/tags/#python" title="Pages tagged python">python</a>&nbsp;&bull;&nbsp;<a href="/tags/#ctypes" title="Pages tagged ctypes">ctypes</a>&nbsp;&bull;&nbsp;<a href="/tags/#demo" title="Pages tagged demo">demo</a></span>
+        <span class="entry-tags">Tags：<a href="/tags/#ubuntu" title="Pages tagged ubuntu">ubuntu</a>&nbsp;&bull;&nbsp;<a href="/tags/#java" title="Pages tagged java">java</a></span>
         
-          <h1 class="entry-title">关于 ctypes 的简单用例</h1>
+          <h1 class="entry-title">ubuntu中更新Java1.7到java1.8的命令</h1>
         
       </header>
       <div class="entry-content">
-        <h3 id="section">结构体、数组、指针、指向数组的指针</h3>
-
-<div>
-  <pre><code class="python">from ctypes import *
-
-class point(Structure):
-    pass
-
-point._fields_ = [
-    ('x', c_int),
-    ('y', c_int)
-]
-
-arry_gen = point * 10
-arry = arry_gen(range(10))
-
-arry_ptr_gen = POINTER(point)
-arry_ptr = arry_ptr_gen(arry)</code></pre>
-</div>
-
-<h3 id="section-1">回调函数用法</h3>
-
-<pre><code># /* demo.c --&gt; demo.so */
-# include &lt;stdio.h&gt;
-
-# typedef int (*callback)(void);
-
-# int func_arg (callback get_value)
-# {
-#     return get_value();
-# }
+        <pre><code>$ sudo add-apt-repository ppa:webupd8team/java
+$ sudo apt-get update
+$ sudo apt-get install oracle-java8-installer
 </code></pre>
-
-<div>
-  <pre><code class="python">from ctypes import *
-
-def getvalue():
-    return 10
-
-def run():
-    libdemo = cdll.LoadLibrary('./demo.so')
-    func_arg = libdemo.func_arg
-    func_arg.restype = c_int
-
-    py_func_getvalue = CFUNCTYPE(c_void_p)
-    func_getvalue = py_func_getvalue(getvalue)
-    print func_arg(func_getvalue)
-run()</code></pre>
-</div>
-
-<h3 id="section-2">根据内存地址获取数据，不过，尽量少用，这种方法并不很好</h3>
-
-<div>
-  <pre><code class="python">memaddr = libc.xxx()
-v = c_char_p(memaddr).value</code></pre>
-</div>
-
 
         
           <div id="disqus_thread"></div><!-- /#disqus_thread -->
@@ -198,10 +145,8 @@ v = c_char_p(memaddr).value</code></pre>
     </div><!-- /.entry-wrapper -->
     <nav class="pagination" role="navigation">
       
-        <a href="/articles/%E4%B8%80%E6%AE%B5Python%E7%9A%84%E7%B2%BE%E7%A1%AE%E9%99%A4%E6%B3%95%E8%84%9A%E6%9C%AC/" class="btn" title="一段 Python 的精确除法脚本">Previous article</a>
+        <a href="/articles/%E7%9B%B4%E6%8E%A5%E9%80%9A%E8%BF%87JSON.loads%E8%8E%B7%E5%8F%96%E5%88%B0UTF8%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%95%B0%E6%8D%AE/" class="btn" title="直接通过 JSON.loads 获取到 UTF8 类型的数据">Previous article</a>
       
-      
-        <a href="/articles/%E5%9F%BA%E4%BA%8EPySide%E7%9A%84Base64%E5%8A%A0%E8%A7%A3%E5%AF%86%E5%B0%8F%E5%B7%A5%E5%85%B7/" class="btn" title="基于 PySide 的 Base64 加解密小工具">Next article</a>
       
     </nav><!-- /.pagination -->
   </article>
