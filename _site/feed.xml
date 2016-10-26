@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2016-08-18T10:07:40+08:00</updated>
+<updated>2016-10-26T09:56:19+08:00</updated>
 <id>/</id>
 <author>
   <name>Leo Zhang</name>
@@ -48,7 +48,8 @@ $ sudo apt-get install oracle-java8-installer
   &lt;li&gt;
     &lt;p&gt;处理函数为 &lt;code&gt;json.loads(data, object_hook=_decode_object)&lt;/code&gt;&lt;/p&gt;
 
-    &lt;p&gt;def _decode_list(data):
+    &lt;p&gt;```
+ def _decode_list(data):
      rv = []
      for item in data:
          if isinstance(item, unicode):
@@ -80,20 +81,23 @@ $ sudo apt-get install oracle-java8-installer
          return _decode_list(data)
      if isinstance(data, dict):
          return _decode_dict(data)
-     return data&lt;/p&gt;
+     return data
+ ```&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;处理函数为 &lt;code&gt;json.loads(data, object_hook=byteify)&lt;/code&gt;&lt;/p&gt;
 
-    &lt;p&gt;def byteify(data):
+    &lt;p&gt;&lt;code&gt;
+ def byteify(data):
      if isinstance(data, dict):
          return dict([(byteify(k), byteify(v)) for k, v in data.iteritems()])
      elif isinstance(data, list):
          return [byteify(v) for v in data]
      elif isinstance(data, unicode):
-         return data.encode(‘utf-8’)
+         return data.encode('utf-8')
      else:
-         return data&lt;/p&gt;
+         return data
+&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
