@@ -5,25 +5,25 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>python 中关于 FTP 的第三方模块 &#8211; 叶子</title>
-<meta name="description" content="列举平时使用 python 时用过的关于 FTP 的模块">
-<meta name="keywords" content="python, pyftpdlib, FTP, module">
+<title>python chanllenge 第五关 &#8211; 叶子</title>
+<meta name="description" content="python chanllenge 第五关">
+<meta name="keywords" content="python, chanllenge, 第五关">
 
 
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python 中关于 FTP 的第三方模块">
-<meta property="og:description" content="列举平时使用 python 时用过的关于 FTP 的模块">
-<meta property="og:url" content="/articles/python%E4%B8%AD%E5%85%B3%E4%BA%8EFTP%E7%9A%84%E7%AC%AC%E4%B8%89%E6%96%B9%E6%A8%A1%E5%9D%97/">
+<meta property="og:title" content="python chanllenge 第五关">
+<meta property="og:description" content="python chanllenge 第五关">
+<meta property="og:url" content="/articles/python_challenge%E7%AC%AC%E4%BA%94%E5%85%B3/">
 <meta property="og:site_name" content="叶子">
 
 
 
 
 
-<link rel="canonical" href="/articles/python%E4%B8%AD%E5%85%B3%E4%BA%8EFTP%E7%9A%84%E7%AC%AC%E4%B8%89%E6%96%B9%E6%A8%A1%E5%9D%97/">
+<link rel="canonical" href="/articles/python_challenge%E7%AC%AC%E4%BA%94%E5%85%B3/">
 <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="叶子 Feed">
 
 
@@ -112,31 +112,25 @@
     
     <div class="entry-wrapper">
       <header class="entry-header">
-        <span class="entry-tags">Tags：<a href="/tags/#python" title="Pages tagged python">python</a>&nbsp;&bull;&nbsp;<a href="/tags/#pyftpdlib" title="Pages tagged pyftpdlib">pyftpdlib</a>&nbsp;&bull;&nbsp;<a href="/tags/#FTP" title="Pages tagged FTP">FTP</a>&nbsp;&bull;&nbsp;<a href="/tags/#module" title="Pages tagged module">module</a></span>
+        <span class="entry-tags">Tags：<a href="/tags/#python" title="Pages tagged python">python</a>&nbsp;&bull;&nbsp;<a href="/tags/#chanllenge" title="Pages tagged chanllenge">chanllenge</a>&nbsp;&bull;&nbsp;<a href="/tags/#第五关" title="Pages tagged 第五关">第五关</a></span>
         
-          <h1 class="entry-title">python 中关于 FTP 的第三方模块</h1>
+          <h1 class="entry-title">python chanllenge 第五关</h1>
         
       </header>
       <div class="entry-content">
-        <h3 id="pyftpdlibhttpsgithubcomgiampaolopyftpdlib--python-ftp-">1.<a href="https://github.com/giampaolo/pyftpdlib">pyftpdlib</a> 是一款 Python FTP 服务器库。</h3>
+        <div>
+  <pre><code class='python'>#/usr/bin/python3
+import re
+import pickle
+import urllib.request
 
-<p>Quick Start（快速创建一个 FTP 服务器）：</p>
+url = &quot;http://www.pythonchallenge.com/pc/def/banner.p&quot;
 
-<div>
-  <pre><code class="python">#!/usr/bin/python
-from pyftpdlib.servers import FTPServer
-from pyftpdlib.handlers import FTPHandler
-from pyftpdlib.authorizers import DummyAuthorizer
-
-authorizer = DummyAuthorizer()
-authorizer.add_user(&quot;user&quot;, &quot;12345&quot;, &quot;/home/username&quot;, perm=&quot;elradfmw&quot;)
-authorizer.add_anonymous(&quot;/home/nobody&quot;)
-
-handler = FTPHandler
-handler.authorizer = authorizer
-
-server = FTPServer((&quot;127.0.0.1&quot;, 21), handler)
-server.serve_forever()</code></pre>
+res = urllib.request.urlopen(url)
+data = res.read()
+pick = pickle.loads(data)
+for line in pick:
+    print(''.join(map(lambda pair: pair[0]*pair[1], line)))</code></pre>
 </div>
 
 
@@ -162,10 +156,10 @@ server.serve_forever()</code></pre>
     </div><!-- /.entry-wrapper -->
     <nav class="pagination" role="navigation">
       
-        <a href="/articles/python-i18n-%E5%9B%BD%E9%99%85%E5%8C%96%E4%BD%BF%E7%94%A8%E7%AE%80%E4%BB%8B/" class="btn" title="python i18n（国际化）使用简介">Previous article</a>
+        <a href="/articles/%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%BF%E7%94%A8Ubuntu%E7%9A%84Vim%E7%BC%96%E5%86%99C_%E7%AE%80%E5%8D%95%E7%9A%84GCC%E7%BC%96%E8%AF%91%E6%96%B9%E6%B3%95/" class="btn" title="第一次使用Ubuntu的Vim编写C_简单的GCC编译方法">Previous article</a>
       
       
-        <a href="/articles/%E5%A6%82%E4%BD%95%E7%94%A8python%E7%94%9F%E6%88%90Ubuntu%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A9%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%86%E7%A0%81/" class="btn" title="如何用 python 生成 Ubuntu 系统的空字符串密码">Next article</a>
+        <a href="/articles/Markdown-%E8%AF%AD%E6%B3%95%E8%AF%B4%E6%98%8E-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%E7%89%88/" class="btn" title="Markdown 语法说明 (简体中文版)">Next article</a>
       
     </nav><!-- /.pagination -->
   </article>

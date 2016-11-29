@@ -5,25 +5,25 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>python 中关于 FTP 的第三方模块 &#8211; 叶子</title>
-<meta name="description" content="列举平时使用 python 时用过的关于 FTP 的模块">
-<meta name="keywords" content="python, pyftpdlib, FTP, module">
+<title>Do I need a content type for http get requests? &#8211; 叶子</title>
+<meta name="description" content="Do I need a content type for http get requests?">
+<meta name="keywords" content="QA">
 
 
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python 中关于 FTP 的第三方模块">
-<meta property="og:description" content="列举平时使用 python 时用过的关于 FTP 的模块">
-<meta property="og:url" content="/articles/python%E4%B8%AD%E5%85%B3%E4%BA%8EFTP%E7%9A%84%E7%AC%AC%E4%B8%89%E6%96%B9%E6%A8%A1%E5%9D%97/">
+<meta property="og:title" content="Do I need a content type for http get requests?">
+<meta property="og:description" content="Do I need a content type for http get requests?">
+<meta property="og:url" content="/articles/Do_I_need_a_content_type_for_http_get+requests%3F/">
 <meta property="og:site_name" content="叶子">
 
 
 
 
 
-<link rel="canonical" href="/articles/python%E4%B8%AD%E5%85%B3%E4%BA%8EFTP%E7%9A%84%E7%AC%AC%E4%B8%89%E6%96%B9%E6%A8%A1%E5%9D%97/">
+<link rel="canonical" href="/articles/Do_I_need_a_content_type_for_http_get+requests%3F/">
 <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="叶子 Feed">
 
 
@@ -112,33 +112,16 @@
     
     <div class="entry-wrapper">
       <header class="entry-header">
-        <span class="entry-tags">Tags：<a href="/tags/#python" title="Pages tagged python">python</a>&nbsp;&bull;&nbsp;<a href="/tags/#pyftpdlib" title="Pages tagged pyftpdlib">pyftpdlib</a>&nbsp;&bull;&nbsp;<a href="/tags/#FTP" title="Pages tagged FTP">FTP</a>&nbsp;&bull;&nbsp;<a href="/tags/#module" title="Pages tagged module">module</a></span>
+        <span class="entry-tags">Tags：<a href="/tags/#QA" title="Pages tagged QA">QA</a></span>
         
-          <h1 class="entry-title">python 中关于 FTP 的第三方模块</h1>
+          <h1 class="entry-title">Do I need a content type for http get requests?</h1>
         
       </header>
       <div class="entry-content">
-        <h3 id="pyftpdlibhttpsgithubcomgiampaolopyftpdlib--python-ftp-">1.<a href="https://github.com/giampaolo/pyftpdlib">pyftpdlib</a> 是一款 Python FTP 服务器库。</h3>
+        <pre><code>Any HTTP/1.1 message containing an entity-body SHOULD include a Content-Type header field defining the media type of that body. If and only if the media type is not given by a Content-Type field, the recipient MAY attempt to guess the media type via inspection of its content and/or the name extension(s) of the URI used to identify the resource. If the media type remains unknown, the recipient SHOULD treat it as type "application/octet-stream".
+</code></pre>
 
-<p>Quick Start（快速创建一个 FTP 服务器）：</p>
-
-<div>
-  <pre><code class="python">#!/usr/bin/python
-from pyftpdlib.servers import FTPServer
-from pyftpdlib.handlers import FTPHandler
-from pyftpdlib.authorizers import DummyAuthorizer
-
-authorizer = DummyAuthorizer()
-authorizer.add_user(&quot;user&quot;, &quot;12345&quot;, &quot;/home/username&quot;, perm=&quot;elradfmw&quot;)
-authorizer.add_anonymous(&quot;/home/nobody&quot;)
-
-handler = FTPHandler
-handler.authorizer = authorizer
-
-server = FTPServer((&quot;127.0.0.1&quot;, 21), handler)
-server.serve_forever()</code></pre>
-</div>
-
+<p>http://stackoverflow.com/questions/5661596/do-i-need-a-content-type-for-http-get-requests</p>
 
         
           <div id="disqus_thread"></div><!-- /#disqus_thread -->
@@ -162,10 +145,10 @@ server.serve_forever()</code></pre>
     </div><!-- /.entry-wrapper -->
     <nav class="pagination" role="navigation">
       
-        <a href="/articles/python-i18n-%E5%9B%BD%E9%99%85%E5%8C%96%E4%BD%BF%E7%94%A8%E7%AE%80%E4%BB%8B/" class="btn" title="python i18n（国际化）使用简介">Previous article</a>
+        <a href="/articles/ubuntu%E4%B8%AD%E6%9B%B4%E6%96%B0Java1.7%E5%88%B0java1.8%E7%9A%84%E5%91%BD%E4%BB%A4/" class="btn" title="ubuntu中更新Java1.7到java1.8的命令">Previous article</a>
       
       
-        <a href="/articles/%E5%A6%82%E4%BD%95%E7%94%A8python%E7%94%9F%E6%88%90Ubuntu%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A9%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%86%E7%A0%81/" class="btn" title="如何用 python 生成 Ubuntu 系统的空字符串密码">Next article</a>
+        <a href="/articles/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E9%94%99%E8%AF%AF%E8%BF%94%E5%9B%9EHTTP%E7%8A%B6%E6%80%81400/" class="btn" title="上传文件错误返回HTTP状态400">Next article</a>
       
     </nav><!-- /.pagination -->
   </article>

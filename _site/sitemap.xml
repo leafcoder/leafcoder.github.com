@@ -48,6 +48,14 @@
 
     
     <url>
+        <loc>/articles/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E9%94%99%E8%AF%AF%E8%BF%94%E5%9B%9EHTTP%E7%8A%B6%E6%80%81400/</loc>
+    </url>
+    
+    <url>
+        <loc>/articles/Do_I_need_a_content_type_for_http_get+requests%3F/</loc>
+    </url>
+    
+    <url>
         <loc>/articles/ubuntu%E4%B8%AD%E6%9B%B4%E6%96%B0Java1.7%E5%88%B0java1.8%E7%9A%84%E5%91%BD%E4%BB%A4/</loc>
     </url>
     
@@ -125,6 +133,14 @@
     
     <url>
         <loc>/articles/Markdown-%E8%AF%AD%E6%B3%95%E8%AF%B4%E6%98%8E-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%E7%89%88/</loc>
+    </url>
+    
+    <url>
+        <loc>/articles/python_challenge%E7%AC%AC%E4%BA%94%E5%85%B3/</loc>
+    </url>
+    
+    <url>
+        <loc>/articles/%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%BF%E7%94%A8Ubuntu%E7%9A%84Vim%E7%BC%96%E5%86%99C_%E7%AE%80%E5%8D%95%E7%9A%84GCC%E7%BC%96%E8%AF%91%E6%96%B9%E6%B3%95/</loc>
     </url>
     
 </urlset>

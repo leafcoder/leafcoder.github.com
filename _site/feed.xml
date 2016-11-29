@@ -4,13 +4,56 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2016-10-26T09:56:19+08:00</updated>
+<updated>2016-11-29T16:11:58+08:00</updated>
 <id>/</id>
 <author>
   <name>Leo Zhang</name>
   <uri>/</uri>
   <email>leafcoder@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[上传文件错误返回HTTP状态400]]></title>
+  <link rel="alternate" type="text/html" href="/articles/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E9%94%99%E8%AF%AF%E8%BF%94%E5%9B%9EHTTP%E7%8A%B6%E6%80%81400/"/>
+  <id>/articles/上传文件错误返回HTTP状态400</id>
+  <published>2016-11-01T00:00:00+08:00</published>
+  <updated>2016-11-01T00:00:00+08:00</updated>
+  <author>
+    <name>Leo Zhang</name>
+    <uri></uri>
+    <email>leafcoder@gmail.com</email>
+  </author>
+  <content type="html">&lt;pre&gt;&lt;code&gt;def HTTP_main(self):
+    if an error :
+        self.write('''\ HTTP/1.1 400 Internal error\r\nContent-Type:text/html;charset=utf-8\r\n\r\n\ ''')
+        self.write('error msg')
+        return self.close()
+    # do upload
+&lt;/code&gt;&lt;/pre&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/articles/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E9%94%99%E8%AF%AF%E8%BF%94%E5%9B%9EHTTP%E7%8A%B6%E6%80%81400/&quot;&gt;上传文件错误返回HTTP状态400&lt;/a&gt; was originally published by Leo Zhang at &lt;a href=&quot;&quot;&gt;叶子&lt;/a&gt; on November 01, 2016.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Do I need a content type for http get requests?]]></title>
+  <link rel="alternate" type="text/html" href="/articles/Do_I_need_a_content_type_for_http_get+requests%3F/"/>
+  <id>/articles/Do_I_need_a_content_type_for_http_get requests?</id>
+  <published>2016-11-01T00:00:00+08:00</published>
+  <updated>2016-11-01T00:00:00+08:00</updated>
+  <author>
+    <name>Leo Zhang</name>
+    <uri></uri>
+    <email>leafcoder@gmail.com</email>
+  </author>
+  <content type="html">&lt;pre&gt;&lt;code&gt;Any HTTP/1.1 message containing an entity-body SHOULD include a Content-Type header field defining the media type of that body. If and only if the media type is not given by a Content-Type field, the recipient MAY attempt to guess the media type via inspection of its content and/or the name extension(s) of the URI used to identify the resource. If the media type remains unknown, the recipient SHOULD treat it as type &quot;application/octet-stream&quot;.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;http://stackoverflow.com/questions/5661596/do-i-need-a-content-type-for-http-get-requests&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/articles/Do_I_need_a_content_type_for_http_get+requests%3F/&quot;&gt;Do I need a content type for http get requests?&lt;/a&gt; was originally published by Leo Zhang at &lt;a href=&quot;&quot;&gt;叶子&lt;/a&gt; on November 01, 2016.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -45,61 +88,61 @@ $ sudo apt-get install oracle-java8-installer
     <email>leafcoder@gmail.com</email>
   </author>
   <content type="html">&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;处理函数为 &lt;code&gt;json.loads(data, object_hook=_decode_object)&lt;/code&gt;&lt;/p&gt;
-
-    &lt;p&gt;```
- def _decode_list(data):
-     rv = []
-     for item in data:
-         if isinstance(item, unicode):
-             item = item.encode(‘utf-8’)
-         elif isinstance(item, list):
-             item = _decode_list(item)
-         elif isinstance(item, dict):
-             item = _decode_dict(item)
-         rv.append(item)
-     return rv&lt;/p&gt;
-
-    &lt;p&gt;def _decode_dict(data):
-     rv = {}
-     for key, value in data.iteritems():
-         if isinstance(key, unicode):
-             key = key.encode(‘utf-8’)
-         if isinstance(value, unicode):
-             value = value.encode(‘utf-8’)
-         elif isinstance(value, list):
-             value = _decode_list(value)
-         elif isinstance(value, dict):
-             value = _decode_dict(value)
-         rv[key] = value
-     return rv&lt;/p&gt;
-
-    &lt;p&gt;def _decode_object(data):
-     rv = []
-     if isinstance(data, list):
-         return _decode_list(data)
-     if isinstance(data, dict):
-         return _decode_dict(data)
-     return data
- ```&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;处理函数为 &lt;code&gt;json.loads(data, object_hook=byteify)&lt;/code&gt;&lt;/p&gt;
-
-    &lt;p&gt;&lt;code&gt;
- def byteify(data):
-     if isinstance(data, dict):
-         return dict([(byteify(k), byteify(v)) for k, v in data.iteritems()])
-     elif isinstance(data, list):
-         return [byteify(v) for v in data]
-     elif isinstance(data, unicode):
-         return data.encode('utf-8')
-     else:
-         return data
-&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;处理函数为 &lt;code&gt;json.loads(data, object_hook=_decode_object)&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;div&gt;
+  &lt;pre&gt;&lt;code class=&quot;python&quot;&gt;def _decode_list(data):
+    rv = []
+    for item in data:
+        if isinstance(item, unicode):
+            item = item.encode('utf-8')
+        elif isinstance(item, list):
+            item = _decode_list(item)
+        elif isinstance(item, dict):
+            item = _decode_dict(item)
+        rv.append(item)
+    return rv
+
+def _decode_dict(data):
+    rv = {}
+    for key, value in data.iteritems():
+        if isinstance(key, unicode):
+            key = key.encode('utf-8')
+        if isinstance(value, unicode):
+            value = value.encode('utf-8')
+        elif isinstance(value, list):
+            value = _decode_list(value)
+        elif isinstance(value, dict):
+            value = _decode_dict(value)
+        rv[key] = value
+    return rv
+
+def _decode_object(data):
+    rv = []
+    if isinstance(data, list):
+        return _decode_list(data)
+    if isinstance(data, dict):
+        return _decode_dict(data)
+    return data&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;处理函数为 &lt;code&gt;json.loads(data, object_hook=byteify)&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div&gt;
+  &lt;pre&gt;&lt;code class=&quot;python&quot;&gt;def byteify(data):
+    if isinstance(data, dict):
+        return dict([(byteify(k), byteify(v)) for k, v in data.iteritems()])
+    elif isinstance(data, list):
+        return [byteify(v) for v in data]
+    elif isinstance(data, unicode):
+        return data.encode('utf-8')
+    else:
+        return data&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
 
   &lt;p&gt;&lt;a href=&quot;/articles/%E7%9B%B4%E6%8E%A5%E9%80%9A%E8%BF%87JSON.loads%E8%8E%B7%E5%8F%96%E5%88%B0UTF8%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%95%B0%E6%8D%AE/&quot;&gt;直接通过 JSON.loads 获取到 UTF8 类型的数据&lt;/a&gt; was originally published by Leo Zhang at &lt;a href=&quot;&quot;&gt;叶子&lt;/a&gt; on November 02, 2015.&lt;/p&gt;</content>
 </entry>
@@ -1317,47 +1360,6 @@ print _(&amp;quot;Hello&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;此页面上的示例不受版权限制，这里提供&lt;a href=&quot;http://www.google.com/url?q=http%3A%2F%2Fscotdoyle.com%2Fpython-epoll-examples.tar.gz&amp;amp;sa=D&amp;amp;sntz=1&amp;amp;usg=AFQjCNGj_7emPC51_la_-A-aXVXjlf-smw&quot;&gt;下载&lt;/a&gt; 。&lt;/p&gt;
 
   &lt;p&gt;&lt;a href=&quot;/articles/%E5%9C%A8Python%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Linux%E7%9A%84epoll/&quot;&gt;在 Python 中如何使用 Linux 的 epoll&lt;/a&gt; was originally published by Leo Zhang at &lt;a href=&quot;&quot;&gt;叶子&lt;/a&gt; on August 17, 2014.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[PyCon 2014 China 震撼来袭]]></title>
-  <link rel="alternate" type="text/html" href="/articles/PyCon2014China%E6%9D%A5%E8%A2%AD%E4%B8%AD/"/>
-  <id>/articles/PyCon2014China来袭中</id>
-  <updated>2014-08-19T00:00:00-00:00</updated>
-  <published>2014-08-17T00:00:00+08:00</published>
-  
-  <author>
-    <name>Leo Zhang</name>
-    <uri></uri>
-    <email>leafcoder@gmail.com</email>
-  </author>
-  <content type="html">&lt;p&gt;&lt;img src=&quot;http://zoomq.qiniudn.com/CPyUG/PyCon2014China/design/PyCon2013CHIna_logo_w200-h150.png&quot; alt=&quot;Pycon 2014 China&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://cn.pycon.org/2014/#pycon2014china&quot;&gt;PyCon2014China&lt;/a&gt; 来也!&lt;/p&gt;
-
-&lt;p&gt;世界Pythoneer 的品牌盛会PyCon! 由 Python软件基金会 下的 PyCon.org 授权中国举办第四届 PyConChina 大会。 本次大会由CPyUG、GDG、TopGeek在 上海、北京、珠海、杭州、苏州同时举办。&lt;/p&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/articles/PyCon2014China%E6%9D%A5%E8%A2%AD%E4%B8%AD/&quot;&gt;PyCon 2014 China 震撼来袭&lt;/a&gt; was originally published by Leo Zhang at &lt;a href=&quot;&quot;&gt;叶子&lt;/a&gt; on August 17, 2014.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Markdown 语法说明 (简体中文版)]]></title>
-  <link rel="alternate" type="text/html" href="/articles/Markdown-%E8%AF%AD%E6%B3%95%E8%AF%B4%E6%98%8E-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%E7%89%88/"/>
-  <id>/articles/Markdown-语法说明-简体中文版</id>
-  <published>2014-08-17T00:00:00+08:00</published>
-  <updated>2014-08-17T00:00:00+08:00</updated>
-  <author>
-    <name>Leo Zhang</name>
-    <uri></uri>
-    <email>leafcoder@gmail.com</email>
-  </author>
-  <content type="html">&lt;p&gt;&lt;a href=&quot;http://wowubuntu.com/markdown/basic.html&quot;&gt;Markdown 快速入门 (简体中文版)&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://wowubuntu.com/markdown/index.html&quot;&gt;Markdown 语法说明 (简体中文版)&lt;/a&gt;&lt;/p&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/articles/Markdown-%E8%AF%AD%E6%B3%95%E8%AF%B4%E6%98%8E-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%E7%89%88/&quot;&gt;Markdown 语法说明 (简体中文版)&lt;/a&gt; was originally published by Leo Zhang at &lt;a href=&quot;&quot;&gt;叶子&lt;/a&gt; on August 17, 2014.&lt;/p&gt;</content>
 </entry>
 
 </feed>
