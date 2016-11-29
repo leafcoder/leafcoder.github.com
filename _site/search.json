@@ -190,6 +190,14 @@
 		  "url"        : "/articles/%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%BF%E7%94%A8Ubuntu%E7%9A%84Vim%E7%BC%96%E5%86%99C_%E7%AE%80%E5%8D%95%E7%9A%84GCC%E7%BC%96%E8%AF%91%E6%96%B9%E6%B3%95/",
 		  "date"       : "2012-06-21 00:00:00 +0800",
 		  "shortdate"  : "June 21, 2012"
+		} ,
+	
+		{
+		  "title"      : "ftplib 简单使用",
+		  "category"   : "articles",
+		  "url"        : "/articles/ftplib%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/",
+		  "date"       : "2010-10-09 00:00:00 +0800",
+		  "shortdate"  : "October 09, 2010"
 		} 
 	
 ]

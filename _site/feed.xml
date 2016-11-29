@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2016-11-29T16:11:58+08:00</updated>
+<updated>2016-11-29T16:30:34+08:00</updated>
 <id>/</id>
 <author>
   <name>Leo Zhang</name>
@@ -47,8 +47,7 @@
     <uri></uri>
     <email>leafcoder@gmail.com</email>
   </author>
-  <content type="html">&lt;pre&gt;&lt;code&gt;Any HTTP/1.1 message containing an entity-body SHOULD include a Content-Type header field defining the media type of that body. If and only if the media type is not given by a Content-Type field, the recipient MAY attempt to guess the media type via inspection of its content and/or the name extension(s) of the URI used to identify the resource. If the media type remains unknown, the recipient SHOULD treat it as type &quot;application/octet-stream&quot;.
-&lt;/code&gt;&lt;/pre&gt;
+  <content type="html">&lt;p&gt;Any HTTP/1.1 message containing an entity-body SHOULD include a Content-Type header field defining the media type of that body. If and only if the media type is not given by a Content-Type field, the recipient MAY attempt to guess the media type via inspection of its content and/or the name extension(s) of the URI used to identify the resource. If the media type remains unknown, the recipient SHOULD treat it as type “application/octet-stream”.&lt;/p&gt;
 
 &lt;p&gt;http://stackoverflow.com/questions/5661596/do-i-need-a-content-type-for-http-get-requests&lt;/p&gt;
 
