@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 编译错误 possibly undefined macro: AC_PROG_LIBTOOL 的解决方法
-description: "编译错误 possibly undefined macro: AC_PROG_LIBTOOL 的解决方法"
+title: "编译错误 possibly undefined macro: AC_PROG_LIBTOOL 的解决方法"
+description: ""
 category: articles
 tags: [QA]
 image:

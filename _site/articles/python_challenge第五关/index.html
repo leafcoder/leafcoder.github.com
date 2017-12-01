@@ -16,15 +16,15 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="python chanllenge 第五关">
 <meta property="og:description" content="python chanllenge 第五关">
-<meta property="og:url" content="/articles/python_challenge%E7%AC%AC%E4%BA%94%E5%85%B3/">
+<meta property="og:url" content="http://localhost:4000/articles/python_challenge%E7%AC%AC%E4%BA%94%E5%85%B3/">
 <meta property="og:site_name" content="叶子">
 
 
 
 
 
-<link rel="canonical" href="/articles/python_challenge%E7%AC%AC%E4%BA%94%E5%85%B3/">
-<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="叶子 Feed">
+<link rel="canonical" href="http://localhost:4000/articles/python_challenge%E7%AC%AC%E4%BA%94%E5%85%B3/">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="叶子 Feed">
 
 
 <!-- http://t.co/dKP3o1e -->
@@ -33,28 +33,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="/assets/css/main.min.css">
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
 <!-- Webfonts -->
 <!--<script src="//use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>-->
 
 <meta http-equiv="cleartype" content="on">
 
 <!-- Load Modernizr -->
-<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
 
 <!-- Icons -->
 <!-- 16x16 -->
-<link rel="shortcut icon" href="/favicon.ico">
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
 <!-- 32x32 -->
-<link rel="shortcut icon" href="/favicon.png">
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
 <!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
-<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
 <!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
 <!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
 <!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -87,11 +87,11 @@ var _hmt = _hmt || [];
 	        
 			<li>
 				
-					<a href="/about">About</a>
+					<a href="http://localhost:4000/about">About</a>
 				 
 			</li>
 	        
-	        <li><a href="/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+	        <li><a href="http://localhost:4000/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
 	        <li class="dosearch"><i class="icon-search"></i> Search</li>
 	    </ul>
 	</nav>
@@ -121,27 +121,24 @@ var _hmt = _hmt || [];
     
     <div class="entry-wrapper">
       <header class="entry-header">
-        <span class="entry-tags">Tags：<a href="/tags/#python" title="Pages tagged python">python</a>&nbsp;&bull;&nbsp;<a href="/tags/#chanllenge" title="Pages tagged chanllenge">chanllenge</a>&nbsp;&bull;&nbsp;<a href="/tags/#第五关" title="Pages tagged 第五关">第五关</a></span>
+        <span class="entry-tags">Tags：<a href="http://localhost:4000/tags/#python" title="Pages tagged python">python</a>&nbsp;&bull;&nbsp;<a href="http://localhost:4000/tags/#chanllenge" title="Pages tagged chanllenge">chanllenge</a>&nbsp;&bull;&nbsp;<a href="http://localhost:4000/tags/#第五关" title="Pages tagged 第五关">第五关</a></span>
         
           <h1 class="entry-title">python chanllenge 第五关</h1>
         
       </header>
       <div class="entry-content">
-        <div>
-  <pre><code class='python'>#/usr/bin/python3
-import re
-import pickle
-import urllib.request
+        <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1">#/usr/bin/python3</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">urllib.request</span>
 
-url = &quot;http://www.pythonchallenge.com/pc/def/banner.p&quot;
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.pythonchallenge.com/pc/def/banner.p&quot;</span>
 
-res = urllib.request.urlopen(url)
-data = res.read()
-pick = pickle.loads(data)
-for line in pick:
-    print(''.join(map(lambda pair: pair[0]*pair[1], line)))</code></pre>
-</div>
-
+<span class="n">res</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">pick</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">pick</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">pair</span><span class="p">:</span> <span class="n">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span><span class="p">)))</span></code></pre></figure>
 
         
           <div id="disqus_thread"></div><!-- /#disqus_thread -->
@@ -165,10 +162,10 @@ for line in pick:
     </div><!-- /.entry-wrapper -->
     <nav class="pagination" role="navigation">
       
-        <a href="/articles/%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%BF%E7%94%A8Ubuntu%E7%9A%84Vim%E7%BC%96%E5%86%99C_%E7%AE%80%E5%8D%95%E7%9A%84GCC%E7%BC%96%E8%AF%91%E6%96%B9%E6%B3%95/" class="btn" title="第一次使用Ubuntu的Vim编写C_简单的GCC编译方法">Previous article</a>
+        <a href="http://localhost:4000/articles/%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%BF%E7%94%A8Ubuntu%E7%9A%84Vim%E7%BC%96%E5%86%99C_%E7%AE%80%E5%8D%95%E7%9A%84GCC%E7%BC%96%E8%AF%91%E6%96%B9%E6%B3%95/" class="btn" title="第一次使用Ubuntu的Vim编写C_简单的GCC编译方法">Previous article</a>
       
       
-        <a href="/articles/Markdown-%E8%AF%AD%E6%B3%95%E8%AF%B4%E6%98%8E-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%E7%89%88/" class="btn" title="Markdown 语法说明 (简体中文版)">Next article</a>
+        <a href="http://localhost:4000/articles/Markdown-%E8%AF%AD%E6%B3%95%E8%AF%B4%E6%98%8E-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%E7%89%88/" class="btn" title="Markdown 语法说明 (简体中文版)">Next article</a>
       
     </nav><!-- /.pagination -->
   </article>
@@ -177,7 +174,7 @@ for line in pick:
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2016 Leo Zhang. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/so-simple/">So Simple Theme</a>.</span>
+    <span>&copy; 2017 Leo Zhang. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/so-simple/">So Simple Theme</a>.</span>
 <div class="social-icons">
 	
 	
@@ -205,14 +202,14 @@ for line in pick:
 </div><!-- /.footer-wrapper -->
 
 <script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-<script src="/assets/js/scripts.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
 
 <!-- Jekyll Simple Search option -->
 <script>
   $(document).ready(function() {
       $('.search-field').simpleJekyllSearch({
-          jsonFile : '/search.json',
+          jsonFile : 'http://localhost:4000/search.json',
           searchResults : '.search-results',
           template : '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
           noResults: '<p>Nothing found.</p>'

@@ -16,15 +16,15 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于 ctypes 的简单用例">
 <meta property="og:description" content="关于 ctypes 的简单用例">
-<meta property="og:url" content="/articles/%E5%85%B3%E4%BA%8Ectypes%E7%9A%84%E7%AE%80%E5%8D%95%E7%94%A8%E4%BE%8B/">
+<meta property="og:url" content="http://localhost:4000/articles/%E5%85%B3%E4%BA%8Ectypes%E7%9A%84%E7%AE%80%E5%8D%95%E7%94%A8%E4%BE%8B/">
 <meta property="og:site_name" content="叶子">
 
 
 
 
 
-<link rel="canonical" href="/articles/%E5%85%B3%E4%BA%8Ectypes%E7%9A%84%E7%AE%80%E5%8D%95%E7%94%A8%E4%BE%8B/">
-<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="叶子 Feed">
+<link rel="canonical" href="http://localhost:4000/articles/%E5%85%B3%E4%BA%8Ectypes%E7%9A%84%E7%AE%80%E5%8D%95%E7%94%A8%E4%BE%8B/">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="叶子 Feed">
 
 
 <!-- http://t.co/dKP3o1e -->
@@ -33,28 +33,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="/assets/css/main.min.css">
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
 <!-- Webfonts -->
 <!--<script src="//use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>-->
 
 <meta http-equiv="cleartype" content="on">
 
 <!-- Load Modernizr -->
-<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
 
 <!-- Icons -->
 <!-- 16x16 -->
-<link rel="shortcut icon" href="/favicon.ico">
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
 <!-- 32x32 -->
-<link rel="shortcut icon" href="/favicon.png">
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
 <!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
-<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
 <!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
 <!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
 <!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -87,11 +87,11 @@ var _hmt = _hmt || [];
 	        
 			<li>
 				
-					<a href="/about">About</a>
+					<a href="http://localhost:4000/about">About</a>
 				 
 			</li>
 	        
-	        <li><a href="/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+	        <li><a href="http://localhost:4000/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
 	        <li class="dosearch"><i class="icon-search"></i> Search</li>
 	    </ul>
 	</nav>
@@ -121,33 +121,31 @@ var _hmt = _hmt || [];
     
     <div class="entry-wrapper">
       <header class="entry-header">
-        <span class="entry-tags">Tags：<a href="/tags/#python" title="Pages tagged python">python</a>&nbsp;&bull;&nbsp;<a href="/tags/#ctypes" title="Pages tagged ctypes">ctypes</a>&nbsp;&bull;&nbsp;<a href="/tags/#demo" title="Pages tagged demo">demo</a></span>
+        <span class="entry-tags">Tags：<a href="http://localhost:4000/tags/#python" title="Pages tagged python">python</a>&nbsp;&bull;&nbsp;<a href="http://localhost:4000/tags/#ctypes" title="Pages tagged ctypes">ctypes</a>&nbsp;&bull;&nbsp;<a href="http://localhost:4000/tags/#demo" title="Pages tagged demo">demo</a></span>
         
           <h1 class="entry-title">关于 ctypes 的简单用例</h1>
         
       </header>
       <div class="entry-content">
-        <h3 id="section">结构体、数组、指针、指向数组的指针</h3>
+        <p>###结构体、数组、指针、指向数组的指针</p>
 
-<div>
-  <pre><code class="python">from ctypes import *
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">ctypes</span> <span class="kn">import</span> <span class="o">*</span>
 
-class point(Structure):
-    pass
+<span class="k">class</span> <span class="nc">point</span><span class="p">(</span><span class="n">Structure</span><span class="p">):</span>
+    <span class="k">pass</span>
 
-point._fields_ = [
-    ('x', c_int),
-    ('y', c_int)
-]
+<span class="n">point</span><span class="o">.</span><span class="n">_fields_</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">c_int</span><span class="p">)</span>
+<span class="p">]</span>
 
-arry_gen = point * 10
-arry = arry_gen(range(10))
+<span class="n">arry_gen</span> <span class="o">=</span> <span class="n">point</span> <span class="o">*</span> <span class="mi">10</span>
+<span class="n">arry</span> <span class="o">=</span> <span class="n">arry_gen</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 
-arry_ptr_gen = POINTER(point)
-arry_ptr = arry_ptr_gen(arry)</code></pre>
-</div>
+<span class="n">arry_ptr_gen</span> <span class="o">=</span> <span class="n">POINTER</span><span class="p">(</span><span class="n">point</span><span class="p">)</span>
+<span class="n">arry_ptr</span> <span class="o">=</span> <span class="n">arry_ptr_gen</span><span class="p">(</span><span class="n">arry</span><span class="p">)</span></code></pre></figure>
 
-<h3 id="section-1">回调函数用法</h3>
+<p>###回调函数用法</p>
 
 <pre><code># /* demo.c --&gt; demo.so */
 # include &lt;stdio.h&gt;
@@ -160,29 +158,25 @@ arry_ptr = arry_ptr_gen(arry)</code></pre>
 # }
 </code></pre>
 
-<div>
-  <pre><code class="python">from ctypes import *
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">ctypes</span> <span class="kn">import</span> <span class="o">*</span>
 
-def getvalue():
-    return 10
+<span class="k">def</span> <span class="nf">getvalue</span><span class="p">():</span>
+    <span class="k">return</span> <span class="mi">10</span>
 
-def run():
-    libdemo = cdll.LoadLibrary('./demo.so')
-    func_arg = libdemo.func_arg
-    func_arg.restype = c_int
+<span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
+    <span class="n">libdemo</span> <span class="o">=</span> <span class="n">cdll</span><span class="o">.</span><span class="n">LoadLibrary</span><span class="p">(</span><span class="s1">&#39;./demo.so&#39;</span><span class="p">)</span>
+    <span class="n">func_arg</span> <span class="o">=</span> <span class="n">libdemo</span><span class="o">.</span><span class="n">func_arg</span>
+    <span class="n">func_arg</span><span class="o">.</span><span class="n">restype</span> <span class="o">=</span> <span class="n">c_int</span>
 
-    py_func_getvalue = CFUNCTYPE(c_void_p)
-    func_getvalue = py_func_getvalue(getvalue)
-    print func_arg(func_getvalue)
-run()</code></pre>
-</div>
+    <span class="n">py_func_getvalue</span> <span class="o">=</span> <span class="n">CFUNCTYPE</span><span class="p">(</span><span class="n">c_void_p</span><span class="p">)</span>
+    <span class="n">func_getvalue</span> <span class="o">=</span> <span class="n">py_func_getvalue</span><span class="p">(</span><span class="n">getvalue</span><span class="p">)</span>
+    <span class="k">print</span> <span class="n">func_arg</span><span class="p">(</span><span class="n">func_getvalue</span><span class="p">)</span>
+<span class="n">run</span><span class="p">()</span></code></pre></figure>
 
-<h3 id="section-2">根据内存地址获取数据，不过，尽量少用，这种方法并不很好</h3>
+<p>###根据内存地址获取数据，不过，尽量少用，这种方法并不很好</p>
 
-<div>
-  <pre><code class="python">memaddr = libc.xxx()
-v = c_char_p(memaddr).value</code></pre>
-</div>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">memaddr</span> <span class="o">=</span> <span class="n">libc</span><span class="o">.</span><span class="n">xxx</span><span class="p">()</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">c_char_p</span><span class="p">(</span><span class="n">memaddr</span><span class="p">)</span><span class="o">.</span><span class="n">value</span></code></pre></figure>
 
 
         
@@ -207,10 +201,10 @@ v = c_char_p(memaddr).value</code></pre>
     </div><!-- /.entry-wrapper -->
     <nav class="pagination" role="navigation">
       
-        <a href="/articles/%E4%B8%80%E6%AE%B5Python%E7%9A%84%E7%B2%BE%E7%A1%AE%E9%99%A4%E6%B3%95%E8%84%9A%E6%9C%AC/" class="btn" title="一段 Python 的精确除法脚本">Previous article</a>
+        <a href="http://localhost:4000/articles/%E4%B8%80%E6%AE%B5Python%E7%9A%84%E7%B2%BE%E7%A1%AE%E9%99%A4%E6%B3%95%E8%84%9A%E6%9C%AC/" class="btn" title="一段 Python 的精确除法脚本">Previous article</a>
       
       
-        <a href="/articles/%E5%9F%BA%E4%BA%8EPySide%E7%9A%84Base64%E5%8A%A0%E8%A7%A3%E5%AF%86%E5%B0%8F%E5%B7%A5%E5%85%B7/" class="btn" title="基于 PySide 的 Base64 加解密小工具">Next article</a>
+        <a href="http://localhost:4000/articles/%E5%9F%BA%E4%BA%8EPySide%E7%9A%84Base64%E5%8A%A0%E8%A7%A3%E5%AF%86%E5%B0%8F%E5%B7%A5%E5%85%B7/" class="btn" title="基于 PySide 的 Base64 加解密小工具">Next article</a>
       
     </nav><!-- /.pagination -->
   </article>
@@ -219,7 +213,7 @@ v = c_char_p(memaddr).value</code></pre>
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2016 Leo Zhang. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/so-simple/">So Simple Theme</a>.</span>
+    <span>&copy; 2017 Leo Zhang. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/so-simple/">So Simple Theme</a>.</span>
 <div class="social-icons">
 	
 	
@@ -247,14 +241,14 @@ v = c_char_p(memaddr).value</code></pre>
 </div><!-- /.footer-wrapper -->
 
 <script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-<script src="/assets/js/scripts.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
 
 <!-- Jekyll Simple Search option -->
 <script>
   $(document).ready(function() {
       $('.search-field').simpleJekyllSearch({
-          jsonFile : '/search.json',
+          jsonFile : 'http://localhost:4000/search.json',
           searchResults : '.search-results',
           template : '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
           noResults: '<p>Nothing found.</p>'

@@ -16,15 +16,15 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="记使用 psycopg2 事务时一件容易出错的情况">
 <meta property="og:description" content="记使用 psycopg2 事务时一件容易出错的情况">
-<meta property="og:url" content="/articles/%E8%AE%B0%E4%BD%BF%E7%94%A8psycopg2%E4%BA%8B%E5%8A%A1%E6%97%B6%E4%B8%80%E4%BB%B6%E5%AE%B9%E6%98%93%E5%87%BA%E9%94%99%E7%9A%84%E6%83%85%E5%86%B5/">
+<meta property="og:url" content="http://localhost:4000/articles/%E8%AE%B0%E4%BD%BF%E7%94%A8psycopg2%E4%BA%8B%E5%8A%A1%E6%97%B6%E4%B8%80%E4%BB%B6%E5%AE%B9%E6%98%93%E5%87%BA%E9%94%99%E7%9A%84%E6%83%85%E5%86%B5/">
 <meta property="og:site_name" content="叶子">
 
 
 
 
 
-<link rel="canonical" href="/articles/%E8%AE%B0%E4%BD%BF%E7%94%A8psycopg2%E4%BA%8B%E5%8A%A1%E6%97%B6%E4%B8%80%E4%BB%B6%E5%AE%B9%E6%98%93%E5%87%BA%E9%94%99%E7%9A%84%E6%83%85%E5%86%B5/">
-<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="叶子 Feed">
+<link rel="canonical" href="http://localhost:4000/articles/%E8%AE%B0%E4%BD%BF%E7%94%A8psycopg2%E4%BA%8B%E5%8A%A1%E6%97%B6%E4%B8%80%E4%BB%B6%E5%AE%B9%E6%98%93%E5%87%BA%E9%94%99%E7%9A%84%E6%83%85%E5%86%B5/">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="叶子 Feed">
 
 
 <!-- http://t.co/dKP3o1e -->
@@ -33,28 +33,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="/assets/css/main.min.css">
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
 <!-- Webfonts -->
 <!--<script src="//use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>-->
 
 <meta http-equiv="cleartype" content="on">
 
 <!-- Load Modernizr -->
-<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
 
 <!-- Icons -->
 <!-- 16x16 -->
-<link rel="shortcut icon" href="/favicon.ico">
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
 <!-- 32x32 -->
-<link rel="shortcut icon" href="/favicon.png">
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
 <!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
-<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
 <!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
 <!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
 <!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -87,11 +87,11 @@ var _hmt = _hmt || [];
 	        
 			<li>
 				
-					<a href="/about">About</a>
+					<a href="http://localhost:4000/about">About</a>
 				 
 			</li>
 	        
-	        <li><a href="/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+	        <li><a href="http://localhost:4000/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
 	        <li class="dosearch"><i class="icon-search"></i> Search</li>
 	    </ul>
 	</nav>
@@ -121,7 +121,7 @@ var _hmt = _hmt || [];
     
     <div class="entry-wrapper">
       <header class="entry-header">
-        <span class="entry-tags">Tags：<a href="/tags/#psycopg2" title="Pages tagged psycopg2">psycopg2</a>&nbsp;&bull;&nbsp;<a href="/tags/#postgresql" title="Pages tagged postgresql">postgresql</a>&nbsp;&bull;&nbsp;<a href="/tags/#python" title="Pages tagged python">python</a></span>
+        <span class="entry-tags">Tags：<a href="http://localhost:4000/tags/#psycopg2" title="Pages tagged psycopg2">psycopg2</a>&nbsp;&bull;&nbsp;<a href="http://localhost:4000/tags/#postgresql" title="Pages tagged postgresql">postgresql</a>&nbsp;&bull;&nbsp;<a href="http://localhost:4000/tags/#python" title="Pages tagged python">python</a></span>
         
           <h1 class="entry-title">记使用 psycopg2 事务时一件容易出错的情况</h1>
         
@@ -133,17 +133,15 @@ var _hmt = _hmt || [];
 
 <p>按照一般数据库的做法，我们一般会认为，事务一般是用在 <code>INSERT</code>/<code>UPDATE</code>/<code>DELETE</code> 和其他对数据库有更改的 SQL 语句中，如下就是处理事务的代码写法：</p>
 
-<div>
-  <pre><code class="python">import psycopg2
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">psycopg2</span>
 
-conn = psycopg2.connect(...)
-try:
-    cur = conn.cursor()
-    cur.execute(sql)
-    conn.commit()
-except:
-    conn.rollback()</code></pre>
-</div>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span></code></pre></figure>
 
 <p>同时，我们一般也会认为，查询语句（SELECT）之类不对数据产生影响的语句，就不需要做事务处理了。</p>
 
@@ -159,33 +157,29 @@ except:
   <li>错误代码</li>
 </ul>
 
-<div>
-  <pre><code class="python">import psycopg2
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">psycopg2</span>
 
-conn = psycopg2.connect(...)
-try:
-    cur.execute(wrong sql) # 抛出异常
-except:
-    pass
-cur.execute(sql) # 抛出 InternalError 异常，提示 transaction block
-...</code></pre>
-</div>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">wrong</span> <span class="n">sql</span><span class="p">)</span> <span class="c1"># 抛出异常</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">pass</span>
+<span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span> <span class="c1"># 抛出 InternalError 异常，提示 transaction block</span>
+<span class="o">...</span></code></pre></figure>
 
 <ul>
   <li>正确代码</li>
 </ul>
 
-<div>
-  <pre><code class="python">import psycopg2
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">psycopg2</span>
 
-conn = psycopg2.connect(...)
-try:
-    cur = conn.cursor()
-    cur.execute(sql)
-except:
-    conn.rollback()
-...</code></pre>
-</div>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+<span class="o">...</span></code></pre></figure>
 
 <p><strong>出现这种情况大多在单连接项目，如果每次操作都创建一个新的 connection 对象的话，这个错误也就不会发生了。</strong></p>
 
@@ -217,10 +211,10 @@ except:
     </div><!-- /.entry-wrapper -->
     <nav class="pagination" role="navigation">
       
-        <a href="/articles/gcc%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" class="btn" title="gcc 简单使用">Previous article</a>
+        <a href="http://localhost:4000/articles/gcc%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" class="btn" title="gcc 简单使用">Previous article</a>
       
       
-        <a href="/articles/Failed-to-load-module-canberra-gtk-module/" class="btn" title="Failed to load module canberra-gtk-module">Next article</a>
+        <a href="http://localhost:4000/articles/Failed-to-load-module-canberra-gtk-module/" class="btn" title="Failed to load module canberra-gtk-module">Next article</a>
       
     </nav><!-- /.pagination -->
   </article>
@@ -229,7 +223,7 @@ except:
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2016 Leo Zhang. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/so-simple/">So Simple Theme</a>.</span>
+    <span>&copy; 2017 Leo Zhang. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/so-simple/">So Simple Theme</a>.</span>
 <div class="social-icons">
 	
 	
@@ -257,14 +251,14 @@ except:
 </div><!-- /.footer-wrapper -->
 
 <script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-<script src="/assets/js/scripts.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
 
 <!-- Jekyll Simple Search option -->
 <script>
   $(document).ready(function() {
       $('.search-field').simpleJekyllSearch({
-          jsonFile : '/search.json',
+          jsonFile : 'http://localhost:4000/search.json',
           searchResults : '.search-results',
           template : '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
           noResults: '<p>Nothing found.</p>'

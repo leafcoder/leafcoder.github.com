@@ -16,15 +16,15 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="ftplib 简单使用">
 <meta property="og:description" content="ftplib 简单使用">
-<meta property="og:url" content="/articles/ftplib%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">
+<meta property="og:url" content="http://localhost:4000/articles/ftplib%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">
 <meta property="og:site_name" content="叶子">
 
 
 
 
 
-<link rel="canonical" href="/articles/ftplib%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">
-<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="叶子 Feed">
+<link rel="canonical" href="http://localhost:4000/articles/ftplib%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="叶子 Feed">
 
 
 <!-- http://t.co/dKP3o1e -->
@@ -33,28 +33,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="/assets/css/main.min.css">
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
 <!-- Webfonts -->
 <!--<script src="//use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>-->
 
 <meta http-equiv="cleartype" content="on">
 
 <!-- Load Modernizr -->
-<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
 
 <!-- Icons -->
 <!-- 16x16 -->
-<link rel="shortcut icon" href="/favicon.ico">
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
 <!-- 32x32 -->
-<link rel="shortcut icon" href="/favicon.png">
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
 <!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
-<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
 <!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
 <!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
 <!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -87,11 +87,11 @@ var _hmt = _hmt || [];
 	        
 			<li>
 				
-					<a href="/about">About</a>
+					<a href="http://localhost:4000/about">About</a>
 				 
 			</li>
 	        
-	        <li><a href="/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+	        <li><a href="http://localhost:4000/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
 	        <li class="dosearch"><i class="icon-search"></i> Search</li>
 	    </ul>
 	</nav>
@@ -121,166 +121,165 @@ var _hmt = _hmt || [];
     
     <div class="entry-wrapper">
       <header class="entry-header">
-        <span class="entry-tags">Tags：<a href="/tags/#python" title="Pages tagged python">python</a>&nbsp;&bull;&nbsp;<a href="/tags/#ftplib" title="Pages tagged ftplib">ftplib</a></span>
+        <span class="entry-tags">Tags：<a href="http://localhost:4000/tags/#python" title="Pages tagged python">python</a>&nbsp;&bull;&nbsp;<a href="http://localhost:4000/tags/#ftplib" title="Pages tagged ftplib">ftplib</a></span>
         
           <h1 class="entry-title">ftplib 简单使用</h1>
         
       </header>
       <div class="entry-content">
-        <div>
-  <pre><code class="python"># -*- coding: utf-8 -*-
-#!/usr/bin/python
-# Filename: ftp_client.py
+        
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1">#!/usr/bin/python</span>
+<span class="c1"># Filename: ftp_client.py</span>
 
-from ftplib import FTP
-import sys
-import os
+<span class="kn">from</span> <span class="nn">ftplib</span> <span class="kn">import</span> <span class="n">FTP</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os</span>
 
-global f_obj
+<span class="k">global</span> <span class="n">f_obj</span>
 
-def update(path):
-    global f_obj
-    file = os.path.split(path)[1]
-    ext = os.path.splitext(file)[1]
-    try:
-        if ext in ('.txt', '.htm', 'html'):
-            f_obj.storline('STOR ' + file, open(file))
-        else:
-            f_obj.storbinary('STOR ' + file, open(file, 'rb'), 1024)
-    except:
-        print 'read file error!'
+<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">f_obj</span>
+    <span class="nb">file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">path</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="nb">file</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">ext</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;.htm&#39;</span><span class="p">,</span> <span class="s1">&#39;html&#39;</span><span class="p">):</span>
+            <span class="n">f_obj</span><span class="o">.</span><span class="n">storline</span><span class="p">(</span><span class="s1">&#39;STOR &#39;</span> <span class="o">+</span> <span class="nb">file</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="nb">file</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">f_obj</span><span class="o">.</span><span class="n">storbinary</span><span class="p">(</span><span class="s1">&#39;STOR &#39;</span> <span class="o">+</span> <span class="nb">file</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">),</span> <span class="mi">1024</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s1">&#39;read file error!&#39;</span>
 
-def download(path, outfile=None):
-    global f_obj
-    if outfile is None:
-        outfile = sys.stdout
-    dir = os.path.split(path)[0]
-    file = os.path.split(path)[1]
-    ext = os.path.splitext(file)[1]
-    default_dir = f_obj.pwd()
-    if dir is not None:
-        f_obj.cwd(dir)
-    if len(file) == 0:
-        print 'please input right file or path&gt;&gt;'
-        return
-    try:
-        if ext in ('.txt', '.htm', '.html', '.png'):
-            outfile = open(file, 'w')
-            f_obj.retrlines('RETR ' + file, lambda s, w=outfile.write: w(s+&quot;\n&quot;))
-        else:
-            f_obj.retrbinary('RETR ' + file, outfile.write)
-    except:
-        print 'download error!'
-    print 'download success!'
-def func_cmd(cmd, outfile = None):
-    global f_obj
-    if outfile is None:
-        outfile = sys.stdout
+<span class="k">def</span> <span class="nf">download</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">outfile</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">f_obj</span>
+    <span class="k">if</span> <span class="n">outfile</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">outfile</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span>
+    <span class="nb">dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">path</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="nb">file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">path</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="nb">file</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">default_dir</span> <span class="o">=</span> <span class="n">f_obj</span><span class="o">.</span><span class="n">pwd</span><span class="p">()</span>
+    <span class="k">if</span> <span class="nb">dir</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">f_obj</span><span class="o">.</span><span class="n">cwd</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s1">&#39;please input right file or path&gt;&gt;&#39;</span>
+        <span class="k">return</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">ext</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;.htm&#39;</span><span class="p">,</span> <span class="s1">&#39;.html&#39;</span><span class="p">,</span> <span class="s1">&#39;.png&#39;</span><span class="p">):</span>
+            <span class="n">outfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+            <span class="n">f_obj</span><span class="o">.</span><span class="n">retrlines</span><span class="p">(</span><span class="s1">&#39;RETR &#39;</span> <span class="o">+</span> <span class="nb">file</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">:</span> <span class="n">w</span><span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">f_obj</span><span class="o">.</span><span class="n">retrbinary</span><span class="p">(</span><span class="s1">&#39;RETR &#39;</span> <span class="o">+</span> <span class="nb">file</span><span class="p">,</span> <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s1">&#39;download error!&#39;</span>
+    <span class="k">print</span> <span class="s1">&#39;download success!&#39;</span>
+<span class="k">def</span> <span class="nf">func_cmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">outfile</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">f_obj</span>
+    <span class="k">if</span> <span class="n">outfile</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">outfile</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span>
 
-    if cmd == '1':
-        print 'Current dir files as:'
-        f_obj.dir()
-    elif cmd == '2':
-        try:
-            str = ''
-            list = []
-            dir = raw_input('input dir&gt;&gt;')
-            list = f_obj.nlst(dir)
-            ' '.join(list)
-            print list   
-        except:
-            print 'error'
-    elif cmd == '3':
-        print 'you want to upload file to ftp!'
-        filename = raw_input('please input filename or path&gt;&gt;')
-        update(filename)
-        print 'upload succ!'
-    elif cmd == '4':
-        print 'you want to download files from tfp!'
-        filename_path = raw_input('please input filename or path&gt;&gt;')
-        download(filename_path)
-        print '------download succ!------'
-    elif cmd == '5':
-        print 'Current dir:'
-        print f_obj.pwd()
-    elif cmd == '6':
-        try:
-            path = raw_input('please input the path&gt;&gt;')
-            f_obj.cwd(path)
-        except:
-            print 'error'
-    elif cmd == '7':
-        try:
-            path = raw_input('please input the dir&gt;&gt;')
-            f_obj.mkd(path)
-        except:
-            print 'error'
-    elif cmd == '8':
-        try:
-            dir = raw_input('please input the dir which you want remove&gt;&gt;')
-            f_obj.rmd(dir)
-        except:
-            print 'error'
-    elif cmd == '9':
-        try:
-            file = raw_input('please input the filename&gt;&gt;')
-            f_obj.size(file)
-        except:
-            print 'error'
-    elif cmd == '10':
-        f_obj.quit()
-        f_obj.close()
-        print '结束连接......'
-        sys.exit(0)
-    else:
-        print 'no command!'
+    <span class="k">if</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s1">&#39;Current dir files as:&#39;</span>
+        <span class="n">f_obj</span><span class="o">.</span><span class="n">dir</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s1">&#39;2&#39;</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+            <span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="nb">dir</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s1">&#39;input dir&gt;&gt;&#39;</span><span class="p">)</span>
+            <span class="nb">list</span> <span class="o">=</span> <span class="n">f_obj</span><span class="o">.</span><span class="n">nlst</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
+            <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+            <span class="k">print</span> <span class="nb">list</span>   
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s1">&#39;error&#39;</span>
+    <span class="k">elif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s1">&#39;3&#39;</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s1">&#39;you want to upload file to ftp!&#39;</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s1">&#39;please input filename or path&gt;&gt;&#39;</span><span class="p">)</span>
+        <span class="n">update</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s1">&#39;upload succ!&#39;</span>
+    <span class="k">elif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s1">&#39;4&#39;</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s1">&#39;you want to download files from tfp!&#39;</span>
+        <span class="n">filename_path</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s1">&#39;please input filename or path&gt;&gt;&#39;</span><span class="p">)</span>
+        <span class="n">download</span><span class="p">(</span><span class="n">filename_path</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s1">&#39;------download succ!------&#39;</span>
+    <span class="k">elif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s1">&#39;5&#39;</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s1">&#39;Current dir:&#39;</span>
+        <span class="k">print</span> <span class="n">f_obj</span><span class="o">.</span><span class="n">pwd</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s1">&#39;6&#39;</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s1">&#39;please input the path&gt;&gt;&#39;</span><span class="p">)</span>
+            <span class="n">f_obj</span><span class="o">.</span><span class="n">cwd</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s1">&#39;error&#39;</span>
+    <span class="k">elif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s1">&#39;7&#39;</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s1">&#39;please input the dir&gt;&gt;&#39;</span><span class="p">)</span>
+            <span class="n">f_obj</span><span class="o">.</span><span class="n">mkd</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s1">&#39;error&#39;</span>
+    <span class="k">elif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s1">&#39;8&#39;</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="nb">dir</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s1">&#39;please input the dir which you want remove&gt;&gt;&#39;</span><span class="p">)</span>
+            <span class="n">f_obj</span><span class="o">.</span><span class="n">rmd</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s1">&#39;error&#39;</span>
+    <span class="k">elif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s1">&#39;9&#39;</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="nb">file</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s1">&#39;please input the filename&gt;&gt;&#39;</span><span class="p">)</span>
+            <span class="n">f_obj</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s1">&#39;error&#39;</span>
+    <span class="k">elif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s1">&#39;10&#39;</span><span class="p">:</span>
+        <span class="n">f_obj</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+        <span class="n">f_obj</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">print</span> <span class="s1">&#39;结束连接......&#39;</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s1">&#39;no command!&#39;</span>
 
-    raw_input('enter any key continue.....')
+    <span class="nb">raw_input</span><span class="p">(</span><span class="s1">&#39;enter any key continue.....&#39;</span><span class="p">)</span>
 
 
-def main():
-    global f_obj
-    host = '192.168.1.12'
-    user = 'tomy'
-    password = '111111'
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">f_obj</span>
+    <span class="n">host</span> <span class="o">=</span> <span class="s1">&#39;192.168.1.12&#39;</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="s1">&#39;tomy&#39;</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;111111&#39;</span>
 
-    try:
-        print 'Connect Host PC......'
-        f_obj = FTP(host)
-        print f_obj.getwelcome()
-    except:
-        print &quot;Can't reach the Ftp host!&quot;
-        sys.exit(1)   
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s1">&#39;Connect Host PC......&#39;</span>
+        <span class="n">f_obj</span> <span class="o">=</span> <span class="n">FTP</span><span class="p">(</span><span class="n">host</span><span class="p">)</span>
+        <span class="k">print</span> <span class="n">f_obj</span><span class="o">.</span><span class="n">getwelcome</span><span class="p">()</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s2">&quot;Can&#39;t reach the Ftp host!&quot;</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>   
 
-    try:
-        print 'login by user.....'
-        f_obj.login('19930', '111111')
-    except:
-        print &quot;Can't login!&quot;
-        sys.exit(1)
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s1">&#39;login by user.....&#39;</span>
+        <span class="n">f_obj</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s1">&#39;19930&#39;</span><span class="p">,</span> <span class="s1">&#39;111111&#39;</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s2">&quot;Can&#39;t login!&quot;</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
-    while(1):
-        intro_str = '''
-        All commands as:
-        1:显示当前文件夹文件列表（含有详细列表信息）
-        2:显示当前文件夹文件
-        3:上传文件
-        4:下载文件
-        5:显示当前目录
-        6:跳转进入某目录
-        7:创建一个新的目录
-        8:删除一个目录
-        9:返回一个文件的文件大小
-        10:退出FTP
-        '''
+    <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">intro_str</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">        All commands as:</span>
+<span class="s1">        1:显示当前文件夹文件列表（含有详细列表信息）</span>
+<span class="s1">        2:显示当前文件夹文件</span>
+<span class="s1">        3:上传文件</span>
+<span class="s1">        4:下载文件</span>
+<span class="s1">        5:显示当前目录</span>
+<span class="s1">        6:跳转进入某目录</span>
+<span class="s1">        7:创建一个新的目录</span>
+<span class="s1">        8:删除一个目录</span>
+<span class="s1">        9:返回一个文件的文件大小</span>
+<span class="s1">        10:退出FTP</span>
+<span class="s1">        &#39;&#39;&#39;</span>
 
-        print intro_str
-        cmd = raw_input('please input cmd&gt;&gt;')
-        func_cmd(cmd)
+        <span class="k">print</span> <span class="n">intro_str</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s1">&#39;please input cmd&gt;&gt;&#39;</span><span class="p">)</span>
+        <span class="n">func_cmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
 
-if __name__ == '__main__':
-    main()</code></pre>
-</div>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span></code></pre></figure>
 
 
         
@@ -306,7 +305,7 @@ if __name__ == '__main__':
     <nav class="pagination" role="navigation">
       
       
-        <a href="/articles/%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%BF%E7%94%A8Ubuntu%E7%9A%84Vim%E7%BC%96%E5%86%99C_%E7%AE%80%E5%8D%95%E7%9A%84GCC%E7%BC%96%E8%AF%91%E6%96%B9%E6%B3%95/" class="btn" title="第一次使用Ubuntu的Vim编写C_简单的GCC编译方法">Next article</a>
+        <a href="http://localhost:4000/articles/%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%BF%E7%94%A8Ubuntu%E7%9A%84Vim%E7%BC%96%E5%86%99C_%E7%AE%80%E5%8D%95%E7%9A%84GCC%E7%BC%96%E8%AF%91%E6%96%B9%E6%B3%95/" class="btn" title="第一次使用Ubuntu的Vim编写C_简单的GCC编译方法">Next article</a>
       
     </nav><!-- /.pagination -->
   </article>
@@ -315,7 +314,7 @@ if __name__ == '__main__':
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2016 Leo Zhang. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/so-simple/">So Simple Theme</a>.</span>
+    <span>&copy; 2017 Leo Zhang. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/so-simple/">So Simple Theme</a>.</span>
 <div class="social-icons">
 	
 	
@@ -343,14 +342,14 @@ if __name__ == '__main__':
 </div><!-- /.footer-wrapper -->
 
 <script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-<script src="/assets/js/scripts.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
 
 <!-- Jekyll Simple Search option -->
 <script>
   $(document).ready(function() {
       $('.search-field').simpleJekyllSearch({
-          jsonFile : '/search.json',
+          jsonFile : 'http://localhost:4000/search.json',
           searchResults : '.search-results',
           template : '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
           noResults: '<p>Nothing found.</p>'
