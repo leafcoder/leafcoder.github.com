@@ -59,7 +59,7 @@
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?8a2931150f98d9779995b17565fb4eb5";
+  hm.src = "https://hm.baidu.com/hm.js?f3fbccf0789476b80fab0c58359399a5";
   var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
 })();
@@ -129,15 +129,15 @@ var _hmt = _hmt || [];
       <div class="entry-content">
         <p>Q: Ubuntu 默认开启 dnsmasq 服务，占用了本机53端口，当需要在本机测试或使用其他 dns 服务器时，如何关闭 dnsmasq 服务而且重启电脑后 dnsmasq 服务不会重新被开启？</p>
 
-<p>A: <code>$ sudo vi /etc/NetworkManager/NetworkManager.conf</code></p>
+<p>A: <code class="highlighter-rouge">$ sudo vi /etc/NetworkManager/NetworkManager.conf</code></p>
 
-<p>注释掉 <code>dns=dnsmasq</code>，如下：</p>
+<p>注释掉 <code class="highlighter-rouge">dns=dnsmasq</code>，如下：</p>
 
-<p><code># dns=dnsmasq</code></p>
+<p><code class="highlighter-rouge"># dns=dnsmasq</code></p>
 
 <p>保存后重启 network-manager，</p>
 
-<p><code>sudo restart network-manger</code></p>
+<p><code class="highlighter-rouge">sudo restart network-manger</code></p>
 
         
           <div id="disqus_thread"></div><!-- /#disqus_thread -->

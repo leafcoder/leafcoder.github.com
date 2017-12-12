@@ -44,13 +44,13 @@ links:
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:    China/ShangHai
 future:      true
-highlighter: pygments
-markdown:    kramdown
 
 # https://github.com/mojombo/jekyll/wiki/Permalinks
 permalink:   /:categories/:title/
 
 kramdown:
+  input: GFM
+  syntax_highlighter: rouge
   auto_ids: true
   footnote_nr: 1
   entity_output: as_char

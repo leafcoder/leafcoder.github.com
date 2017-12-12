@@ -59,7 +59,7 @@
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?8a2931150f98d9779995b17565fb4eb5";
+  hm.src = "https://hm.baidu.com/hm.js?f3fbccf0789476b80fab0c58359399a5";
   var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
 })();
@@ -135,8 +135,8 @@ var _hmt = _hmt || [];
     <span class="k">pass</span>
 
 <span class="n">point</span><span class="o">.</span><span class="n">_fields_</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">c_int</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">c_int</span><span class="p">)</span>
+    <span class="p">(</span><span class="s">'x'</span><span class="p">,</span> <span class="n">c_int</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">'y'</span><span class="p">,</span> <span class="n">c_int</span><span class="p">)</span>
 <span class="p">]</span>
 
 <span class="n">arry_gen</span> <span class="o">=</span> <span class="n">point</span> <span class="o">*</span> <span class="mi">10</span>
@@ -147,7 +147,7 @@ var _hmt = _hmt || [];
 
 <p>###回调函数用法</p>
 
-<pre><code># /* demo.c --&gt; demo.so */
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># /* demo.c --&gt; demo.so */
 # include &lt;stdio.h&gt;
 
 # typedef int (*callback)(void);
@@ -156,7 +156,7 @@ var _hmt = _hmt || [];
 # {
 #     return get_value();
 # }
-</code></pre>
+</code></pre></div></div>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">ctypes</span> <span class="kn">import</span> <span class="o">*</span>
 
@@ -164,7 +164,7 @@ var _hmt = _hmt || [];
     <span class="k">return</span> <span class="mi">10</span>
 
 <span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
-    <span class="n">libdemo</span> <span class="o">=</span> <span class="n">cdll</span><span class="o">.</span><span class="n">LoadLibrary</span><span class="p">(</span><span class="s1">&#39;./demo.so&#39;</span><span class="p">)</span>
+    <span class="n">libdemo</span> <span class="o">=</span> <span class="n">cdll</span><span class="o">.</span><span class="n">LoadLibrary</span><span class="p">(</span><span class="s">'./demo.so'</span><span class="p">)</span>
     <span class="n">func_arg</span> <span class="o">=</span> <span class="n">libdemo</span><span class="o">.</span><span class="n">func_arg</span>
     <span class="n">func_arg</span><span class="o">.</span><span class="n">restype</span> <span class="o">=</span> <span class="n">c_int</span>
 

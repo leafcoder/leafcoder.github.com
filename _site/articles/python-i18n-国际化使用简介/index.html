@@ -59,7 +59,7 @@
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?8a2931150f98d9779995b17565fb4eb5";
+  hm.src = "https://hm.baidu.com/hm.js?f3fbccf0789476b80fab0c58359399a5";
   var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
 })();
@@ -133,13 +133,13 @@ var _hmt = _hmt || [];
 
 <p>###1.生成翻译文件模板并修改相应内容</p>
 
-<p>Python 有个 <code>gettext</code> 模块用以支持 <code>i18n</code>，在终端中直接通过命令 <code>pygettext</code> 使用。</p>
+<p>Python 有个 <code class="highlighter-rouge">gettext</code> 模块用以支持 <code class="highlighter-rouge">i18n</code>，在终端中直接通过命令 <code class="highlighter-rouge">pygettext</code> 使用。</p>
 
-<p><code>user@ubuntu: pygettext -o lang.po</code></p>
+<p><code class="highlighter-rouge">user@ubuntu: pygettext -o lang.po</code></p>
 
 <p>运行命令后会生成翻译文件模板 <strong>lang.pot</strong>，如果不提供 <strong>-o</strong> 参数，直接运行命令，生成的文件名默认为 <strong>messages.pot</strong>，内容如下：</p>
 
-<pre><code># SOME DESCRIPTIVE TITLE.
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR ORGANIZATION
 # FIRST AUTHOR &lt;EMAIL@ADDRESS&gt;, YEAR.
 #
@@ -154,13 +154,13 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: ENCODING\n"
 "Generated-By: pygettext.py 1.5\n"
-</code></pre>
+</code></pre></div></div>
 
-<p>将 <code>charset=CHARSET</code> 和 <code>Content-Transfer-Encoding: ENCODING</code> 改为自己需要的编码，
-如 <strong>Linux</strong> 下改为 <code>charset=utf-8、Content-Transfer-Encoding: utf-8</code>，其他选项可根据需要自行修改;
+<p>将 <code class="highlighter-rouge">charset=CHARSET</code> 和 <code class="highlighter-rouge">Content-Transfer-Encoding: ENCODING</code> 改为自己需要的编码，
+如 <strong>Linux</strong> 下改为 <code class="highlighter-rouge">charset=utf-8、Content-Transfer-Encoding: utf-8</code>，其他选项可根据需要自行修改;
 修改完成后内容如下：</p>
 
-<pre><code># SOME DESCRIPTIVE TITLE.
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR ORGANIZATION
 # FIRST AUTHOR &lt;EMAIL@ADDRESS&gt;, YEAR.
 #
@@ -175,41 +175,41 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: utf-8\n"
 "Generated-By: pygettext.py 1.5\n"
-</code></pre>
+</code></pre></div></div>
 
 <p>###2.建立翻译文件目录结构</p>
 
 <p>建立翻译文件路径，如，我们翻译中英文的话，需要建立一个翻译文件目录结构，如下：</p>
 
-<p>中文<code>./locale/cn/LC_MESSAGES</code></p>
+<p>中文<code class="highlighter-rouge">./locale/cn/LC_MESSAGES</code></p>
 
-<p>英文<code>./locale/en/LC_MESSAGES</code></p>
+<p>英文<code class="highlighter-rouge">./locale/en/LC_MESSAGES</code></p>
 
 <p>###3.添加翻译内容并生成二进制翻译文件</p>
 
 <p>在 lang.po 文件后面添加要翻译原文和翻译结果，格式如下：</p>
 
-<p><code>msgid  "Hello"  # 原文</code></p>
+<p><code class="highlighter-rouge">msgid  "Hello"  # 原文</code></p>
 
-<p><code>msgstr "你好"    # 译文</code></p>
+<p><code class="highlighter-rouge">msgstr "你好"    # 译文</code></p>
 
 <p>生成翻译文件的二进制文件</p>
 
-<p><code>msgfmt lang.po -o ./locale/cn/LC_MESSAGES/lang.mo</code></p>
+<p><code class="highlighter-rouge">msgfmt lang.po -o ./locale/cn/LC_MESSAGES/lang.mo</code></p>
 
-<p><code>msgfmt lang.po -o ./locale/en/LC_MESSAGES/lang.mo</code> # 通过未添加任何翻译内容的 <strong>lang.po</strong> 得到</p>
+<p><code class="highlighter-rouge">msgfmt lang.po -o ./locale/en/LC_MESSAGES/lang.mo</code> # 通过未添加任何翻译内容的 <strong>lang.po</strong> 得到</p>
 
 <p>###4.python 使用翻译文件的方法</p>
 
 <p>最后由 Python 进行调用，完成国际化：</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="ch">#!/usr/bin/python</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/python</span>
  
 <span class="kn">import</span> <span class="nn">gettext</span>
  
-<span class="n">gettext</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="s1">&#39;lang&#39;</span><span class="p">,</span> <span class="s1">&#39;./locale&#39;</span><span class="p">,</span> <span class="nb">unicode</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<span class="n">gettext</span><span class="o">.</span><span class="n">translation</span><span class="p">(</span><span class="s1">&#39;lang&#39;</span><span class="p">,</span> <span class="s1">&#39;./locale&#39;</span><span class="p">,</span> <span class="n">languages</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;cn&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span></code></pre></figure>
+<span class="n">gettext</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="s">'lang'</span><span class="p">,</span> <span class="s">'./locale'</span><span class="p">,</span> <span class="nb">unicode</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">gettext</span><span class="o">.</span><span class="n">translation</span><span class="p">(</span><span class="s">'lang'</span><span class="p">,</span> <span class="s">'./locale'</span><span class="p">,</span> <span class="n">languages</span><span class="o">=</span><span class="p">[</span><span class="s">'cn'</span><span class="p">])</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">_</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">)</span></code></pre></figure>
 
 <p>###5.示例代码下载</p>
 

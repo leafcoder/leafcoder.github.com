@@ -59,7 +59,7 @@
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?8a2931150f98d9779995b17565fb4eb5";
+  hm.src = "https://hm.baidu.com/hm.js?f3fbccf0789476b80fab0c58359399a5";
   var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
 })();
@@ -129,44 +129,44 @@ var _hmt = _hmt || [];
       <div class="entry-content">
         <p>脚本中的数据源是中国天气网，根据传输的参数不同，返回相应的天气数据;</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># coding: utf-8</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># coding: utf-8</span>
 <span class="kn">import</span> <span class="nn">urllib2</span>
 
 <span class="n">provinces</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">&quot;北京&quot;</span><span class="p">:</span> <span class="s2">&quot;01&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;上海&quot;</span><span class="p">:</span> <span class="s2">&quot;02&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;天津&quot;</span><span class="p">:</span> <span class="s2">&quot;03&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;重庆&quot;</span><span class="p">:</span> <span class="s2">&quot;04&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;黑龙江&quot;</span><span class="p">:</span> <span class="s2">&quot;05&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;吉林&quot;</span><span class="p">:</span> <span class="s2">&quot;06&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;辽宁&quot;</span><span class="p">:</span> <span class="s2">&quot;07&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;内蒙古&quot;</span><span class="p">:</span> <span class="s2">&quot;08&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;河北&quot;</span><span class="p">:</span> <span class="s2">&quot;09&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;山西&quot;</span><span class="p">:</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;陕西&quot;</span><span class="p">:</span> <span class="s2">&quot;11&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;山东&quot;</span><span class="p">:</span> <span class="s2">&quot;12&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;新疆&quot;</span><span class="p">:</span> <span class="s2">&quot;13&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;西藏&quot;</span><span class="p">:</span> <span class="s2">&quot;14&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;青海&quot;</span><span class="p">:</span> <span class="s2">&quot;15&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;甘肃&quot;</span><span class="p">:</span> <span class="s2">&quot;16&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;宁夏&quot;</span><span class="p">:</span> <span class="s2">&quot;17&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;河南&quot;</span><span class="p">:</span> <span class="s2">&quot;18&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;江苏&quot;</span><span class="p">:</span> <span class="s2">&quot;19&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;湖北&quot;</span><span class="p">:</span> <span class="s2">&quot;20&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;浙江&quot;</span><span class="p">:</span> <span class="s2">&quot;21&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;安徽&quot;</span><span class="p">:</span> <span class="s2">&quot;22&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;福建&quot;</span><span class="p">:</span> <span class="s2">&quot;23&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;江西&quot;</span><span class="p">:</span> <span class="s2">&quot;24&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;湖南&quot;</span><span class="p">:</span> <span class="s2">&quot;25&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;贵州&quot;</span><span class="p">:</span> <span class="s2">&quot;26&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;四川&quot;</span><span class="p">:</span> <span class="s2">&quot;27&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;广东&quot;</span><span class="p">:</span> <span class="s2">&quot;28&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;云南&quot;</span><span class="p">:</span> <span class="s2">&quot;29&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;广西&quot;</span><span class="p">:</span> <span class="s2">&quot;30&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;海南&quot;</span><span class="p">:</span> <span class="s2">&quot;31&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;香港&quot;</span><span class="p">:</span> <span class="s2">&quot;32&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;澳门&quot;</span><span class="p">:</span> <span class="s2">&quot;33&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;台湾&quot;</span><span class="p">:</span> <span class="s2">&quot;34&quot;</span>
+  <span class="s">"北京"</span><span class="p">:</span> <span class="s">"01"</span><span class="p">,</span>
+  <span class="s">"上海"</span><span class="p">:</span> <span class="s">"02"</span><span class="p">,</span>
+  <span class="s">"天津"</span><span class="p">:</span> <span class="s">"03"</span><span class="p">,</span>
+  <span class="s">"重庆"</span><span class="p">:</span> <span class="s">"04"</span><span class="p">,</span>
+  <span class="s">"黑龙江"</span><span class="p">:</span> <span class="s">"05"</span><span class="p">,</span>
+  <span class="s">"吉林"</span><span class="p">:</span> <span class="s">"06"</span><span class="p">,</span>
+  <span class="s">"辽宁"</span><span class="p">:</span> <span class="s">"07"</span><span class="p">,</span>
+  <span class="s">"内蒙古"</span><span class="p">:</span> <span class="s">"08"</span><span class="p">,</span>
+  <span class="s">"河北"</span><span class="p">:</span> <span class="s">"09"</span><span class="p">,</span>
+  <span class="s">"山西"</span><span class="p">:</span> <span class="s">"10"</span><span class="p">,</span>
+  <span class="s">"陕西"</span><span class="p">:</span> <span class="s">"11"</span><span class="p">,</span>
+  <span class="s">"山东"</span><span class="p">:</span> <span class="s">"12"</span><span class="p">,</span>
+  <span class="s">"新疆"</span><span class="p">:</span> <span class="s">"13"</span><span class="p">,</span>
+  <span class="s">"西藏"</span><span class="p">:</span> <span class="s">"14"</span><span class="p">,</span>
+  <span class="s">"青海"</span><span class="p">:</span> <span class="s">"15"</span><span class="p">,</span>
+  <span class="s">"甘肃"</span><span class="p">:</span> <span class="s">"16"</span><span class="p">,</span>
+  <span class="s">"宁夏"</span><span class="p">:</span> <span class="s">"17"</span><span class="p">,</span>
+  <span class="s">"河南"</span><span class="p">:</span> <span class="s">"18"</span><span class="p">,</span>
+  <span class="s">"江苏"</span><span class="p">:</span> <span class="s">"19"</span><span class="p">,</span>
+  <span class="s">"湖北"</span><span class="p">:</span> <span class="s">"20"</span><span class="p">,</span>
+  <span class="s">"浙江"</span><span class="p">:</span> <span class="s">"21"</span><span class="p">,</span>
+  <span class="s">"安徽"</span><span class="p">:</span> <span class="s">"22"</span><span class="p">,</span>
+  <span class="s">"福建"</span><span class="p">:</span> <span class="s">"23"</span><span class="p">,</span>
+  <span class="s">"江西"</span><span class="p">:</span> <span class="s">"24"</span><span class="p">,</span>
+  <span class="s">"湖南"</span><span class="p">:</span> <span class="s">"25"</span><span class="p">,</span>
+  <span class="s">"贵州"</span><span class="p">:</span> <span class="s">"26"</span><span class="p">,</span>
+  <span class="s">"四川"</span><span class="p">:</span> <span class="s">"27"</span><span class="p">,</span>
+  <span class="s">"广东"</span><span class="p">:</span> <span class="s">"28"</span><span class="p">,</span>
+  <span class="s">"云南"</span><span class="p">:</span> <span class="s">"29"</span><span class="p">,</span>
+  <span class="s">"广西"</span><span class="p">:</span> <span class="s">"30"</span><span class="p">,</span>
+  <span class="s">"海南"</span><span class="p">:</span> <span class="s">"31"</span><span class="p">,</span>
+  <span class="s">"香港"</span><span class="p">:</span> <span class="s">"32"</span><span class="p">,</span>
+  <span class="s">"澳门"</span><span class="p">:</span> <span class="s">"33"</span><span class="p">,</span>
+  <span class="s">"台湾"</span><span class="p">:</span> <span class="s">"34"</span>
 <span class="p">}</span>
 
 <span class="k">def</span> <span class="nf">fetch</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
@@ -178,27 +178,27 @@ var _hmt = _hmt || [];
 
 <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="n">content</span><span class="p">):</span>
     <span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">content</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">):</span>
-        <span class="n">code</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">content</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">','</span><span class="p">):</span>
+        <span class="n">code</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">'|'</span><span class="p">)</span>
         <span class="n">data</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">code</span>
     <span class="k">return</span> <span class="n">data</span>
 
-<span class="c1">#url = &#39;http://m.weather.com.cn/data/101210201.html&#39;</span>
-<span class="c1">#url = &#39;http://service.weather.com.cn/plugin/data/city02.xml?level=1&#39;</span>
+<span class="c">#url = 'http://m.weather.com.cn/data/101210201.html'</span>
+<span class="c">#url = 'http://service.weather.com.cn/plugin/data/city02.xml?level=1'</span>
 
-<span class="n">tmpl</span> <span class="o">=</span> <span class="s1">&#39;http://service.weather.com.cn/plugin/data/city</span><span class="si">%s</span><span class="s1">.xml&#39;</span>
+<span class="n">tmpl</span> <span class="o">=</span> <span class="s">'http://service.weather.com.cn/plugin/data/city</span><span class="si">%</span><span class="s">s.xml'</span>
 
-<span class="n">province</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="se">\n</span><span class="s1">请输入省、直辖市：&#39;</span> <span class="o">%</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">provinces</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+<span class="n">province</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'</span><span class="si">%</span><span class="s">s</span><span class="se">\n</span><span class="s">请输入省、直辖市：'</span> <span class="o">%</span> <span class="s">' '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">provinces</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
 
 <span class="n">citys</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="n">fetch</span><span class="p">(</span><span class="n">tmpl</span> <span class="o">%</span> <span class="n">provinces</span><span class="p">[</span><span class="n">province</span><span class="p">]))</span>
-<span class="n">city</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="se">\n</span><span class="s1">请输入市名：&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">citys</span><span class="o">.</span><span class="n">keys</span><span class="p">())))</span>
+<span class="n">city</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'</span><span class="si">%</span><span class="s">s</span><span class="se">\n</span><span class="s">请输入市名：'</span> <span class="o">%</span> <span class="p">(</span><span class="s">' '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">citys</span><span class="o">.</span><span class="n">keys</span><span class="p">())))</span>
 
 <span class="n">countys</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="n">fetch</span><span class="p">(</span><span class="n">tmpl</span> <span class="o">%</span> <span class="n">citys</span><span class="p">[</span><span class="n">city</span><span class="p">]))</span>
-<span class="n">county</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="se">\n</span><span class="s1">请输入区县：&#39;</span> <span class="o">%</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">countys</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+<span class="n">county</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'</span><span class="si">%</span><span class="s">s</span><span class="se">\n</span><span class="s">请输入区县：'</span> <span class="o">%</span> <span class="s">' '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">countys</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
 
-<span class="n">code</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">fetch</span><span class="p">(</span><span class="n">tmpl</span> <span class="o">%</span> <span class="n">countys</span><span class="p">[</span><span class="n">county</span><span class="p">])</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">)</span>
+<span class="n">code</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">fetch</span><span class="p">(</span><span class="n">tmpl</span> <span class="o">%</span> <span class="n">countys</span><span class="p">[</span><span class="n">county</span><span class="p">])</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">'|'</span><span class="p">)</span>
 
-<span class="k">print</span> <span class="n">fetch</span><span class="p">(</span><span class="s1">&#39;http://m.weather.com.cn/data/</span><span class="si">%s</span><span class="s1">.html&#39;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span></code></pre></figure>
+<span class="k">print</span> <span class="n">fetch</span><span class="p">(</span><span class="s">'http://m.weather.com.cn/data/</span><span class="si">%</span><span class="s">s.html'</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span></code></pre></figure>
 
 
         

@@ -59,7 +59,7 @@
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?8a2931150f98d9779995b17565fb4eb5";
+  hm.src = "https://hm.baidu.com/hm.js?f3fbccf0789476b80fab0c58359399a5";
   var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
 })();
@@ -128,9 +128,9 @@ var _hmt = _hmt || [];
       </header>
       <div class="entry-content">
         
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># -*- coding: utf-8 -*-</span>
-<span class="c1">#!/usr/bin/python</span>
-<span class="c1"># Filename: ftp_client.py</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># -*- coding: utf-8 -*-</span>
+<span class="c">#!/usr/bin/python</span>
+<span class="c"># Filename: ftp_client.py</span>
 
 <span class="kn">from</span> <span class="nn">ftplib</span> <span class="kn">import</span> <span class="n">FTP</span>
 <span class="kn">import</span> <span class="nn">sys</span>
@@ -143,12 +143,12 @@ var _hmt = _hmt || [];
     <span class="nb">file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">path</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="nb">file</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">ext</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;.htm&#39;</span><span class="p">,</span> <span class="s1">&#39;html&#39;</span><span class="p">):</span>
-            <span class="n">f_obj</span><span class="o">.</span><span class="n">storline</span><span class="p">(</span><span class="s1">&#39;STOR &#39;</span> <span class="o">+</span> <span class="nb">file</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="nb">file</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">ext</span> <span class="ow">in</span> <span class="p">(</span><span class="s">'.txt'</span><span class="p">,</span> <span class="s">'.htm'</span><span class="p">,</span> <span class="s">'html'</span><span class="p">):</span>
+            <span class="n">f_obj</span><span class="o">.</span><span class="n">storline</span><span class="p">(</span><span class="s">'STOR '</span> <span class="o">+</span> <span class="nb">file</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="nb">file</span><span class="p">))</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">f_obj</span><span class="o">.</span><span class="n">storbinary</span><span class="p">(</span><span class="s1">&#39;STOR &#39;</span> <span class="o">+</span> <span class="nb">file</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">),</span> <span class="mi">1024</span><span class="p">)</span>
+            <span class="n">f_obj</span><span class="o">.</span><span class="n">storbinary</span><span class="p">(</span><span class="s">'STOR '</span> <span class="o">+</span> <span class="nb">file</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">),</span> <span class="mi">1024</span><span class="p">)</span>
     <span class="k">except</span><span class="p">:</span>
-        <span class="k">print</span> <span class="s1">&#39;read file error!&#39;</span>
+        <span class="k">print</span> <span class="s">'read file error!'</span>
 
 <span class="k">def</span> <span class="nf">download</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">outfile</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">f_obj</span>
@@ -161,124 +161,124 @@ var _hmt = _hmt || [];
     <span class="k">if</span> <span class="nb">dir</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
         <span class="n">f_obj</span><span class="o">.</span><span class="n">cwd</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">print</span> <span class="s1">&#39;please input right file or path&gt;&gt;&#39;</span>
+        <span class="k">print</span> <span class="s">'please input right file or path&gt;&gt;'</span>
         <span class="k">return</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">ext</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;.htm&#39;</span><span class="p">,</span> <span class="s1">&#39;.html&#39;</span><span class="p">,</span> <span class="s1">&#39;.png&#39;</span><span class="p">):</span>
-            <span class="n">outfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
-            <span class="n">f_obj</span><span class="o">.</span><span class="n">retrlines</span><span class="p">(</span><span class="s1">&#39;RETR &#39;</span> <span class="o">+</span> <span class="nb">file</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">:</span> <span class="n">w</span><span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">ext</span> <span class="ow">in</span> <span class="p">(</span><span class="s">'.txt'</span><span class="p">,</span> <span class="s">'.htm'</span><span class="p">,</span> <span class="s">'.html'</span><span class="p">,</span> <span class="s">'.png'</span><span class="p">):</span>
+            <span class="n">outfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
+            <span class="n">f_obj</span><span class="o">.</span><span class="n">retrlines</span><span class="p">(</span><span class="s">'RETR '</span> <span class="o">+</span> <span class="nb">file</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">:</span> <span class="n">w</span><span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">))</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">f_obj</span><span class="o">.</span><span class="n">retrbinary</span><span class="p">(</span><span class="s1">&#39;RETR &#39;</span> <span class="o">+</span> <span class="nb">file</span><span class="p">,</span> <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">)</span>
+            <span class="n">f_obj</span><span class="o">.</span><span class="n">retrbinary</span><span class="p">(</span><span class="s">'RETR '</span> <span class="o">+</span> <span class="nb">file</span><span class="p">,</span> <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">)</span>
     <span class="k">except</span><span class="p">:</span>
-        <span class="k">print</span> <span class="s1">&#39;download error!&#39;</span>
-    <span class="k">print</span> <span class="s1">&#39;download success!&#39;</span>
+        <span class="k">print</span> <span class="s">'download error!'</span>
+    <span class="k">print</span> <span class="s">'download success!'</span>
 <span class="k">def</span> <span class="nf">func_cmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">outfile</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">f_obj</span>
     <span class="k">if</span> <span class="n">outfile</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
         <span class="n">outfile</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span>
 
-    <span class="k">if</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span><span class="p">:</span>
-        <span class="k">print</span> <span class="s1">&#39;Current dir files as:&#39;</span>
-        <span class="n">f_obj</span><span class="o">.</span><span class="n">dir</span><span class="p">()</span>
-    <span class="k">elif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s1">&#39;2&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s">'1'</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s">'Current dir files as:'</span>
+        <span class="n">f_obj</span><span class="o">.</span><span class="nb">dir</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s">'2'</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+            <span class="nb">str</span> <span class="o">=</span> <span class="s">''</span>
             <span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
-            <span class="nb">dir</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s1">&#39;input dir&gt;&gt;&#39;</span><span class="p">)</span>
+            <span class="nb">dir</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'input dir&gt;&gt;'</span><span class="p">)</span>
             <span class="nb">list</span> <span class="o">=</span> <span class="n">f_obj</span><span class="o">.</span><span class="n">nlst</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
-            <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+            <span class="s">' '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
             <span class="k">print</span> <span class="nb">list</span>   
         <span class="k">except</span><span class="p">:</span>
-            <span class="k">print</span> <span class="s1">&#39;error&#39;</span>
-    <span class="k">elif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s1">&#39;3&#39;</span><span class="p">:</span>
-        <span class="k">print</span> <span class="s1">&#39;you want to upload file to ftp!&#39;</span>
-        <span class="n">filename</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s1">&#39;please input filename or path&gt;&gt;&#39;</span><span class="p">)</span>
+            <span class="k">print</span> <span class="s">'error'</span>
+    <span class="k">elif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s">'3'</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s">'you want to upload file to ftp!'</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'please input filename or path&gt;&gt;'</span><span class="p">)</span>
         <span class="n">update</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-        <span class="k">print</span> <span class="s1">&#39;upload succ!&#39;</span>
-    <span class="k">elif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s1">&#39;4&#39;</span><span class="p">:</span>
-        <span class="k">print</span> <span class="s1">&#39;you want to download files from tfp!&#39;</span>
-        <span class="n">filename_path</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s1">&#39;please input filename or path&gt;&gt;&#39;</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s">'upload succ!'</span>
+    <span class="k">elif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s">'4'</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s">'you want to download files from tfp!'</span>
+        <span class="n">filename_path</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'please input filename or path&gt;&gt;'</span><span class="p">)</span>
         <span class="n">download</span><span class="p">(</span><span class="n">filename_path</span><span class="p">)</span>
-        <span class="k">print</span> <span class="s1">&#39;------download succ!------&#39;</span>
-    <span class="k">elif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s1">&#39;5&#39;</span><span class="p">:</span>
-        <span class="k">print</span> <span class="s1">&#39;Current dir:&#39;</span>
+        <span class="k">print</span> <span class="s">'------download succ!------'</span>
+    <span class="k">elif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s">'5'</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s">'Current dir:'</span>
         <span class="k">print</span> <span class="n">f_obj</span><span class="o">.</span><span class="n">pwd</span><span class="p">()</span>
-    <span class="k">elif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s1">&#39;6&#39;</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s">'6'</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">path</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s1">&#39;please input the path&gt;&gt;&#39;</span><span class="p">)</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'please input the path&gt;&gt;'</span><span class="p">)</span>
             <span class="n">f_obj</span><span class="o">.</span><span class="n">cwd</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
         <span class="k">except</span><span class="p">:</span>
-            <span class="k">print</span> <span class="s1">&#39;error&#39;</span>
-    <span class="k">elif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s1">&#39;7&#39;</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">'error'</span>
+    <span class="k">elif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s">'7'</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">path</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s1">&#39;please input the dir&gt;&gt;&#39;</span><span class="p">)</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'please input the dir&gt;&gt;'</span><span class="p">)</span>
             <span class="n">f_obj</span><span class="o">.</span><span class="n">mkd</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
         <span class="k">except</span><span class="p">:</span>
-            <span class="k">print</span> <span class="s1">&#39;error&#39;</span>
-    <span class="k">elif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s1">&#39;8&#39;</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">'error'</span>
+    <span class="k">elif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s">'8'</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="nb">dir</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s1">&#39;please input the dir which you want remove&gt;&gt;&#39;</span><span class="p">)</span>
+            <span class="nb">dir</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'please input the dir which you want remove&gt;&gt;'</span><span class="p">)</span>
             <span class="n">f_obj</span><span class="o">.</span><span class="n">rmd</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
         <span class="k">except</span><span class="p">:</span>
-            <span class="k">print</span> <span class="s1">&#39;error&#39;</span>
-    <span class="k">elif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s1">&#39;9&#39;</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">'error'</span>
+    <span class="k">elif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s">'9'</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="nb">file</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s1">&#39;please input the filename&gt;&gt;&#39;</span><span class="p">)</span>
+            <span class="nb">file</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'please input the filename&gt;&gt;'</span><span class="p">)</span>
             <span class="n">f_obj</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
         <span class="k">except</span><span class="p">:</span>
-            <span class="k">print</span> <span class="s1">&#39;error&#39;</span>
-    <span class="k">elif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s1">&#39;10&#39;</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">'error'</span>
+    <span class="k">elif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s">'10'</span><span class="p">:</span>
         <span class="n">f_obj</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
         <span class="n">f_obj</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-        <span class="k">print</span> <span class="s1">&#39;结束连接......&#39;</span>
-        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s">'结束连接......'</span>
+        <span class="n">sys</span><span class="o">.</span><span class="nb">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">print</span> <span class="s1">&#39;no command!&#39;</span>
+        <span class="k">print</span> <span class="s">'no command!'</span>
 
-    <span class="nb">raw_input</span><span class="p">(</span><span class="s1">&#39;enter any key continue.....&#39;</span><span class="p">)</span>
+    <span class="nb">raw_input</span><span class="p">(</span><span class="s">'enter any key continue.....'</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">f_obj</span>
-    <span class="n">host</span> <span class="o">=</span> <span class="s1">&#39;192.168.1.12&#39;</span>
-    <span class="n">user</span> <span class="o">=</span> <span class="s1">&#39;tomy&#39;</span>
-    <span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;111111&#39;</span>
+    <span class="n">host</span> <span class="o">=</span> <span class="s">'192.168.1.12'</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="s">'tomy'</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="s">'111111'</span>
 
     <span class="k">try</span><span class="p">:</span>
-        <span class="k">print</span> <span class="s1">&#39;Connect Host PC......&#39;</span>
+        <span class="k">print</span> <span class="s">'Connect Host PC......'</span>
         <span class="n">f_obj</span> <span class="o">=</span> <span class="n">FTP</span><span class="p">(</span><span class="n">host</span><span class="p">)</span>
         <span class="k">print</span> <span class="n">f_obj</span><span class="o">.</span><span class="n">getwelcome</span><span class="p">()</span>
     <span class="k">except</span><span class="p">:</span>
-        <span class="k">print</span> <span class="s2">&quot;Can&#39;t reach the Ftp host!&quot;</span>
-        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>   
+        <span class="k">print</span> <span class="s">"Can't reach the Ftp host!"</span>
+        <span class="n">sys</span><span class="o">.</span><span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>   
 
     <span class="k">try</span><span class="p">:</span>
-        <span class="k">print</span> <span class="s1">&#39;login by user.....&#39;</span>
-        <span class="n">f_obj</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s1">&#39;19930&#39;</span><span class="p">,</span> <span class="s1">&#39;111111&#39;</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s">'login by user.....'</span>
+        <span class="n">f_obj</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s">'19930'</span><span class="p">,</span> <span class="s">'111111'</span><span class="p">)</span>
     <span class="k">except</span><span class="p">:</span>
-        <span class="k">print</span> <span class="s2">&quot;Can&#39;t login!&quot;</span>
-        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s">"Can't login!"</span>
+        <span class="n">sys</span><span class="o">.</span><span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
     <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">intro_str</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">        All commands as:</span>
-<span class="s1">        1:显示当前文件夹文件列表（含有详细列表信息）</span>
-<span class="s1">        2:显示当前文件夹文件</span>
-<span class="s1">        3:上传文件</span>
-<span class="s1">        4:下载文件</span>
-<span class="s1">        5:显示当前目录</span>
-<span class="s1">        6:跳转进入某目录</span>
-<span class="s1">        7:创建一个新的目录</span>
-<span class="s1">        8:删除一个目录</span>
-<span class="s1">        9:返回一个文件的文件大小</span>
-<span class="s1">        10:退出FTP</span>
-<span class="s1">        &#39;&#39;&#39;</span>
+        <span class="n">intro_str</span> <span class="o">=</span> <span class="s">'''
+        All commands as:
+        1:显示当前文件夹文件列表（含有详细列表信息）
+        2:显示当前文件夹文件
+        3:上传文件
+        4:下载文件
+        5:显示当前目录
+        6:跳转进入某目录
+        7:创建一个新的目录
+        8:删除一个目录
+        9:返回一个文件的文件大小
+        10:退出FTP
+        '''</span>
 
         <span class="k">print</span> <span class="n">intro_str</span>
-        <span class="n">cmd</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s1">&#39;please input cmd&gt;&gt;&#39;</span><span class="p">)</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'please input cmd&gt;&gt;'</span><span class="p">)</span>
         <span class="n">func_cmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span></code></pre></figure>
 
 

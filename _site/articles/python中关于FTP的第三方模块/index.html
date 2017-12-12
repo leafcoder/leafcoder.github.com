@@ -59,7 +59,7 @@
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?8a2931150f98d9779995b17565fb4eb5";
+  hm.src = "https://hm.baidu.com/hm.js?f3fbccf0789476b80fab0c58359399a5";
   var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
 })();
@@ -131,19 +131,19 @@ var _hmt = _hmt || [];
 
 <p>Quick Start（快速创建一个 FTP 服务器）：</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="ch">#!/usr/bin/python</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/python</span>
 <span class="kn">from</span> <span class="nn">pyftpdlib.servers</span> <span class="kn">import</span> <span class="n">FTPServer</span>
 <span class="kn">from</span> <span class="nn">pyftpdlib.handlers</span> <span class="kn">import</span> <span class="n">FTPHandler</span>
 <span class="kn">from</span> <span class="nn">pyftpdlib.authorizers</span> <span class="kn">import</span> <span class="n">DummyAuthorizer</span>
 
 <span class="n">authorizer</span> <span class="o">=</span> <span class="n">DummyAuthorizer</span><span class="p">()</span>
-<span class="n">authorizer</span><span class="o">.</span><span class="n">add_user</span><span class="p">(</span><span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;12345&quot;</span><span class="p">,</span> <span class="s2">&quot;/home/username&quot;</span><span class="p">,</span> <span class="n">perm</span><span class="o">=</span><span class="s2">&quot;elradfmw&quot;</span><span class="p">)</span>
-<span class="n">authorizer</span><span class="o">.</span><span class="n">add_anonymous</span><span class="p">(</span><span class="s2">&quot;/home/nobody&quot;</span><span class="p">)</span>
+<span class="n">authorizer</span><span class="o">.</span><span class="n">add_user</span><span class="p">(</span><span class="s">"user"</span><span class="p">,</span> <span class="s">"12345"</span><span class="p">,</span> <span class="s">"/home/username"</span><span class="p">,</span> <span class="n">perm</span><span class="o">=</span><span class="s">"elradfmw"</span><span class="p">)</span>
+<span class="n">authorizer</span><span class="o">.</span><span class="n">add_anonymous</span><span class="p">(</span><span class="s">"/home/nobody"</span><span class="p">)</span>
 
 <span class="n">handler</span> <span class="o">=</span> <span class="n">FTPHandler</span>
 <span class="n">handler</span><span class="o">.</span><span class="n">authorizer</span> <span class="o">=</span> <span class="n">authorizer</span>
 
-<span class="n">server</span> <span class="o">=</span> <span class="n">FTPServer</span><span class="p">((</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="mi">21</span><span class="p">),</span> <span class="n">handler</span><span class="p">)</span>
+<span class="n">server</span> <span class="o">=</span> <span class="n">FTPServer</span><span class="p">((</span><span class="s">"127.0.0.1"</span><span class="p">,</span> <span class="mi">21</span><span class="p">),</span> <span class="n">handler</span><span class="p">)</span>
 <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span></code></pre></figure>
 
 

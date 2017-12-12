@@ -59,7 +59,7 @@
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?8a2931150f98d9779995b17565fb4eb5";
+  hm.src = "https://hm.baidu.com/hm.js?f3fbccf0789476b80fab0c58359399a5";
   var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
 })();
@@ -127,55 +127,55 @@ var _hmt = _hmt || [];
         
       </header>
       <div class="entry-content">
-        <p>以 ip 段 <code>127.0.0.0/24</code> 为例</p>
+        <p>以 ip 段 <code class="highlighter-rouge">127.0.0.0/24</code> 为例</p>
 
-<p><strong>IPv4</strong> 由 <strong>32</strong> 位二进制组成（最大地址为 <code>255.255.255.255</code>），
-<strong>24</strong> 代表子网掩码（<code>255.255.255.0</code>）。</p>
+<p><strong>IPv4</strong> 由 <strong>32</strong> 位二进制组成（最大地址为 <code class="highlighter-rouge">255.255.255.255</code>），
+<strong>24</strong> 代表子网掩码（<code class="highlighter-rouge">255.255.255.0</code>）。</p>
 
-<p>###计算 <code>127.0.0.0/24</code> 起始地址;</p>
+<p>###计算 <code class="highlighter-rouge">127.0.0.0/24</code> 起始地址;</p>
 
-<pre><code>01111111.00000000.00000000.00000000 # 127.0.0.0
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>01111111.00000000.00000000.00000000 # 127.0.0.0
 11111111.11111111.11111111.00000000 # 255.255.255.0
    ||
    || 逻辑与
    \/
 01111111.00000000.00000000.00000000 # 127.0.0.0，即网段的起始地址
-</code></pre>
+</code></pre></div></div>
 
-<p>将起始地址 <code>127.0.0.0</code> 转为整数值;</p>
+<p>将起始地址 <code class="highlighter-rouge">127.0.0.0</code> 转为整数值;</p>
 
-<pre><code>127.0.0.0
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>127.0.0.0
    ||
 01111111.00000000.00000000.00000000
    ||
 127 * pow(2, 24)
    ||
 2130706432
-</code></pre>
+</code></pre></div></div>
 
-<p>###<code>127.0.0.0/24</code> 中的 <strong>IP</strong> 数</p>
+<p>###<code class="highlighter-rouge">127.0.0.0/24</code> 中的 <strong>IP</strong> 数</p>
 
-<p>将掩码转为二进制可以表示为 <code>11111111.11111111.11111111.00000000</code>，其中有 8 个 0，
-取出 <code>00000000</code>，将 <code>0</code> 改为 <code>1</code> 得到 <code>11111111</code>，通过二进制计算可以得到：</p>
+<p>将掩码转为二进制可以表示为 <code class="highlighter-rouge">11111111.11111111.11111111.00000000</code>，其中有 8 个 0，
+取出 <code class="highlighter-rouge">00000000</code>，将 <code class="highlighter-rouge">0</code> 改为 <code class="highlighter-rouge">1</code> 得到 <code class="highlighter-rouge">11111111</code>，通过二进制计算可以得到：</p>
 
-<p><code>11111111 == 255</code></p>
+<p><code class="highlighter-rouge">11111111 == 255</code></p>
 
-<p>也就是说 <code>127.0.0.0/24</code> 有 256（IP 从 0 开始计算） 个 IP，去除起始地址占用 1 个后，
-结束地址的整数为<code>起始地址 + 255</code>。</p>
+<p>也就是说 <code class="highlighter-rouge">127.0.0.0/24</code> 有 256（IP 从 0 开始计算） 个 IP，去除起始地址占用 1 个后，
+结束地址的整数为<code class="highlighter-rouge">起始地址 + 255</code>。</p>
 
 <p>###结果
-<code>127.0.0.0/24</code> 的整数范围是：[2130706432, 2130706432 + 255]</p>
+<code class="highlighter-rouge">127.0.0.0/24</code> 的整数范围是：[2130706432, 2130706432 + 255]</p>
 
 <p>###python 解决方案</p>
 
 <p>当然，如果你会 python，那么简单的几行代码就能帮你解决问题;</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="ch">#!/usr/bin/python</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/python</span>
 <span class="kn">from</span> <span class="nn">struct</span> <span class="kn">import</span> <span class="n">unpack</span>
 <span class="kn">from</span> <span class="nn">socket</span> <span class="kn">import</span> <span class="n">inet_aton</span>
 
-<span class="n">addr</span><span class="p">,</span> <span class="n">mask</span> <span class="o">=</span> <span class="s1">&#39;127.0.0.0&#39;</span><span class="p">,</span> <span class="mi">24</span>
-<span class="n">begin</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s1">&#39;!I&#39;</span><span class="p">,</span> <span class="n">inet_aton</span><span class="p">(</span><span class="n">addr</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">addr</span><span class="p">,</span> <span class="n">mask</span> <span class="o">=</span> <span class="s">'127.0.0.0'</span><span class="p">,</span> <span class="mi">24</span>
+<span class="n">begin</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s">'!I'</span><span class="p">,</span> <span class="n">inet_aton</span><span class="p">(</span><span class="n">addr</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">end</span>   <span class="o">=</span> <span class="n">begin</span> <span class="o">+</span> <span class="nb">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mi">32</span> <span class="o">-</span> <span class="n">mask</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span>
 <span class="k">print</span> <span class="p">[</span><span class="n">begin</span><span class="p">,</span> <span class="n">end</span><span class="p">]</span></code></pre></figure>
 

@@ -59,7 +59,7 @@
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?8a2931150f98d9779995b17565fb4eb5";
+  hm.src = "https://hm.baidu.com/hm.js?f3fbccf0789476b80fab0c58359399a5";
   var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
 })();
@@ -129,16 +129,16 @@ var _hmt = _hmt || [];
       <div class="entry-content">
         <p>在Linux系统中，经常需要依赖 autoconf / automake 来完成软件的编译，然而，安装它们后经常会碰到一个编译错误，其中关键的错误信息具体如下：</p>
 
-<pre><code>configure.ac:21: error: possibly undefined macro: AC_PROG_LIBTOOL
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>configure.ac:21: error: possibly undefined macro: AC_PROG_LIBTOOL
       If this token and others are legitimate, please use m4_pattern_allow.
       See the Autoconf documentation.
 autoreconf: /usr/bin/autoconf failed with exit status: 1
-</code></pre>
+</code></pre></div></div>
 
 <p>出现此类错误信息，一般可通过安装一个工具包 libtool 来解决，各 Linux 系统命令可能不同，以 Ubuntu 系统为例，命令如下：</p>
 
-<pre><code>sudo apt-get install libtool
-</code></pre>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install libtool
+</code></pre></div></div>
 
         
           <div id="disqus_thread"></div><!-- /#disqus_thread -->

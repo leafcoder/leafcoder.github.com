@@ -59,7 +59,7 @@
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?8a2931150f98d9779995b17565fb4eb5";
+  hm.src = "https://hm.baidu.com/hm.js?f3fbccf0789476b80fab0c58359399a5";
   var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
 })();
@@ -127,16 +127,16 @@ var _hmt = _hmt || [];
         
       </header>
       <div class="entry-content">
-        <pre><code>import resource
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import resource
 
 print "修改ulimit前:", resource.getrlimit(resource.RLIMIT_NOFILE)
 resource.setrlimit(resource.RLIMIT_NOFILE, (131072, 131072)) # 131072 代表要修改的ulimit数
 print "修改ulimit后:", resource.getrlimit(resource.RLIMIT_NOFILE)
-</code></pre>
+</code></pre></div></div>
 
 <p>以上代码可以用于修改当前进程的<em>ulimit</em>最大值，避免文件句柄数不足，发生异常：</p>
 
-<p><code>socket.error: [Errno 24] Too many open files</code></p>
+<p><code class="highlighter-rouge">socket.error: [Errno 24] Too many open files</code></p>
 
         
           <div id="disqus_thread"></div><!-- /#disqus_thread -->
