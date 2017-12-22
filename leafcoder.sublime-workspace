@@ -1,0 +1,561 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ou",
+				"output_path"
+			],
+			[
+				"心理",
+				"心理症状详情"
+			],
+			[
+				"overflow",
+				"overflow-y"
+			],
+			[
+				"me",
+				"meta\tTag"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "CNAME",
+			"settings":
+			{
+				"buffer_size": 39,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "git",
+		"selected_items":
+		[
+			[
+				"git",
+				"Git: Toggle Annotations"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Snippet: ",
+				"Snippet: cdata"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"markdown",
+				"MarkdownLivePreview: Edit Custom CSS File"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"gitk",
+				"Git GUI Clients: Gitk"
+			],
+			[
+				"gitg",
+				"Set Syntax: Git Graph"
+			],
+			[
+				"isntall",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"About"
+			]
+		],
+		"width": 605.0
+	},
+	"console":
+	{
+		"height": 249.0,
+		"history":
+		[
+			"os.getcwd()",
+			"os.cwd()",
+			"import os",
+			"ls",
+			"dir(os)",
+			"os.chcwd()",
+			"os.getcwd()",
+			"dir(os)",
+			"os",
+			"os.system('npm install')",
+			"import os",
+			"os.system('npm install')",
+			"dir(sys)",
+			"import sys",
+			"print 'a'",
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/ubuntu/Desktop/projects/leafcoder.github.com"
+	],
+	"file_history":
+	[
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/static/js/report/psychology.js",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/controllers/tag.py",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/static/js/base.js",
+		"/home/ubuntu/Desktop/mounts/myaliyun/MenuOnline/README.md",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/common/reload_tags.py",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/config/tag_fields.py",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/models/Psychology.py",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/var/tag_files/README",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/controllers/user.py",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/static/js/api.js",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/models/PsySurvey.py",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/common/wgsapi.py",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/controllers/report.py",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/templates/_base/base_without_submenu.html",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/static/js/report/immune.js",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/controllers/index.py",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/controllers/microelement.py",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/controllers/meta.py",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/controllers/physical.py",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/controllers/skin.py",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/common/authorization.py",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/controllers/vitamin.py",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/controllers/psysurvey.py",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/controllers/psychology.py",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/templates/report/composition.html",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/static/js/main.js",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/static/js/report/skin.js",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/static/js/report/vitamin.js",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/static/js/report/psysurvey.js",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/static/js/report/physical.js",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/static/js/report/microelement.js",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/static/js/report/dashboard.js",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/static/js/report/meta.js",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/static/js/report/hormone.js",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/controllers/immune.py",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/controllers/hormone.py",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/templates/report/health.html",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/controllers/health.py",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/static/js/report/amino.js",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/controllers/amino.py",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/controllers/aging.py",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/static/css/style.css",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/controllers/wgs.py",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/templates/index.html",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/config/global_config.py",
+		"/home/ubuntu/Desktop/Tasks",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/static/js/login.js",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/common/captcha.py",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/.gitignore",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop.sublime-workspace",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/tools/download.py",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/requirements.txt",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/controllers/test.py",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/templates/report/hormone.html",
+		"/home/ubuntu/.config/sublime-text-3/Packages/PlainTasks/messages/Tutorial.todo",
+		"/home/ubuntu/Desktop/Git常用命令.md",
+		"/home/ubuntu/Desktop/Git常用命令",
+		"/home/ubuntu/.config/sublime-text-3/Packages/User/MarkdownLivePreview.css",
+		"/home/ubuntu/.config/sublime-text-3/Packages/DocBlockr/README.md",
+		"/home/ubuntu/.config/sublime-text-3/Packages/DocBlockr_Python/DocblockrPython.sublime-settings",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/__init__.py",
+		"/home/ubuntu/Downloads/nginx.conf",
+		"/home/ubuntu/Desktop/main/libs/dict.js",
+		"/home/ubuntu/Desktop/main/ctrls/cards.js",
+		"/home/ubuntu/installed/nginx/conf/nginx.conf",
+		"/home/ubuntu/Desktop/main/views/index.pug",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/templates/_base/blank.html",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/templates/report/new-genetic-testing.html",
+		"/home/ubuntu/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/HTMLPrettify.sublime-settings",
+		"/home/ubuntu/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/models/Printer.py",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/templates/report/psychology.html",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/models/Tag.py",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/controllers/admin.py",
+		"/home/ubuntu/Desktop/现有标签",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/static/js/report/metabolism.js",
+		"/home/ubuntu/Desktop/test",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/templates/report/physical.html",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/templates/report/dashboard.html",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/templates/report/amino.html",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/templates/report/vitamin.html",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/templates/login.html",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/models/Skin.py",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/templates/tag_ajax.html",
+		"/home/ubuntu/.config/sublime-text-3/Packages/Alignment/Base File.sublime-settings",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/models/Report.py",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/models/Meta.py",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/models/IDRelation.py",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/models/Amino.py",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/templates/report/meta.html",
+		"/home/ubuntu/Desktop/projects/MenuOnline/index.html",
+		"/home/ubuntu/.config/sublime-text-3/Packages/Terminality/Default (Linux).sublime-keymap",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/templates/report/immune.html",
+		"/opt/sublime_text/sublime.py",
+		"/home/ubuntu/.config/sublime-text-3/Packages/User/Terminal.sublime-settings",
+		"/home/ubuntu/.config/sublime-text-3/Packages/Terminal/Terminal.sublime-settings",
+		"/home/ubuntu/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/Default (Linux).sublime-keymap",
+		"/home/ubuntu/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/.jsbeautifyrc.defaults.json",
+		"/home/ubuntu/.config/sublime-text-3/Packages/Git GUI Clients/Git GUI Clients.sublime-settings",
+		"/home/ubuntu/.config/sublime-text-3/Packages/User/Git GUI Clients.sublime-settings",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/static/css/index.css",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/static/css/login.css",
+		"/media/ubuntu/50CEBA07CEB9E4FE/Documents and Settings/zhanglei3/Desktop/iHOP/ihop/models/Immune.py",
+		"/home/ubuntu/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/ubuntu/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/ubuntu/.config/sublime-text-3/Packages/Terminal/Default (Linux).sublime-keymap"
+	],
+	"find":
+	{
+		"height": 42.0
+	},
+	"find_in_files":
+	{
+		"height": 110.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "CNAME",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 39,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								39,
+								39
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"git_gutter_is_enabled": true,
+							"markdonw_live_preview_last_run": 1513910711.96,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 344.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.mdpopups":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "leafcoder.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/Desktop/mounts/myaliyun/litefs/litefs.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 290.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
