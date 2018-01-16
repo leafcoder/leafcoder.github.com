@@ -4,13 +4,141 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml" />
 <link rel="alternate" type="text/html" href="http://localhost:4000" />
-<updated>2017-12-12T09:57:27+00:00</updated>
+<updated>2018-01-16T06:47:18+00:00</updated>
 <id>http://localhost:4000/</id>
 <author>
   <name>Leo Zhang</name>
   <uri>http://localhost:4000/</uri>
   <email>leafcoder@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Git常用命令记录]]></title>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95/"/>
+  <id>http://localhost:4000/articles/Git常用命令记录</id>
+  <published>2018-01-16T00:00:00+00:00</published>
+  <updated>2018-01-16T00:00:00+00:00</updated>
+  <author>
+    <name>Leo Zhang</name>
+    <uri>http://localhost:4000</uri>
+    <email>leafcoder@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;日常使用 Git，有时会忘记使用频率不高的 Git 命令，记录在此，以供查询使用。&lt;/p&gt;
+
+&lt;h1 id=&quot;添加&quot;&gt;添加&lt;/h1&gt;
+
+&lt;h2 id=&quot;添加修改后的文件&quot;&gt;添加修改后的文件&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git add *
+git add *\.py
+git add &amp;lt;Filename&amp;gt;
+git add &amp;lt;Filename&amp;gt; &amp;lt;Filename&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;分支&quot;&gt;分支&lt;/h1&gt;
+
+&lt;h2 id=&quot;查看远程分支&quot;&gt;查看远程分支&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git branch -a
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;删除远程分支&quot;&gt;删除远程分支&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git push origin --delete &amp;lt;Branch Name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;推送空的分支到某个远程分支等同与删除远程分支&quot;&gt;推送空的分支到某个远程分支，等同与删除远程分支。&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git push origin :&amp;lt;Branch Name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;标签&quot;&gt;标签&lt;/h1&gt;
+
+&lt;h2 id=&quot;列出代码仓库中的所有标签&quot;&gt;列出代码仓库中的所有标签&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git tag
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;本地添加标签&quot;&gt;本地添加标签&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git tag -a &amp;lt;Tag Name&amp;gt;
+git tag -a &amp;lt;Tag Name&amp;gt; -m &amp;lt;Tag Message&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;删除本地标签&quot;&gt;删除本地标签&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git tag -d &amp;lt;Tag Name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;删除远程标签&quot;&gt;删除远程标签&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git push origin --delete tag &amp;lt;tagname&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;推送空的标签到远程标签等同与删除远程标签&quot;&gt;推送空的标签到远程标签，等同与删除远程标签。&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git tag -d &amp;lt;Tag Name&amp;gt;
+git push origin :refs/tags/&amp;lt;Tag Name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;推送某个标签到远程标签&quot;&gt;推送某个标签到远程标签&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git push origin v0.4.0.20171214_alpha
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;推送全部本地标签到远程标签&quot;&gt;推送全部本地标签到远程标签&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git push --tags
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;获取某个远程标签下的代码&quot;&gt;获取某个远程标签下的代码&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git fetch origin tag &amp;lt;Tag Name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;重命名标签&quot;&gt;重命名标签&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git tag &amp;lt;New Tag Name&amp;gt; &amp;lt;Old Tag Name&amp;gt;       # 从旧标签中创建新标签
+git tag -d &amp;lt;Old Tag Name&amp;gt;                   # 删除本地旧标签
+git push origin :refs/tags/&amp;lt;Old Tag Name&amp;gt;   # 删除远程旧标签
+git push --tags                             # 推送至远程仓库
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;如果有其他本地仓库存在已删除的旧标签，则运行以下命令来更新本地仓库的标签&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git pull --prune --tags
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;撤销更改&quot;&gt;撤销更改&lt;/h1&gt;
+
+&lt;h2 id=&quot;已修改未暂存&quot;&gt;已修改，未暂存&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git checkout .
+或
+git reset --hard
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;已暂存未提交&quot;&gt;已暂存，未提交&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git reset
+git checkout .
+或
+git reset --hard
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;已提交未推送&quot;&gt;已提交，未推送&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git reset --hard origin/master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;已推送&quot;&gt;已推送&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git reset --hard HEAD^
+git push -f
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95/&quot;&gt;Git常用命令记录&lt;/a&gt; was originally published by Leo Zhang at &lt;a href=&quot;http://localhost:4000&quot;&gt;叶子&lt;/a&gt; on January 16, 2018.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -851,110 +979,6 @@ print &quot;修改ulimit后:&quot;, resource.getrlimit(resource.RLIMIT_NOFILE)
 
 
   &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/python%E4%B8%AD%E5%85%B3%E4%BA%8EFTP%E7%9A%84%E7%AC%AC%E4%B8%89%E6%96%B9%E6%A8%A1%E5%9D%97/&quot;&gt;python 中关于 FTP 的第三方模块&lt;/a&gt; was originally published by Leo Zhang at &lt;a href=&quot;http://localhost:4000&quot;&gt;叶子&lt;/a&gt; on August 20, 2014.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[python i18n（国际化）使用简介]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/python-i18n-%E5%9B%BD%E9%99%85%E5%8C%96%E4%BD%BF%E7%94%A8%E7%AE%80%E4%BB%8B/"/>
-  <id>http://localhost:4000/articles/python-i18n-国际化使用简介</id>
-  <updated>2014-08-20T00:00:00-00:00</updated>
-  <published>2014-08-20T00:00:00+00:00</published>
-  
-  <author>
-    <name>Leo Zhang</name>
-    <uri>http://localhost:4000</uri>
-    <email>leafcoder@gmail.com</email>
-  </author>
-  <content type="html">&lt;p&gt;操作系统：Ubuntu(Linux)&lt;/p&gt;
-
-&lt;p&gt;Linux 下 Python 是已经安装好的。&lt;/p&gt;
-
-&lt;p&gt;###1.生成翻译文件模板并修改相应内容&lt;/p&gt;
-
-&lt;p&gt;Python 有个 &lt;code class=&quot;highlighter-rouge&quot;&gt;gettext&lt;/code&gt; 模块用以支持 &lt;code class=&quot;highlighter-rouge&quot;&gt;i18n&lt;/code&gt;，在终端中直接通过命令 &lt;code class=&quot;highlighter-rouge&quot;&gt;pygettext&lt;/code&gt; 使用。&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;user@ubuntu: pygettext -o lang.po&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;运行命令后会生成翻译文件模板 &lt;strong&gt;lang.pot&lt;/strong&gt;，如果不提供 &lt;strong&gt;-o&lt;/strong&gt; 参数，直接运行命令，生成的文件名默认为 &lt;strong&gt;messages.pot&lt;/strong&gt;，内容如下：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR ORGANIZATION
-# FIRST AUTHOR &amp;lt;EMAIL@ADDRESS&amp;gt;, YEAR.
-#
-msgid &quot;&quot;
-msgstr &quot;&quot;
-&quot;Project-Id-Version: PACKAGE VERSION\n&quot;
-&quot;POT-Creation-Date: 2014-08-19 16:37+CST\n&quot;
-&quot;PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n&quot;
-&quot;Last-Translator: FULL NAME &amp;lt;EMAIL@ADDRESS&amp;gt;\n&quot;
-&quot;Language-Team: LANGUAGE &amp;lt;LL@li.org&amp;gt;\n&quot;
-&quot;MIME-Version: 1.0\n&quot;
-&quot;Content-Type: text/plain; charset=CHARSET\n&quot;
-&quot;Content-Transfer-Encoding: ENCODING\n&quot;
-&quot;Generated-By: pygettext.py 1.5\n&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;将 &lt;code class=&quot;highlighter-rouge&quot;&gt;charset=CHARSET&lt;/code&gt; 和 &lt;code class=&quot;highlighter-rouge&quot;&gt;Content-Transfer-Encoding: ENCODING&lt;/code&gt; 改为自己需要的编码，
-如 &lt;strong&gt;Linux&lt;/strong&gt; 下改为 &lt;code class=&quot;highlighter-rouge&quot;&gt;charset=utf-8、Content-Transfer-Encoding: utf-8&lt;/code&gt;，其他选项可根据需要自行修改;
-修改完成后内容如下：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR ORGANIZATION
-# FIRST AUTHOR &amp;lt;EMAIL@ADDRESS&amp;gt;, YEAR.
-#
-msgid &quot;&quot;
-msgstr &quot;&quot;
-&quot;Project-Id-Version: PACKAGE VERSION\n&quot;
-&quot;POT-Creation-Date: 2014-08-19 16:37+CST\n&quot;
-&quot;PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n&quot;
-&quot;Last-Translator: FULL NAME &amp;lt;EMAIL@ADDRESS&amp;gt;\n&quot;
-&quot;Language-Team: LANGUAGE &amp;lt;LL@li.org&amp;gt;\n&quot;
-&quot;MIME-Version: 1.0\n&quot;
-&quot;Content-Type: text/plain; charset=utf-8\n&quot;
-&quot;Content-Transfer-Encoding: utf-8\n&quot;
-&quot;Generated-By: pygettext.py 1.5\n&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;###2.建立翻译文件目录结构&lt;/p&gt;
-
-&lt;p&gt;建立翻译文件路径，如，我们翻译中英文的话，需要建立一个翻译文件目录结构，如下：&lt;/p&gt;
-
-&lt;p&gt;中文&lt;code class=&quot;highlighter-rouge&quot;&gt;./locale/cn/LC_MESSAGES&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;英文&lt;code class=&quot;highlighter-rouge&quot;&gt;./locale/en/LC_MESSAGES&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;###3.添加翻译内容并生成二进制翻译文件&lt;/p&gt;
-
-&lt;p&gt;在 lang.po 文件后面添加要翻译原文和翻译结果，格式如下：&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;msgid  &quot;Hello&quot;  # 原文&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;msgstr &quot;你好&quot;    # 译文&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;生成翻译文件的二进制文件&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;msgfmt lang.po -o ./locale/cn/LC_MESSAGES/lang.mo&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;msgfmt lang.po -o ./locale/en/LC_MESSAGES/lang.mo&lt;/code&gt; # 通过未添加任何翻译内容的 &lt;strong&gt;lang.po&lt;/strong&gt; 得到&lt;/p&gt;
-
-&lt;p&gt;###4.python 使用翻译文件的方法&lt;/p&gt;
-
-&lt;p&gt;最后由 Python 进行调用，完成国际化：&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/python&lt;/span&gt;
- 
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;gettext&lt;/span&gt;
- 
-&lt;span class=&quot;n&quot;&gt;gettext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;install&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'lang'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'./locale'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;unicode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;gettext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;translation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'lang'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'./locale'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;languages&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'cn'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;install&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;###5.示例代码下载&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;/download/python-i18n-demo.tar.gz&quot;&gt;点击下载源码&lt;/a&gt;&lt;/p&gt;
-
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/python-i18n-%E5%9B%BD%E9%99%85%E5%8C%96%E4%BD%BF%E7%94%A8%E7%AE%80%E4%BB%8B/&quot;&gt;python i18n（国际化）使用简介&lt;/a&gt; was originally published by Leo Zhang at &lt;a href=&quot;http://localhost:4000&quot;&gt;叶子&lt;/a&gt; on August 20, 2014.&lt;/p&gt;</content>
 </entry>
 
 </feed>

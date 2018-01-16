@@ -5,25 +5,25 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>用 npm 时一般怎么解决的安装包依赖问题 &#8211; 叶子</title>
-<meta name="description" content="使用 npm install 命令，我们经常会遇到些依赖包问题">
-<meta name="keywords" content="npm">
+<title>Git常用命令记录 &#8211; 叶子</title>
+<meta name="description" content="">
+<meta name="keywords" content="Git">
 
 
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="用 npm 时一般怎么解决的安装包依赖问题">
-<meta property="og:description" content="使用 npm install 命令，我们经常会遇到些依赖包问题">
-<meta property="og:url" content="http://localhost:4000/articles/%E7%94%A8npm%E6%97%B6%E4%B8%80%E8%88%AC%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%E5%AE%89%E8%A3%85%E5%8C%85%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/">
+<meta property="og:title" content="Git常用命令记录">
+<meta property="og:description" content="">
+<meta property="og:url" content="http://localhost:4000/articles/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95/">
 <meta property="og:site_name" content="叶子">
 
 
 
 
 
-<link rel="canonical" href="http://localhost:4000/articles/%E7%94%A8npm%E6%97%B6%E4%B8%80%E8%88%AC%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%E5%AE%89%E8%A3%85%E5%8C%85%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/">
+<link rel="canonical" href="http://localhost:4000/articles/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95/">
 <link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="叶子 Feed">
 
 
@@ -121,24 +121,124 @@ var _hmt = _hmt || [];
     
     <div class="entry-wrapper">
       <header class="entry-header">
-        <span class="entry-tags">Tags：<a href="http://localhost:4000/tags/#npm" title="Pages tagged npm">npm</a></span>
+        <span class="entry-tags">Tags：<a href="http://localhost:4000/tags/#Git" title="Pages tagged Git">Git</a></span>
         
-          <h1 class="entry-title">用 npm 时一般怎么解决的安装包依赖问题</h1>
+          <h1 class="entry-title">Git常用命令记录</h1>
         
       </header>
       <div class="entry-content">
-        <p>npm install 遇到错误时试着用下面的方法解决，当然，这并不一定能解决你的问题;</p>
+        <p>日常使用 Git，有时会忘记使用频率不高的 Git 命令，记录在此，以供查询使用。</p>
 
-<p>一般遇到这些情况，你先试着更新一下自己的 npm，可能是因为自己的 npm 太旧造成安装的时候出错;</p>
+<h1 id="添加">添加</h1>
 
-<p><code class="highlighter-rouge">npm update npm</code></p>
+<h2 id="添加修改后的文件">添加修改后的文件</h2>
 
-<p>当然有的情况是软件安装好后提示没有某些包，其实，这个时候用同样原理一般也能解决，先安装提示
-信息中的包（包名在错误信息里），如果没用，再试着更新这个包：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add *
+git add *\.py
+git add &lt;Filename&gt;
+git add &lt;Filename&gt; &lt;Filename&gt;
+</code></pre></div></div>
 
-<p><code class="highlighter-rouge">npm install -g ???</code></p>
+<h1 id="分支">分支</h1>
 
-<p><code class="highlighter-rouge">npm update ???</code></p>
+<h2 id="查看远程分支">查看远程分支</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch -a
+</code></pre></div></div>
+
+<h2 id="删除远程分支">删除远程分支</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push origin --delete &lt;Branch Name&gt;
+</code></pre></div></div>
+
+<h3 id="推送空的分支到某个远程分支等同与删除远程分支">推送空的分支到某个远程分支，等同与删除远程分支。</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push origin :&lt;Branch Name&gt;
+</code></pre></div></div>
+
+<h1 id="标签">标签</h1>
+
+<h2 id="列出代码仓库中的所有标签">列出代码仓库中的所有标签</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git tag
+</code></pre></div></div>
+
+<h2 id="本地添加标签">本地添加标签</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git tag -a &lt;Tag Name&gt;
+git tag -a &lt;Tag Name&gt; -m &lt;Tag Message&gt;
+</code></pre></div></div>
+
+<h2 id="删除本地标签">删除本地标签</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git tag -d &lt;Tag Name&gt;
+</code></pre></div></div>
+
+<h2 id="删除远程标签">删除远程标签</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push origin --delete tag &lt;tagname&gt;
+</code></pre></div></div>
+
+<h3 id="推送空的标签到远程标签等同与删除远程标签">推送空的标签到远程标签，等同与删除远程标签。</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git tag -d &lt;Tag Name&gt;
+git push origin :refs/tags/&lt;Tag Name&gt;
+</code></pre></div></div>
+
+<h2 id="推送某个标签到远程标签">推送某个标签到远程标签</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push origin v0.4.0.20171214_alpha
+</code></pre></div></div>
+
+<h2 id="推送全部本地标签到远程标签">推送全部本地标签到远程标签</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push --tags
+</code></pre></div></div>
+
+<h2 id="获取某个远程标签下的代码">获取某个远程标签下的代码</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git fetch origin tag &lt;Tag Name&gt;
+</code></pre></div></div>
+
+<h2 id="重命名标签">重命名标签</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git tag &lt;New Tag Name&gt; &lt;Old Tag Name&gt;       # 从旧标签中创建新标签
+git tag -d &lt;Old Tag Name&gt;                   # 删除本地旧标签
+git push origin :refs/tags/&lt;Old Tag Name&gt;   # 删除远程旧标签
+git push --tags                             # 推送至远程仓库
+</code></pre></div></div>
+
+<p>如果有其他本地仓库存在已删除的旧标签，则运行以下命令来更新本地仓库的标签</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git pull --prune --tags
+</code></pre></div></div>
+
+<h1 id="撤销更改">撤销更改</h1>
+
+<h2 id="已修改未暂存">已修改，未暂存</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout .
+或
+git reset --hard
+</code></pre></div></div>
+
+<h2 id="已暂存未提交">已暂存，未提交</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git reset
+git checkout .
+或
+git reset --hard
+</code></pre></div></div>
+
+<h2 id="已提交未推送">已提交，未推送</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git reset --hard origin/master
+</code></pre></div></div>
+
+<h2 id="已推送">已推送</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git reset --hard HEAD^
+git push -f
+</code></pre></div></div>
 
         
           <div id="disqus_thread"></div><!-- /#disqus_thread -->
@@ -162,10 +262,8 @@ var _hmt = _hmt || [];
     </div><!-- /.entry-wrapper -->
     <nav class="pagination" role="navigation">
       
-        <a href="http://localhost:4000/articles/%E8%8E%B7%E5%8F%96%E5%9B%BD%E5%86%85%E5%9F%8E%E5%B8%82%E5%A4%A9%E6%B0%94%E9%A2%84%E6%8A%A5JSON%E6%95%B0%E6%8D%AE%E7%9A%84Python%E5%B0%8F%E8%84%9A%E6%9C%AC/" class="btn" title="获取国内城市天气预报 JSON 数据的 Python 小脚本">Previous article</a>
+        <a href="http://localhost:4000/articles/%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF_possibly_undefined_macro_AC_PROG_LIBTOOL_%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="btn" title="编译错误 possibly undefined macro: AC_PROG_LIBTOOL 的解决方法">Previous article</a>
       
-      
-        <a href="http://localhost:4000/articles/gcc%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" class="btn" title="gcc 简单使用">Next article</a>
       
     </nav><!-- /.pagination -->
   </article>
