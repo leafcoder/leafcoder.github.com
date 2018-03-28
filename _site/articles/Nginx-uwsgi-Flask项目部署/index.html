@@ -5,25 +5,25 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>如何修改结巴分词中jieba_cache文件的路径 &#8211; 叶子</title>
+<title>Nginx、uWSGI、Flask 项目部署 &#8211; 叶子</title>
 <meta name="description" content="">
-<meta name="keywords" content="结巴分词">
+<meta name="keywords" content="Nginx, uWSGI, Flask 项目部署">
 
 
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何修改结巴分词中jieba_cache文件的路径">
+<meta property="og:title" content="Nginx、uWSGI、Flask 项目部署">
 <meta property="og:description" content="">
-<meta property="og:url" content="http://localhost:4000/articles/%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E7%BB%93%E5%B7%B4%E5%88%86%E8%AF%8D%E4%B8%ADjieba_cache%E6%96%87%E4%BB%B6%E7%9A%84%E8%B7%AF%E5%BE%84/">
+<meta property="og:url" content="http://localhost:4000/articles/Nginx-uwsgi-Flask%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/">
 <meta property="og:site_name" content="叶子">
 
 
 
 
 
-<link rel="canonical" href="http://localhost:4000/articles/%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E7%BB%93%E5%B7%B4%E5%88%86%E8%AF%8D%E4%B8%ADjieba_cache%E6%96%87%E4%BB%B6%E7%9A%84%E8%B7%AF%E5%BE%84/">
+<link rel="canonical" href="http://localhost:4000/articles/Nginx-uwsgi-Flask%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/">
 <link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="叶子 Feed">
 
 
@@ -121,19 +121,151 @@ var _hmt = _hmt || [];
     
     <div class="entry-wrapper">
       <header class="entry-header">
-        <span class="entry-tags">Tags：<a href="http://localhost:4000/tags/#结巴分词" title="Pages tagged 结巴分词">结巴分词</a></span>
+        <span class="entry-tags">Tags：<a href="http://localhost:4000/tags/#Nginx" title="Pages tagged Nginx">Nginx</a>&nbsp;&bull;&nbsp;<a href="http://localhost:4000/tags/#uWSGI" title="Pages tagged uWSGI">uWSGI</a>&nbsp;&bull;&nbsp;<a href="http://localhost:4000/tags/#Flask 项目部署" title="Pages tagged Flask 项目部署">Flask 项目部署</a></span>
         
-          <h1 class="entry-title">如何修改结巴分词中jieba_cache文件的路径</h1>
+          <h1 class="entry-title">Nginx、uWSGI、Flask 项目部署</h1>
         
       </header>
       <div class="entry-content">
-        <p>通过查看结分词源码，发现源码在全局位置初始化了一个名为 dt 的 Tokenizer 对象，初始化代码为 <code class="highlighter-rouge">dt = Tokenizer()</code>，
-我们使用 Python 中常用的 Monkey Patch 方式，可以修改结巴分词的 jieba.cache 文件所在目录和名字，代码如下：</p>
+        <p>我使用 Flask 作为开发框架比较少，所以在部署 Flask 项目方面经验相对较少，现将部署流程记录一下，留作今后参考。</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import jieba
+<h1 id="1-开发-flask">1. 开发 Flask</h1>
 
-jieba.dt.tmp_dir    = 'YOUR TMP DIRECTORY'
-jieba.dt.cache_file = 'YOUR CACHE FILE NAME'
+<p>开发好的 Flask 项目包含一个运行文件 manage.py，其中包含一个 app 对象，例如项目结构：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>├── project
+│   ├── __init__.py
+│   ├── main
+│   ├── models.py
+│   ├── static
+│   └── templates
+├── manage.py
+└── uwsgi.ini
+</code></pre></div></div>
+
+<h1 id="2-安装配置-nginx">2. 安装配置 Nginx</h1>
+
+<h2 id="下载-nginx-源码-nginx-1121targz解压后安装">下载 nginx 源码 nginx-1.12.1.tar.gz，解压后安装；</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd Downloads
+$ tar zxf nginx-1.12.1.tar.gz
+$ cd nginx-1.12.1
+$ ./configure --prefix=/opt/nginx
+$ make &amp;&amp; make install
+</code></pre></div></div>
+
+<h2 id="配置-nginx修改配置文件增加-server-配置">配置 Nginx修改配置文件，增加 server 配置；</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd /opt/nginx
+$ vi conf/nginx.conf
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#user  nobody;
+worker_processes  4;    #可以设置成cpu个数，体验较佳的性能
+
+#error_log  logs/error.log;
+#error_log  logs/error.log  notice;
+#error_log  logs/error.log  info;，
+
+#pid        logs/nginx.pid;
+
+worker_rlimit_nofile 65535; # 最大打开文件数，这个值需要&lt;= worker_connections
+
+events {
+    worker_connections  65535;  # 最大连接数，这个值依赖系统的配置。
+}
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+    #                  '$status $body_bytes_sent "$http_referer" '
+    #                  '"$http_user_agent" "$http_x_forwarded_for"';
+
+    #access_log  logs/access.log  main;
+
+    sendfile        on;
+    tcp_nopush     on;
+
+    #keepalive_timeout  0;
+    keepalive_timeout  65;
+
+    gzip  on;
+
+    # 以下为您需要增加的配置
+
+    upstream my_servers {
+        server 192.168.0.100:8080;
+        server 192.168.0.101:8080;
+        server 192.168.0.102:8080;
+    }
+
+    # uWSGI dynamic
+    server {
+        listen       80;
+        server_name  dynamic.youdomain.cn;
+
+        location / {
+            include      uwsgi_params;
+            uwsgi_pass   http://my_servers;
+            uwsgi_ignore_client_abort on;
+            uwsgi_param UWSGI_PYHOME /home/ubuntu/.virtualenvs/pyenv;
+            uwsgi_param UWSGI_CHDIR  /home/ubuntu/my_project;
+            uwsgi_param UWSGI_SCRIPT manage;
+        }
+    }
+
+    # uWSGI static
+    server {
+        listen       80;
+        server_name  static.youdomain.cn;
+
+        location /static {
+            root html;
+        }
+    }
+
+}
+</code></pre></div></div>
+
+<h2 id="启动-nginx">启动 Nginx</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd /opt/nginx/sbin
+$ ./nginx
+</code></pre></div></div>
+
+<h1 id="3-安装配置uwsgi">3. 安装配置uWSGI</h1>
+
+<h2 id="安装-uwsgi">安装 uWSGI</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pip install uwsgi
+</code></pre></div></div>
+
+<h2 id="创建配置文件-uwsgiini">创建配置文件 uwsgi.ini</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[uwsgi]
+socket = :8080
+wsgi-file = manage.py
+callable = app
+master = true          //主进程
+vhost = true           //多站模式
+no-site = true         //多站模式时不设置入口模块和文件
+workers = 24           //子进程数
+reload-mercy = 10
+vacuum = true          //退出、重启时清理文件
+max-requests = 65535
+limit-as = 512
+buffer-size = 30000
+chmod-socket = 666
+pidfile = ./logs/%n.pid
+daemonize = ./logs/%n.log
+</code></pre></div></div>
+
+<h2 id="运行-uwsgi">运行 uWSGI</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd /home/ubuntu/my_project
+$ uwsgi --ini uwsgi.ini
 </code></pre></div></div>
 
         
@@ -158,10 +290,10 @@ jieba.dt.cache_file = 'YOUR CACHE FILE NAME'
     </div><!-- /.entry-wrapper -->
     <nav class="pagination" role="navigation">
       
-        <a href="http://localhost:4000/articles/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95/" class="btn" title="Git常用命令记录">Previous article</a>
+        <a href="http://localhost:4000/articles/%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E7%BB%93%E5%B7%B4%E5%88%86%E8%AF%8D%E4%B8%ADjieba_cache%E6%96%87%E4%BB%B6%E7%9A%84%E8%B7%AF%E5%BE%84/" class="btn" title="如何修改结巴分词中jieba_cache文件的路径">Previous article</a>
       
       
-        <a href="http://localhost:4000/articles/Nginx-uwsgi-Flask%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" class="btn" title="Nginx、uWSGI、Flask 项目部署">Next article</a>
+        <a href="http://localhost:4000/articles/Nginx%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E8%B7%A8%E5%9F%9F%E8%AE%BE%E7%BD%AE/" class="btn" title="Nginx静态资源跨域设置">Next article</a>
       
     </nav><!-- /.pagination -->
   </article>

@@ -4,13 +4,233 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml" />
 <link rel="alternate" type="text/html" href="http://localhost:4000" />
-<updated>2018-01-24T01:44:57+00:00</updated>
+<updated>2018-03-28T08:39:05+00:00</updated>
 <id>http://localhost:4000/</id>
 <author>
   <name>Leo Zhang</name>
   <uri>http://localhost:4000/</uri>
   <email>leafcoder@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[uWSGI listen queue of socket full 队列溢出的问题]]></title>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/uWSGI-listen-queue-of-socket-full-%E9%98%9F%E5%88%97%E6%BA%A2%E5%87%BA%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+  <id>http://localhost:4000/articles/uWSGI-listen-queue-of-socket-full-队列溢出的问题</id>
+  <published>2018-03-28T00:00:00+00:00</published>
+  <updated>2018-03-28T00:00:00+00:00</updated>
+  <author>
+    <name>Leo Zhang</name>
+    <uri>http://localhost:4000</uri>
+    <email>leafcoder@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;使用 uWSGI 时，uWSGI的日志中出现错误 &lt;code class=&quot;highlighter-rouge&quot;&gt;uWSGI listen queue of socket full&lt;/code&gt; 的错误信息，想要解决这个问题，需要修改服务器的配置，具体如下：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ vi /etc/sysctl.conf
+
+在文件最后添加一行记录：
+
+net.core.somaxconn = 1024
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;重载配置，使配置立即生效：
+$ sysctl -p
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;在 uWSGI 的配置项中增加 –listen 1024，也可以将此配置项写入 uWSGI 的配置文件中；&lt;/p&gt;
+
+&lt;p&gt;重启 uWSGI，如此可以在某种程度上缓解此问题。&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/uWSGI-listen-queue-of-socket-full-%E9%98%9F%E5%88%97%E6%BA%A2%E5%87%BA%E7%9A%84%E9%97%AE%E9%A2%98/&quot;&gt;uWSGI listen queue of socket full 队列溢出的问题&lt;/a&gt; was originally published by Leo Zhang at &lt;a href=&quot;http://localhost:4000&quot;&gt;叶子&lt;/a&gt; on March 28, 2018.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Nginx静态资源跨域设置]]></title>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/Nginx%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E8%B7%A8%E5%9F%9F%E8%AE%BE%E7%BD%AE/"/>
+  <id>http://localhost:4000/articles/Nginx静态资源跨域设置</id>
+  <published>2018-03-28T00:00:00+00:00</published>
+  <updated>2018-03-28T00:00:00+00:00</updated>
+  <author>
+    <name>Leo Zhang</name>
+    <uri>http://localhost:4000</uri>
+    <email>leafcoder@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;在nginx的配置文件 &lt;code class=&quot;highlighter-rouge&quot;&gt;conf/nginx.conf&lt;/code&gt; 中增加头部信息，具体如下所示:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;http {
+    ...
+
+    server {
+        listen       80;
+        server_name  static.mydomain.cn;
+
+        location /static {
+            root html;
+            add_header Access-Control-Allow-Origin *; # 你需要增加的 HTTP 头
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/Nginx%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E8%B7%A8%E5%9F%9F%E8%AE%BE%E7%BD%AE/&quot;&gt;Nginx静态资源跨域设置&lt;/a&gt; was originally published by Leo Zhang at &lt;a href=&quot;http://localhost:4000&quot;&gt;叶子&lt;/a&gt; on March 28, 2018.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Nginx、uWSGI、Flask 项目部署]]></title>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/Nginx-uwsgi-Flask%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/"/>
+  <id>http://localhost:4000/articles/Nginx-uwsgi-Flask项目部署</id>
+  <published>2018-03-28T00:00:00+00:00</published>
+  <updated>2018-03-28T00:00:00+00:00</updated>
+  <author>
+    <name>Leo Zhang</name>
+    <uri>http://localhost:4000</uri>
+    <email>leafcoder@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;我使用 Flask 作为开发框架比较少，所以在部署 Flask 项目方面经验相对较少，现将部署流程记录一下，留作今后参考。&lt;/p&gt;
+
+&lt;h1 id=&quot;1-开发-flask&quot;&gt;1. 开发 Flask&lt;/h1&gt;
+
+&lt;p&gt;开发好的 Flask 项目包含一个运行文件 manage.py，其中包含一个 app 对象，例如项目结构：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;├── project
+│   ├── __init__.py
+│   ├── main
+│   ├── models.py
+│   ├── static
+│   └── templates
+├── manage.py
+└── uwsgi.ini
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;2-安装配置-nginx&quot;&gt;2. 安装配置 Nginx&lt;/h1&gt;
+
+&lt;h2 id=&quot;下载-nginx-源码-nginx-1121targz解压后安装&quot;&gt;下载 nginx 源码 nginx-1.12.1.tar.gz，解压后安装；&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cd Downloads
+$ tar zxf nginx-1.12.1.tar.gz
+$ cd nginx-1.12.1
+$ ./configure --prefix=/opt/nginx
+$ make &amp;amp;&amp;amp; make install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;配置-nginx修改配置文件增加-server-配置&quot;&gt;配置 Nginx修改配置文件，增加 server 配置；&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cd /opt/nginx
+$ vi conf/nginx.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#user  nobody;
+worker_processes  4;    #可以设置成cpu个数，体验较佳的性能
+
+#error_log  logs/error.log;
+#error_log  logs/error.log  notice;
+#error_log  logs/error.log  info;，
+
+#pid        logs/nginx.pid;
+
+worker_rlimit_nofile 65535; # 最大打开文件数，这个值需要&amp;lt;= worker_connections
+
+events {
+    worker_connections  65535;  # 最大连接数，这个值依赖系统的配置。
+}
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    #log_format  main  '$remote_addr - $remote_user [$time_local] &quot;$request&quot; '
+    #                  '$status $body_bytes_sent &quot;$http_referer&quot; '
+    #                  '&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;';
+
+    #access_log  logs/access.log  main;
+
+    sendfile        on;
+    tcp_nopush     on;
+
+    #keepalive_timeout  0;
+    keepalive_timeout  65;
+
+    gzip  on;
+
+    # 以下为您需要增加的配置
+
+    upstream my_servers {
+        server 192.168.0.100:8080;
+        server 192.168.0.101:8080;
+        server 192.168.0.102:8080;
+    }
+
+    # uWSGI dynamic
+    server {
+        listen       80;
+        server_name  dynamic.youdomain.cn;
+
+        location / {
+            include      uwsgi_params;
+            uwsgi_pass   http://my_servers;
+            uwsgi_ignore_client_abort on;
+            uwsgi_param UWSGI_PYHOME /home/ubuntu/.virtualenvs/pyenv;
+            uwsgi_param UWSGI_CHDIR  /home/ubuntu/my_project;
+            uwsgi_param UWSGI_SCRIPT manage;
+        }
+    }
+
+    # uWSGI static
+    server {
+        listen       80;
+        server_name  static.youdomain.cn;
+
+        location /static {
+            root html;
+        }
+    }
+
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;启动-nginx&quot;&gt;启动 Nginx&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cd /opt/nginx/sbin
+$ ./nginx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;3-安装配置uwsgi&quot;&gt;3. 安装配置uWSGI&lt;/h1&gt;
+
+&lt;h2 id=&quot;安装-uwsgi&quot;&gt;安装 uWSGI&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ pip install uwsgi
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;创建配置文件-uwsgiini&quot;&gt;创建配置文件 uwsgi.ini&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[uwsgi]
+socket = :8080
+wsgi-file = manage.py
+callable = app
+master = true          //主进程
+vhost = true           //多站模式
+no-site = true         //多站模式时不设置入口模块和文件
+workers = 24           //子进程数
+reload-mercy = 10
+vacuum = true          //退出、重启时清理文件
+max-requests = 65535
+limit-as = 512
+buffer-size = 30000
+chmod-socket = 666
+pidfile = ./logs/%n.pid
+daemonize = ./logs/%n.log
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;运行-uwsgi&quot;&gt;运行 uWSGI&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cd /home/ubuntu/my_project
+$ uwsgi --ini uwsgi.ini
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/Nginx-uwsgi-Flask%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/&quot;&gt;Nginx、uWSGI、Flask 项目部署&lt;/a&gt; was originally published by Leo Zhang at &lt;a href=&quot;http://localhost:4000&quot;&gt;叶子&lt;/a&gt; on March 28, 2018.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -817,156 +1037,6 @@ print &quot;修改ulimit后:&quot;, resource.getrlimit(resource.RLIMIT_NOFILE)
 
 
   &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/%E5%9F%BA%E4%BA%8EPySide%E7%9A%84Base64%E5%8A%A0%E8%A7%A3%E5%AF%86%E5%B0%8F%E5%B7%A5%E5%85%B7/&quot;&gt;基于 PySide 的 Base64 加解密小工具&lt;/a&gt; was originally published by Leo Zhang at &lt;a href=&quot;http://localhost:4000&quot;&gt;叶子&lt;/a&gt; on August 21, 2014.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[关于 ctypes 的简单用例]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/%E5%85%B3%E4%BA%8Ectypes%E7%9A%84%E7%AE%80%E5%8D%95%E7%94%A8%E4%BE%8B/"/>
-  <id>http://localhost:4000/articles/关于ctypes的简单用例</id>
-  <published>2014-08-21T00:00:00+00:00</published>
-  <updated>2014-08-21T00:00:00+00:00</updated>
-  <author>
-    <name>Leo Zhang</name>
-    <uri>http://localhost:4000</uri>
-    <email>leafcoder@gmail.com</email>
-  </author>
-  <content type="html">&lt;p&gt;###结构体、数组、指针、指向数组的指针&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;ctypes&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;point&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Structure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;pass&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;point&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_fields_&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'x'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c_int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'y'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c_int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;arry_gen&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;point&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;arry&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arry_gen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;arry_ptr_gen&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;POINTER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;point&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;arry_ptr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arry_ptr_gen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;###回调函数用法&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# /* demo.c --&amp;gt; demo.so */
-# include &amp;lt;stdio.h&amp;gt;
-
-# typedef int (*callback)(void);
-
-# int func_arg (callback get_value)
-# {
-#     return get_value();
-# }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;ctypes&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getvalue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;libdemo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cdll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LoadLibrary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'./demo.so'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;func_arg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;libdemo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;func_arg&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;func_arg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;restype&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c_int&lt;/span&gt;
-
-    &lt;span class=&quot;n&quot;&gt;py_func_getvalue&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CFUNCTYPE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c_void_p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;func_getvalue&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;py_func_getvalue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getvalue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;func_arg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;func_getvalue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;###根据内存地址获取数据，不过，尽量少用，这种方法并不很好&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;memaddr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;libc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xxx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c_char_p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;memaddr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/%E5%85%B3%E4%BA%8Ectypes%E7%9A%84%E7%AE%80%E5%8D%95%E7%94%A8%E4%BE%8B/&quot;&gt;关于 ctypes 的简单用例&lt;/a&gt; was originally published by Leo Zhang at &lt;a href=&quot;http://localhost:4000&quot;&gt;叶子&lt;/a&gt; on August 21, 2014.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[一段 Python 的精确除法脚本]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/%E4%B8%80%E6%AE%B5Python%E7%9A%84%E7%B2%BE%E7%A1%AE%E9%99%A4%E6%B3%95%E8%84%9A%E6%9C%AC/"/>
-  <id>http://localhost:4000/articles/一段Python的精确除法脚本</id>
-  <published>2014-08-21T00:00:00+00:00</published>
-  <updated>2014-08-21T00:00:00+00:00</updated>
-  <author>
-    <name>Leo Zhang</name>
-    <uri>http://localhost:4000</uri>
-    <email>leafcoder@gmail.com</email>
-  </author>
-  <content type="html">&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/python&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;divmod_plus&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;point&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;xrange&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;divmod&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;d'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;point&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;point&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
-                &lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'.'&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;divmod_plus&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;37&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;输出结果为：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;2.702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702702
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/%E4%B8%80%E6%AE%B5Python%E7%9A%84%E7%B2%BE%E7%A1%AE%E9%99%A4%E6%B3%95%E8%84%9A%E6%9C%AC/&quot;&gt;一段 Python 的精确除法脚本&lt;/a&gt; was originally published by Leo Zhang at &lt;a href=&quot;http://localhost:4000&quot;&gt;叶子&lt;/a&gt; on August 21, 2014.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[如何用 python 生成 Ubuntu 系统的空字符串密码]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/%E5%A6%82%E4%BD%95%E7%94%A8python%E7%94%9F%E6%88%90Ubuntu%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A9%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%86%E7%A0%81/"/>
-  <id>http://localhost:4000/articles/如何用python生成Ubuntu系统的空字符串密码</id>
-  <updated>2014-08-20T00:00:00-00:00</updated>
-  <published>2014-08-20T00:00:00+00:00</published>
-  
-  <author>
-    <name>Leo Zhang</name>
-    <uri>http://localhost:4000</uri>
-    <email>leafcoder@gmail.com</email>
-  </author>
-  <content type="html">&lt;p&gt;将以下的 &lt;a href=&quot;http://www.python.org&quot;&gt;python&lt;/a&gt; 代码保存到一个文件，并运行就能生成一个空密码的字符串;当然，其实它也可以生成其他任意密码的字符串。&lt;/p&gt;
-
-&lt;p&gt;生成空密码：&lt;code class=&quot;highlighter-rouge&quot;&gt;python password.py&lt;/code&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/python&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;crypt&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sys&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;uuid&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uuid4&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;random&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;randint&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;password&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;password&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;randint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;salt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uuid4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;hex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;crypt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;crypt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'$6$&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;s'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;salt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;将生成好的密码字符串覆盖 &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/shadow&lt;/code&gt; 中的密码段即可。&lt;/p&gt;
-
-&lt;p&gt;使用空密码后，&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo&lt;/code&gt; 的时候再也不需要麻烦的输入密码了，直接回车就行（千万别跟我谈什么安全之类的，这个我可管不了）。&lt;/p&gt;
-
-&lt;p&gt;除了 Python 代码的方式，你也可以通过下面的命令生成密码串：&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mkpasswd -m SHA-512 password&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;空密码：&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mkpasswd -m SHA-512 ''&lt;/code&gt;&lt;/p&gt;
-
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/%E5%A6%82%E4%BD%95%E7%94%A8python%E7%94%9F%E6%88%90Ubuntu%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A9%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%86%E7%A0%81/&quot;&gt;如何用 python 生成 Ubuntu 系统的空字符串密码&lt;/a&gt; was originally published by Leo Zhang at &lt;a href=&quot;http://localhost:4000&quot;&gt;叶子&lt;/a&gt; on August 20, 2014.&lt;/p&gt;</content>
 </entry>
 
 </feed>

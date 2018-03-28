@@ -5,25 +5,25 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>如何修改结巴分词中jieba_cache文件的路径 &#8211; 叶子</title>
+<title>Nginx静态资源跨域设置 &#8211; 叶子</title>
 <meta name="description" content="">
-<meta name="keywords" content="结巴分词">
+<meta name="keywords" content="Nginx, 跨域">
 
 
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何修改结巴分词中jieba_cache文件的路径">
+<meta property="og:title" content="Nginx静态资源跨域设置">
 <meta property="og:description" content="">
-<meta property="og:url" content="http://localhost:4000/articles/%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E7%BB%93%E5%B7%B4%E5%88%86%E8%AF%8D%E4%B8%ADjieba_cache%E6%96%87%E4%BB%B6%E7%9A%84%E8%B7%AF%E5%BE%84/">
+<meta property="og:url" content="http://localhost:4000/articles/Nginx%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E8%B7%A8%E5%9F%9F%E8%AE%BE%E7%BD%AE/">
 <meta property="og:site_name" content="叶子">
 
 
 
 
 
-<link rel="canonical" href="http://localhost:4000/articles/%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E7%BB%93%E5%B7%B4%E5%88%86%E8%AF%8D%E4%B8%ADjieba_cache%E6%96%87%E4%BB%B6%E7%9A%84%E8%B7%AF%E5%BE%84/">
+<link rel="canonical" href="http://localhost:4000/articles/Nginx%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E8%B7%A8%E5%9F%9F%E8%AE%BE%E7%BD%AE/">
 <link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="叶子 Feed">
 
 
@@ -121,19 +121,27 @@ var _hmt = _hmt || [];
     
     <div class="entry-wrapper">
       <header class="entry-header">
-        <span class="entry-tags">Tags：<a href="http://localhost:4000/tags/#结巴分词" title="Pages tagged 结巴分词">结巴分词</a></span>
+        <span class="entry-tags">Tags：<a href="http://localhost:4000/tags/#Nginx" title="Pages tagged Nginx">Nginx</a>&nbsp;&bull;&nbsp;<a href="http://localhost:4000/tags/#跨域" title="Pages tagged 跨域">跨域</a></span>
         
-          <h1 class="entry-title">如何修改结巴分词中jieba_cache文件的路径</h1>
+          <h1 class="entry-title">Nginx静态资源跨域设置</h1>
         
       </header>
       <div class="entry-content">
-        <p>通过查看结分词源码，发现源码在全局位置初始化了一个名为 dt 的 Tokenizer 对象，初始化代码为 <code class="highlighter-rouge">dt = Tokenizer()</code>，
-我们使用 Python 中常用的 Monkey Patch 方式，可以修改结巴分词的 jieba.cache 文件所在目录和名字，代码如下：</p>
+        <p>在nginx的配置文件 <code class="highlighter-rouge">conf/nginx.conf</code> 中增加头部信息，具体如下所示:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import jieba
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http {
+    ...
 
-jieba.dt.tmp_dir    = 'YOUR TMP DIRECTORY'
-jieba.dt.cache_file = 'YOUR CACHE FILE NAME'
+    server {
+        listen       80;
+        server_name  static.mydomain.cn;
+
+        location /static {
+            root html;
+            add_header Access-Control-Allow-Origin *; # 你需要增加的 HTTP 头
+        }
+    }
+}
 </code></pre></div></div>
 
         
@@ -158,10 +166,10 @@ jieba.dt.cache_file = 'YOUR CACHE FILE NAME'
     </div><!-- /.entry-wrapper -->
     <nav class="pagination" role="navigation">
       
-        <a href="http://localhost:4000/articles/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95/" class="btn" title="Git常用命令记录">Previous article</a>
+        <a href="http://localhost:4000/articles/Nginx-uwsgi-Flask%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" class="btn" title="Nginx、uWSGI、Flask 项目部署">Previous article</a>
       
       
-        <a href="http://localhost:4000/articles/Nginx-uwsgi-Flask%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" class="btn" title="Nginx、uWSGI、Flask 项目部署">Next article</a>
+        <a href="http://localhost:4000/articles/uWSGI-listen-queue-of-socket-full-%E9%98%9F%E5%88%97%E6%BA%A2%E5%87%BA%E7%9A%84%E9%97%AE%E9%A2%98/" class="btn" title="uWSGI listen queue of socket full 队列溢出的问题">Next article</a>
       
     </nav><!-- /.pagination -->
   </article>

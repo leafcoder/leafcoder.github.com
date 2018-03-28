@@ -48,6 +48,18 @@
 
     
     <url>
+        <loc>http://localhost:4000/articles/uWSGI-listen-queue-of-socket-full-%E9%98%9F%E5%88%97%E6%BA%A2%E5%87%BA%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/articles/Nginx%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E8%B7%A8%E5%9F%9F%E8%AE%BE%E7%BD%AE/</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/articles/Nginx-uwsgi-Flask%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/</loc>
+    </url>
+    
+    <url>
         <loc>http://localhost:4000/articles/%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E7%BB%93%E5%B7%B4%E5%88%86%E8%AF%8D%E4%B8%ADjieba_cache%E6%96%87%E4%BB%B6%E7%9A%84%E8%B7%AF%E5%BE%84/</loc>
     </url>
     
