@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "docker 中的 ubuntu 使用 Elasticsearch 遇到的错误集合",
+		  "category"   : "articles",
+		  "url"        : "http://localhost:4000/articles/docker-ubuntu%E4%B8%AD%E4%BD%BF%E7%94%A8Elasticsearch%E9%81%87%E5%88%B0%E7%9A%84%E9%94%99%E8%AF%AF%E9%9B%86%E5%90%88/",
+		  "date"       : "2018-06-21 00:00:00 +0000",
+		  "shortdate"  : "June 21, 2018"
+		} ,
+	
+		{
 		  "title"      : "uWSGI listen queue of socket full 队列溢出的问题",
 		  "category"   : "articles",
 		  "url"        : "http://localhost:4000/articles/uWSGI-listen-queue-of-socket-full-%E9%98%9F%E5%88%97%E6%BA%A2%E5%87%BA%E7%9A%84%E9%97%AE%E9%A2%98/",

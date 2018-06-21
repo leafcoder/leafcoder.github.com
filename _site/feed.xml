@@ -4,13 +4,71 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml" />
 <link rel="alternate" type="text/html" href="http://localhost:4000" />
-<updated>2018-04-19T01:16:46+00:00</updated>
+<updated>2018-06-21T07:53:38+00:00</updated>
 <id>http://localhost:4000/</id>
 <author>
   <name>Leo Zhang</name>
   <uri>http://localhost:4000/</uri>
   <email>leafcoder@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[docker 中的 ubuntu 使用 Elasticsearch 遇到的错误集合]]></title>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/docker-ubuntu%E4%B8%AD%E4%BD%BF%E7%94%A8Elasticsearch%E9%81%87%E5%88%B0%E7%9A%84%E9%94%99%E8%AF%AF%E9%9B%86%E5%90%88/"/>
+  <id>http://localhost:4000/articles/docker-ubuntu中使用Elasticsearch遇到的错误集合</id>
+  <published>2018-06-21T00:00:00+00:00</published>
+  <updated>2018-06-21T00:00:00+00:00</updated>
+  <author>
+    <name>Leo Zhang</name>
+    <uri>http://localhost:4000</uri>
+    <email>leafcoder@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;当修改 Elasticsearch 6.2.4 的配置文件 config/elasticsearch.yml 时，将 network.host 项设置为 0.0.0.0，遇到如下错误：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ERROR: [2] bootstrap checks failed
+[1] initial heap size [132120576] not equal to maximum heap size [2092957696]; this can cause resize pauses and prevents mlockall from locking the entire heap
+[2] max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;错误1：initial heap size [132120576] not equal to maximum heap size [2092957696]; this can cause resize pauses and prevents mlockall from locking the entire heap&lt;/p&gt;
+
+    &lt;p&gt;修改 Elasticsearch 的配置文件 &lt;code class=&quot;highlighter-rouge&quot;&gt;config/jvm.options&lt;/code&gt;，取消以下两行前的&lt;code class=&quot;highlighter-rouge&quot;&gt;#&lt;/code&gt;号，保存后重启 Elasticsearch 即可。&lt;/p&gt;
+
+    &lt;p&gt;# -Xms1g&lt;/p&gt;
+
+    &lt;p&gt;# -Xmx1g&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;错误2：max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]&lt;/p&gt;
+
+    &lt;p&gt;错误原因：系统的 vm.max_map_count 参数太小&lt;/p&gt;
+
+    &lt;p&gt;解决办法：&lt;/p&gt;
+
+    &lt;p&gt;修改宿主机（即 docker 所在的主机本身），然后重启 docker 容器即可。修改宿主机参数的命令如下：&lt;/p&gt;
+
+    &lt;ol&gt;
+      &lt;li&gt;
+        &lt;p&gt;方法1，命令修改&lt;/p&gt;
+
+        &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sysctl -w vm.max_map_count=655360&lt;/code&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;方法2，修改配置文件&lt;/p&gt;
+
+        &lt;p&gt;$ sudo vi /etc/sysctl.conf&lt;/p&gt;
+
+        &lt;p&gt;在文件的底部增加 &lt;code class=&quot;highlighter-rouge&quot;&gt;vm.max_map_count=262144&lt;/code&gt;。&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/docker-ubuntu%E4%B8%AD%E4%BD%BF%E7%94%A8Elasticsearch%E9%81%87%E5%88%B0%E7%9A%84%E9%94%99%E8%AF%AF%E9%9B%86%E5%90%88/&quot;&gt;docker 中的 ubuntu 使用 Elasticsearch 遇到的错误集合&lt;/a&gt; was originally published by Leo Zhang at &lt;a href=&quot;http://localhost:4000&quot;&gt;叶子&lt;/a&gt; on June 21, 2018.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -1012,36 +1070,6 @@ print &quot;修改ulimit后:&quot;, resource.getrlimit(resource.RLIMIT_NOFILE)
 &lt;p&gt;&lt;a href=&quot;/download/RSATool.tar.gz&quot;&gt;点击下载源码 RSATool.tar.gz&lt;/a&gt;&lt;/p&gt;
 
   &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/%E5%9F%BA%E4%BA%8EPySide%E7%9A%84RSA%E5%8A%A0%E8%A7%A3%E5%AF%86%E5%B0%8F%E5%B7%A5%E5%85%B7/&quot;&gt;基于 PySide 的 RSA 加解密小工具&lt;/a&gt; was originally published by Leo Zhang at &lt;a href=&quot;http://localhost:4000&quot;&gt;叶子&lt;/a&gt; on August 21, 2014.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[基于 PySide 的 Base64 加解密小工具]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/%E5%9F%BA%E4%BA%8EPySide%E7%9A%84Base64%E5%8A%A0%E8%A7%A3%E5%AF%86%E5%B0%8F%E5%B7%A5%E5%85%B7/"/>
-  <id>http://localhost:4000/articles/基于PySide的Base64加解密小工具</id>
-  <updated>2014-08-21T00:00:00-00:00</updated>
-  <published>2014-08-21T00:00:00+00:00</published>
-  
-  <author>
-    <name>Leo Zhang</name>
-    <uri>http://localhost:4000</uri>
-    <email>leafcoder@gmail.com</email>
-  </author>
-  <content type="html">&lt;p&gt;界面效果如图所示，用法不提：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/base64tool.png&quot; alt=&quot;Base64Tool&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;/download/Base64Tool.py&quot;&gt;点击下载源码 Base64Tool.py&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;如需在 Window 下运行，请自行使用 py2exe 搞定。&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;py2exe&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;distutils.core&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;setup&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;setup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;windows&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;script&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Base64Tool.py&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}])&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/%E5%9F%BA%E4%BA%8EPySide%E7%9A%84Base64%E5%8A%A0%E8%A7%A3%E5%AF%86%E5%B0%8F%E5%B7%A5%E5%85%B7/&quot;&gt;基于 PySide 的 Base64 加解密小工具&lt;/a&gt; was originally published by Leo Zhang at &lt;a href=&quot;http://localhost:4000&quot;&gt;叶子&lt;/a&gt; on August 21, 2014.&lt;/p&gt;</content>
 </entry>
 
 </feed>

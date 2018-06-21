@@ -5,25 +5,25 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>uWSGI listen queue of socket full 队列溢出的问题 &#8211; 叶子</title>
+<title>docker 中的 ubuntu 使用 Elasticsearch 遇到的错误集合 &#8211; 叶子</title>
 <meta name="description" content="">
-<meta name="keywords" content="uWSGI, 队列溢出">
+<meta name="keywords" content="docker, ubuntu, Elasticsearch">
 
 
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="uWSGI listen queue of socket full 队列溢出的问题">
+<meta property="og:title" content="docker 中的 ubuntu 使用 Elasticsearch 遇到的错误集合">
 <meta property="og:description" content="">
-<meta property="og:url" content="http://localhost:4000/articles/uWSGI-listen-queue-of-socket-full-%E9%98%9F%E5%88%97%E6%BA%A2%E5%87%BA%E7%9A%84%E9%97%AE%E9%A2%98/">
+<meta property="og:url" content="http://localhost:4000/articles/docker-ubuntu%E4%B8%AD%E4%BD%BF%E7%94%A8Elasticsearch%E9%81%87%E5%88%B0%E7%9A%84%E9%94%99%E8%AF%AF%E9%9B%86%E5%90%88/">
 <meta property="og:site_name" content="叶子">
 
 
 
 
 
-<link rel="canonical" href="http://localhost:4000/articles/uWSGI-listen-queue-of-socket-full-%E9%98%9F%E5%88%97%E6%BA%A2%E5%87%BA%E7%9A%84%E9%97%AE%E9%A2%98/">
+<link rel="canonical" href="http://localhost:4000/articles/docker-ubuntu%E4%B8%AD%E4%BD%BF%E7%94%A8Elasticsearch%E9%81%87%E5%88%B0%E7%9A%84%E9%94%99%E8%AF%AF%E9%9B%86%E5%90%88/">
 <link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="叶子 Feed">
 
 
@@ -121,28 +121,54 @@ var _hmt = _hmt || [];
     
     <div class="entry-wrapper">
       <header class="entry-header">
-        <span class="entry-tags">Tags：<a href="http://localhost:4000/tags/#uWSGI" title="Pages tagged uWSGI">uWSGI</a>&nbsp;&bull;&nbsp;<a href="http://localhost:4000/tags/#队列溢出" title="Pages tagged 队列溢出">队列溢出</a></span>
+        <span class="entry-tags">Tags：<a href="http://localhost:4000/tags/#docker" title="Pages tagged docker">docker</a>&nbsp;&bull;&nbsp;<a href="http://localhost:4000/tags/#ubuntu" title="Pages tagged ubuntu">ubuntu</a>&nbsp;&bull;&nbsp;<a href="http://localhost:4000/tags/#Elasticsearch" title="Pages tagged Elasticsearch">Elasticsearch</a></span>
         
-          <h1 class="entry-title">uWSGI listen queue of socket full 队列溢出的问题</h1>
+          <h1 class="entry-title">docker 中的 ubuntu 使用 Elasticsearch 遇到的错误集合</h1>
         
       </header>
       <div class="entry-content">
-        <p>使用 uWSGI 时，uWSGI的日志中出现错误 <code class="highlighter-rouge">uWSGI listen queue of socket full</code> 的错误信息，想要解决这个问题，需要修改服务器的配置，具体如下：</p>
+        <p>当修改 Elasticsearch 6.2.4 的配置文件 config/elasticsearch.yml 时，将 network.host 项设置为 0.0.0.0，遇到如下错误：</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vi /etc/sysctl.conf
-
-在文件最后添加一行记录：
-
-net.core.somaxconn = 1024
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ERROR: [2] bootstrap checks failed
+[1] initial heap size [132120576] not equal to maximum heap size [2092957696]; this can cause resize pauses and prevents mlockall from locking the entire heap
+[2] max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>重载配置，使配置立即生效：
-$ sysctl -p
-</code></pre></div></div>
+<ol>
+  <li>
+    <p>错误1：initial heap size [132120576] not equal to maximum heap size [2092957696]; this can cause resize pauses and prevents mlockall from locking the entire heap</p>
 
-<p>在 uWSGI 的配置项中增加 –listen 1024，也可以将此配置项写入 uWSGI 的配置文件中；</p>
+    <p>修改 Elasticsearch 的配置文件 <code class="highlighter-rouge">config/jvm.options</code>，取消以下两行前的<code class="highlighter-rouge">#</code>号，保存后重启 Elasticsearch 即可。</p>
 
-<p>重启 uWSGI，如此可以在某种程度上缓解此问题。</p>
+    <p># -Xms1g</p>
+
+    <p># -Xmx1g</p>
+  </li>
+  <li>
+    <p>错误2：max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]</p>
+
+    <p>错误原因：系统的 vm.max_map_count 参数太小</p>
+
+    <p>解决办法：</p>
+
+    <p>修改宿主机（即 docker 所在的主机本身），然后重启 docker 容器即可。修改宿主机参数的命令如下：</p>
+
+    <ol>
+      <li>
+        <p>方法1，命令修改</p>
+
+        <p><code class="highlighter-rouge">sysctl -w vm.max_map_count=655360</code></p>
+      </li>
+      <li>
+        <p>方法2，修改配置文件</p>
+
+        <p>$ sudo vi /etc/sysctl.conf</p>
+
+        <p>在文件的底部增加 <code class="highlighter-rouge">vm.max_map_count=262144</code>。</p>
+      </li>
+    </ol>
+  </li>
+</ol>
 
         
           <div id="disqus_thread"></div><!-- /#disqus_thread -->
@@ -166,10 +192,8 @@ $ sysctl -p
     </div><!-- /.entry-wrapper -->
     <nav class="pagination" role="navigation">
       
-        <a href="http://localhost:4000/articles/Nginx%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E8%B7%A8%E5%9F%9F%E8%AE%BE%E7%BD%AE/" class="btn" title="Nginx静态资源跨域设置">Previous article</a>
+        <a href="http://localhost:4000/articles/uWSGI-listen-queue-of-socket-full-%E9%98%9F%E5%88%97%E6%BA%A2%E5%87%BA%E7%9A%84%E9%97%AE%E9%A2%98/" class="btn" title="uWSGI listen queue of socket full 队列溢出的问题">Previous article</a>
       
-      
-        <a href="http://localhost:4000/articles/docker-ubuntu%E4%B8%AD%E4%BD%BF%E7%94%A8Elasticsearch%E9%81%87%E5%88%B0%E7%9A%84%E9%94%99%E8%AF%AF%E9%9B%86%E5%90%88/" class="btn" title="docker 中的 ubuntu 使用 Elasticsearch 遇到的错误集合">Next article</a>
       
     </nav><!-- /.pagination -->
   </article>
