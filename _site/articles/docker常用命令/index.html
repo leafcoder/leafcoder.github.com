@@ -5,25 +5,25 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>docker 中的 ubuntu 使用 Elasticsearch 遇到的错误集合 &#8211; 叶子</title>
+<title>Docker常用命令 &#8211; 叶子</title>
 <meta name="description" content="">
-<meta name="keywords" content="docker, ubuntu, Elasticsearch">
+<meta name="keywords" content="docker">
 
 
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="docker 中的 ubuntu 使用 Elasticsearch 遇到的错误集合">
+<meta property="og:title" content="Docker常用命令">
 <meta property="og:description" content="">
-<meta property="og:url" content="http://localhost:4000/articles/docker-ubuntu%E4%B8%AD%E4%BD%BF%E7%94%A8Elasticsearch%E9%81%87%E5%88%B0%E7%9A%84%E9%94%99%E8%AF%AF%E9%9B%86%E5%90%88/">
+<meta property="og:url" content="http://localhost:4000/articles/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
 <meta property="og:site_name" content="叶子">
 
 
 
 
 
-<link rel="canonical" href="http://localhost:4000/articles/docker-ubuntu%E4%B8%AD%E4%BD%BF%E7%94%A8Elasticsearch%E9%81%87%E5%88%B0%E7%9A%84%E9%94%99%E8%AF%AF%E9%9B%86%E5%90%88/">
+<link rel="canonical" href="http://localhost:4000/articles/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
 <link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="叶子 Feed">
 
 
@@ -121,54 +121,101 @@ var _hmt = _hmt || [];
     
     <div class="entry-wrapper">
       <header class="entry-header">
-        <span class="entry-tags">Tags：<a href="http://localhost:4000/tags/#docker" title="Pages tagged docker">docker</a>&nbsp;&bull;&nbsp;<a href="http://localhost:4000/tags/#ubuntu" title="Pages tagged ubuntu">ubuntu</a>&nbsp;&bull;&nbsp;<a href="http://localhost:4000/tags/#Elasticsearch" title="Pages tagged Elasticsearch">Elasticsearch</a></span>
+        <span class="entry-tags">Tags：<a href="http://localhost:4000/tags/#docker" title="Pages tagged docker">docker</a></span>
         
-          <h1 class="entry-title">docker 中的 ubuntu 使用 Elasticsearch 遇到的错误集合</h1>
+          <h1 class="entry-title">Docker常用命令</h1>
         
       </header>
       <div class="entry-content">
-        <p>当修改 Elasticsearch 6.2.4 的配置文件 config/elasticsearch.yml 时，将 network.host 项设置为 0.0.0.0，遇到如下错误：</p>
+        <h1 id="列出本机的所有-image-文件">列出本机的所有 image 文件。</h1>
+<p>$ docker image ls</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ERROR: [2] bootstrap checks failed
-[1] initial heap size [132120576] not equal to maximum heap size [2092957696]; this can cause resize pauses and prevents mlockall from locking the entire heap
-[2] max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]
-</code></pre></div></div>
+<h1 id="删除-image-文件">删除 image 文件</h1>
+<p>$ docker image rm [imageName]</p>
 
-<ol>
-  <li>
-    <p>错误1：initial heap size [132120576] not equal to maximum heap size [2092957696]; this can cause resize pauses and prevents mlockall from locking the entire heap</p>
+<p>首先，运行下面的命令，将 image 文件从仓库抓取到本地。</p>
 
-    <p>修改 Elasticsearch 的配置文件 <code class="highlighter-rouge">config/jvm.options</code>，取消以下两行前的<code class="highlighter-rouge">#</code>号，保存后重启 Elasticsearch 即可。</p>
+<p>$ docker image pull library/hello-world
+$ docker image pull hello-world</p>
 
-    <p># -Xms1g</p>
+<p>抓取成功以后，就可以在本机看到这个 image 文件了。
+$ docker image ls</p>
 
-    <p># -Xmx1g</p>
-  </li>
-  <li>
-    <p>错误2：max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]</p>
+<p>运行这个 image 文件。
+$ docker container run hello-world
+$ docker container run -it ubuntu bash</p>
 
-    <p>错误原因：系统的 vm.max_map_count 参数太小</p>
+<p>对于那些不会自动终止的容器，必须使用docker container kill 命令手动终止。
+$ docker container kill [containID]</p>
 
-    <p>解决办法：</p>
+<h1 id="列出本机正在运行的容器">列出本机正在运行的容器</h1>
+<p>$ docker container ls</p>
 
-    <p>修改宿主机（即 docker 所在的主机本身），然后重启 docker 容器即可。修改宿主机参数的命令如下：</p>
+<h1 id="列出本机所有容器包括终止运行的容器">列出本机所有容器，包括终止运行的容器</h1>
+<p>$ docker container ls –all</p>
 
-    <ol>
-      <li>
-        <p>方法1，命令修改</p>
+<p>$ docker container rm [containerID]</p>
 
-        <p><code class="highlighter-rouge">sysctl -w vm.max_map_count=655360</code></p>
-      </li>
-      <li>
-        <p>方法2，修改配置文件</p>
+<h1 id="镜像">镜像</h1>
 
-        <p>$ sudo vi /etc/sysctl.conf</p>
+<h2 id="查看centos镜像是否存在">查看centos镜像是否存在</h2>
+<p>$ docker search centos</p>
 
-        <p>在文件的底部增加 <code class="highlighter-rouge">vm.max_map_count=262144</code>。</p>
-      </li>
-    </ol>
-  </li>
-</ol>
+<h2 id="拉取镜像">拉取镜像</h2>
+<p>$ docker pull ubuntu
+$ docker pull ubuntu:latest
+$ docker pull ubuntu:16.04</p>
+
+<h2 id="查看镜像">查看镜像</h2>
+<p>$ docker images
+$ docker image ls</p>
+
+<h2 id="创建镜像">创建镜像</h2>
+
+<p>使用docker build命令来创建镜像mysql：latest：
+$ docker build -t mysql:latest .</p>
+
+<h2 id="使用镜像">使用镜像</h2>
+
+<p>使用默认方式启动后台容器，不添加环境变量，并使用-P参数自动映射容器的22和3306端口。
+$ docker run ubuntu
+$ docker run -d -P mysql
+$ docker run -it -p 8080:8080 ubuntu /bin/bash</p>
+
+<h2 id="进入容器">进入容器</h2>
+
+<p>以下命令在退出终端时容器会被关闭；
+$ docker attach -it <container_id 或="" container_name=""> /bin/bash</container_id></p>
+
+<p>以下命令在退出终端时不会造成容器被关闭的情况；
+$ docker exec -it <container_id 或="" container_name=""> /bin/bash</container_id></p>
+
+<p>挂载本地目录到 docker 容器中；
+$ docker exec -it -v /home/ubuntu/PATH:/home/ubuntu/REMOTE_PATH <container_id 或="" container_name=""> /bin/bash</container_id></p>
+
+<h2 id="复制文件">复制文件</h2>
+<p>$ docker cp file.tgz 4ac6e4d9a113:/home/ubuntu/</p>
+
+<h2 id="进程详情">进程详情</h2>
+<p>检查容器进程启动情况和端口映射情况，查看docker中运行的程序。
+$ docker ps -a</p>
+
+<h1 id="容器">容器</h1>
+
+<p>这里将容器转化为一个镜像，即执行commit操作，完成后可使用docker images查看：
+$ docker commit -m “centos with git” -a “qixianhu” 72f1a8a0e394 xianhu/centos:git</p>
+
+<h1 id="账号">账号</h1>
+
+<p>docker login</p>
+
+<h2 id="保存镜像到本地磁盘">保存镜像到本地磁盘</h2>
+
+<p>$ docker save -o demo_nginx.tar tester/nginx</p>
+
+<h2 id="从本地文件加载镜像">从本地文件加载镜像</h2>
+
+<p>docker load –input demo_nginx.tar</p>
 
         
           <div id="disqus_thread"></div><!-- /#disqus_thread -->
@@ -192,10 +239,8 @@ var _hmt = _hmt || [];
     </div><!-- /.entry-wrapper -->
     <nav class="pagination" role="navigation">
       
-        <a href="http://localhost:4000/articles/uWSGI-listen-queue-of-socket-full-%E9%98%9F%E5%88%97%E6%BA%A2%E5%87%BA%E7%9A%84%E9%97%AE%E9%A2%98/" class="btn" title="uWSGI listen queue of socket full 队列溢出的问题">Previous article</a>
+        <a href="http://localhost:4000/articles/docker-ubuntu%E4%B8%AD%E4%BD%BF%E7%94%A8Elasticsearch%E9%81%87%E5%88%B0%E7%9A%84%E9%94%99%E8%AF%AF%E9%9B%86%E5%90%88/" class="btn" title="docker 中的 ubuntu 使用 Elasticsearch 遇到的错误集合">Previous article</a>
       
-      
-        <a href="http://localhost:4000/articles/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="btn" title="Docker常用命令">Next article</a>
       
     </nav><!-- /.pagination -->
   </article>

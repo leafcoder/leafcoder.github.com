@@ -4,13 +4,118 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml" />
 <link rel="alternate" type="text/html" href="http://localhost:4000" />
-<updated>2018-06-21T07:53:38+00:00</updated>
+<updated>2018-07-26T07:35:17+00:00</updated>
 <id>http://localhost:4000/</id>
 <author>
   <name>Leo Zhang</name>
   <uri>http://localhost:4000/</uri>
   <email>leafcoder@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Docker常用命令]]></title>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+  <id>http://localhost:4000/articles/docker常用命令</id>
+  <published>2018-07-26T00:00:00+00:00</published>
+  <updated>2018-07-26T00:00:00+00:00</updated>
+  <author>
+    <name>Leo Zhang</name>
+    <uri>http://localhost:4000</uri>
+    <email>leafcoder@gmail.com</email>
+  </author>
+  <content type="html">&lt;h1 id=&quot;列出本机的所有-image-文件&quot;&gt;列出本机的所有 image 文件。&lt;/h1&gt;
+&lt;p&gt;$ docker image ls&lt;/p&gt;
+
+&lt;h1 id=&quot;删除-image-文件&quot;&gt;删除 image 文件&lt;/h1&gt;
+&lt;p&gt;$ docker image rm [imageName]&lt;/p&gt;
+
+&lt;p&gt;首先，运行下面的命令，将 image 文件从仓库抓取到本地。&lt;/p&gt;
+
+&lt;p&gt;$ docker image pull library/hello-world
+$ docker image pull hello-world&lt;/p&gt;
+
+&lt;p&gt;抓取成功以后，就可以在本机看到这个 image 文件了。
+$ docker image ls&lt;/p&gt;
+
+&lt;p&gt;运行这个 image 文件。
+$ docker container run hello-world
+$ docker container run -it ubuntu bash&lt;/p&gt;
+
+&lt;p&gt;对于那些不会自动终止的容器，必须使用docker container kill 命令手动终止。
+$ docker container kill [containID]&lt;/p&gt;
+
+&lt;h1 id=&quot;列出本机正在运行的容器&quot;&gt;列出本机正在运行的容器&lt;/h1&gt;
+&lt;p&gt;$ docker container ls&lt;/p&gt;
+
+&lt;h1 id=&quot;列出本机所有容器包括终止运行的容器&quot;&gt;列出本机所有容器，包括终止运行的容器&lt;/h1&gt;
+&lt;p&gt;$ docker container ls –all&lt;/p&gt;
+
+&lt;p&gt;$ docker container rm [containerID]&lt;/p&gt;
+
+&lt;h1 id=&quot;镜像&quot;&gt;镜像&lt;/h1&gt;
+
+&lt;h2 id=&quot;查看centos镜像是否存在&quot;&gt;查看centos镜像是否存在&lt;/h2&gt;
+&lt;p&gt;$ docker search centos&lt;/p&gt;
+
+&lt;h2 id=&quot;拉取镜像&quot;&gt;拉取镜像&lt;/h2&gt;
+&lt;p&gt;$ docker pull ubuntu
+$ docker pull ubuntu:latest
+$ docker pull ubuntu:16.04&lt;/p&gt;
+
+&lt;h2 id=&quot;查看镜像&quot;&gt;查看镜像&lt;/h2&gt;
+&lt;p&gt;$ docker images
+$ docker image ls&lt;/p&gt;
+
+&lt;h2 id=&quot;创建镜像&quot;&gt;创建镜像&lt;/h2&gt;
+
+&lt;p&gt;使用docker build命令来创建镜像mysql：latest：
+$ docker build -t mysql:latest .&lt;/p&gt;
+
+&lt;h2 id=&quot;使用镜像&quot;&gt;使用镜像&lt;/h2&gt;
+
+&lt;p&gt;使用默认方式启动后台容器，不添加环境变量，并使用-P参数自动映射容器的22和3306端口。
+$ docker run ubuntu
+$ docker run -d -P mysql
+$ docker run -it -p 8080:8080 ubuntu /bin/bash&lt;/p&gt;
+
+&lt;h2 id=&quot;进入容器&quot;&gt;进入容器&lt;/h2&gt;
+
+&lt;p&gt;以下命令在退出终端时容器会被关闭；
+$ docker attach -it &lt;container_id 或=&quot;&quot; container_name=&quot;&quot;&gt; /bin/bash&lt;/container_id&gt;&lt;/p&gt;
+
+&lt;p&gt;以下命令在退出终端时不会造成容器被关闭的情况；
+$ docker exec -it &lt;container_id 或=&quot;&quot; container_name=&quot;&quot;&gt; /bin/bash&lt;/container_id&gt;&lt;/p&gt;
+
+&lt;p&gt;挂载本地目录到 docker 容器中；
+$ docker exec -it -v /home/ubuntu/PATH:/home/ubuntu/REMOTE_PATH &lt;container_id 或=&quot;&quot; container_name=&quot;&quot;&gt; /bin/bash&lt;/container_id&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;复制文件&quot;&gt;复制文件&lt;/h2&gt;
+&lt;p&gt;$ docker cp file.tgz 4ac6e4d9a113:/home/ubuntu/&lt;/p&gt;
+
+&lt;h2 id=&quot;进程详情&quot;&gt;进程详情&lt;/h2&gt;
+&lt;p&gt;检查容器进程启动情况和端口映射情况，查看docker中运行的程序。
+$ docker ps -a&lt;/p&gt;
+
+&lt;h1 id=&quot;容器&quot;&gt;容器&lt;/h1&gt;
+
+&lt;p&gt;这里将容器转化为一个镜像，即执行commit操作，完成后可使用docker images查看：
+$ docker commit -m “centos with git” -a “qixianhu” 72f1a8a0e394 xianhu/centos:git&lt;/p&gt;
+
+&lt;h1 id=&quot;账号&quot;&gt;账号&lt;/h1&gt;
+
+&lt;p&gt;docker login&lt;/p&gt;
+
+&lt;h2 id=&quot;保存镜像到本地磁盘&quot;&gt;保存镜像到本地磁盘&lt;/h2&gt;
+
+&lt;p&gt;$ docker save -o demo_nginx.tar tester/nginx&lt;/p&gt;
+
+&lt;h2 id=&quot;从本地文件加载镜像&quot;&gt;从本地文件加载镜像&lt;/h2&gt;
+
+&lt;p&gt;docker load –input demo_nginx.tar&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/&quot;&gt;Docker常用命令&lt;/a&gt; was originally published by Leo Zhang at &lt;a href=&quot;http://localhost:4000&quot;&gt;叶子&lt;/a&gt; on July 26, 2018.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -1046,30 +1151,6 @@ print &quot;修改ulimit后:&quot;, resource.getrlimit(resource.RLIMIT_NOFILE)
 
 
   &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/%E5%A6%82%E4%BD%95%E5%B0%86IPV4%E7%BD%91%E6%AE%B5%E8%BD%AC%E4%B8%BA%E6%95%B4%E6%95%B0%E8%8C%83%E5%9B%B4/&quot;&gt;如何将IPV4网段转为整数范围&lt;/a&gt; was originally published by Leo Zhang at &lt;a href=&quot;http://localhost:4000&quot;&gt;叶子&lt;/a&gt; on August 21, 2014.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[基于 PySide 的 RSA 加解密小工具]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/%E5%9F%BA%E4%BA%8EPySide%E7%9A%84RSA%E5%8A%A0%E8%A7%A3%E5%AF%86%E5%B0%8F%E5%B7%A5%E5%85%B7/"/>
-  <id>http://localhost:4000/articles/基于PySide的RSA加解密小工具</id>
-  <updated>2014-08-21T00:00:00-00:00</updated>
-  <published>2014-08-21T00:00:00+00:00</published>
-  
-  <author>
-    <name>Leo Zhang</name>
-    <uri>http://localhost:4000</uri>
-    <email>leafcoder@gmail.com</email>
-  </author>
-  <content type="html">&lt;p&gt;lib/rsa.py 来源：Liubao 项目的 &lt;a target=&quot;_blank&quot; href=&quot;http://liubao.googlecode.com/svn/branches/1.0/liubao.py&quot;&gt;liubao.py&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;界面效果如图所示，用法不提：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/rsatool.png&quot; alt=&quot;RSATool&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;/download/RSATool.tar.gz&quot;&gt;点击下载源码 RSATool.tar.gz&lt;/a&gt;&lt;/p&gt;
-
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/%E5%9F%BA%E4%BA%8EPySide%E7%9A%84RSA%E5%8A%A0%E8%A7%A3%E5%AF%86%E5%B0%8F%E5%B7%A5%E5%85%B7/&quot;&gt;基于 PySide 的 RSA 加解密小工具&lt;/a&gt; was originally published by Leo Zhang at &lt;a href=&quot;http://localhost:4000&quot;&gt;叶子&lt;/a&gt; on August 21, 2014.&lt;/p&gt;</content>
 </entry>
 
 </feed>
