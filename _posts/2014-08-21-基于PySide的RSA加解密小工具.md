@@ -9,7 +9,7 @@ image:
   feature:
   credit: Michael Rose
   creditlink: http://mademistakes.com
-comments: true
+comments: false
 share: true
 ---
 
